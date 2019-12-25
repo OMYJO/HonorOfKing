@@ -42,29 +42,34 @@ public class KingOfMaterial implements IItemTier
 		return enchantability;
 	}
 
-	public void setHarvestLevel(int harvestLevel)
+	public KingOfMaterial setHarvestLevel(int harvestLevel)
 	{
 		this.harvestLevel = harvestLevel;
+		return this;
 	}
 
-	public void setMaxUses(int maxUses)
+	public KingOfMaterial setMaxUses(int maxUses)
 	{
 		this.maxUses = maxUses;
+		return this;
 	}
 
-	public void setEfficiency(float efficiency)
+	public KingOfMaterial setEfficiency(float efficiency)
 	{
 		this.efficiency = efficiency;
+		return this;
 	}
 
-	public void setAttackDamage(float attackDamage)
+	public KingOfMaterial setAttackDamage(float attackDamage)
 	{
 		this.attackDamage = attackDamage;
+		return this;
 	}
 
-	public void setEnchantability(int enchantability)
+	public KingOfMaterial setEnchantability(int enchantability)
 	{
 		this.enchantability = enchantability;
+		return this;
 	}
 
 	@Override

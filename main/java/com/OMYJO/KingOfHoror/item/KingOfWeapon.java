@@ -9,6 +9,6 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 {
 	KingOfWeapon(IItemTier tier, int attackDamageIn, float attackSpeedIn)
 	{
-		super(tier,attackDamageIn,attackSpeedIn,(new Item.Properties()).group(ItemGroup.COMBAT));
+		super(tier, attackDamageIn, attackSpeedIn, (new Item.Properties()).group(ItemGroup.COMBAT));
 	}
 }
