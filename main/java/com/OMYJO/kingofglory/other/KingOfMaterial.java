@@ -1,4 +1,4 @@
-package com.OMYJO.KingOfHoror.other;
+package com.OMYJO.kingofglory.other;
 
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Items;
@@ -51,6 +51,12 @@ public class KingOfMaterial implements IItemTier
 	public KingOfMaterial setMaxUses(int maxUses)
 	{
 		this.maxUses = maxUses;
+		return this;
+	}
+
+	public KingOfMaterial addMaxUses(int maxUses)
+	{
+		this.maxUses += maxUses;
 		return this;
 	}
 

@@ -1,4 +1,10 @@
-package com.OMYJO.KingOfHoror.item;
+package com.OMYJO.kingofglory.item;
+
+import com.google.common.collect.Multimap;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ItemStack;
 
 public interface KingOfItem
 {
@@ -91,4 +97,7 @@ public interface KingOfItem
 	{
 		return 0F;
 	}
+
+	boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker);
+	Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot);
 }
