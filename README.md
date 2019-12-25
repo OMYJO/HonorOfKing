@@ -1,2 +1,2 @@
-# HonorOfKing
-A minecraft mod about honor of king
+# KingOfGlory
+A minecraft mod about King of Glory
