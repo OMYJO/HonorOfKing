@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 public class KingOfGlory
 {
 	// Directly reference a log4j logger.
-	private static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LogManager.getLogger();
 
 	public KingOfGlory() {
 		MinecraftForge.EVENT_BUS.register(this);

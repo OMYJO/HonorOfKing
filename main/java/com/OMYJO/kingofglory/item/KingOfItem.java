@@ -13,7 +13,7 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getAbilityPower()
+	default float getMagicAttack()
 	{
 		return 0F;
 	}
@@ -23,7 +23,7 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getMagicResist()
+	default float getMagicDefence()
 	{
 		return 0F;
 	}
@@ -33,12 +33,12 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getCriticalStrikeChance()
+	default float getCriticalChance()
 	{
 		return 0F;
 	}
 
-	default float getCriticalStrikeDamage()
+	default float getCriticalDamage()
 	{
 		return 0F;
 	}
@@ -58,22 +58,19 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getArmorPenetration()
+	default float getArmorPierce()
 	{
 		return 0F;
 	}
 
-	default float getMagicPenetration()
+	default float getMagicPierce()
 	{
 		return 0F;
 	}
 
-	default float getMana()
-	{
-		return 0F;
-	}
+	default float getMana() { return 0F; }
 
-	default float getHealth()
+	default float getMaxHealth()
 	{
 		return 0F;
 	}
@@ -83,17 +80,17 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getTenacity()
+	default float getResistance()
 	{
 		return 0F;
 	}
 
-	default float getManaRegen()
+	default float getManaPer5Second()
 	{
 		return 0F;
 	}
 
-	default float getHealthRegen()
+	default float getHPPer5Second()
 	{
 		return 0F;
 	}

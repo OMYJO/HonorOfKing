@@ -4,8 +4,11 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 
+import java.util.TreeSet;
+
 public class KingOfMaterial implements IItemTier
 {
+	private static TreeSet<KingOfMaterial> set = new TreeSet<>();
 	private int harvestLevel = 3;
 	private int maxUses = 1561;
 	private float efficiency = 12.0F;
@@ -56,7 +59,7 @@ public class KingOfMaterial implements IItemTier
 
 	public KingOfMaterial addMaxUses(int maxUses)
 	{
-		this.maxUses += maxUses;
+		maxUses += this.maxUses;
 		return this;
 	}
 

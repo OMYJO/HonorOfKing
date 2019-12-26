@@ -1,6 +1,9 @@
 package com.OMYJO.kingofglory.item;
 
+import com.OMYJO.kingofglory.KingOfGlory;
+import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -10,7 +13,7 @@ import java.util.UUID;
 
 public class IronSword extends KingOfWeapon
 {
-	private float attackDamage = 20F / 10;
+	private float attackDamage = Convertor.attackDamage(20);
 
 	@Override
 	public float getAttackDamage()
