@@ -2,6 +2,7 @@ package com.OMYJO.kingofglory.item;
 
 import com.OMYJO.kingofglory.KingOfGlory;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.enchantment.SweepingEnchantment;
 import net.minecraft.enchantment.UnbreakingEnchantment;
@@ -25,7 +26,7 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
 	{
-		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
+		Multimap<String, AttributeModifier> multimap = HashMultimap.create();;
 		return multimap;
 	}
 
