@@ -84,28 +84,48 @@
 大棒 Big Stick
 破碎圣杯 Broken Grail
 魅影面罩 Phantom Mask
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+进化水晶 Evolutionary Crystal
+英勇奖赏 Heroic Award
+血族之书 Book of Bloodline
+嗜血 Bloodthirsty
+炽热支配者 Blaze Dominator
+法力护盾 Mana Shield
+梦魇之牙 Tooth of Nightmare
+重伤 Severe Wound
+虚无法杖 Stick of Nihility
+博学者之怒 Rage of Polymath
+毁灭 Ruin
+辉月 Bright Moon
+月之守护（主动） Guardian of Moon
+回响之杖 Reverberant Cane
+回响 Reverberation
+冰霜法杖 Frost Stick
+结霜 Frosting
+痛苦面具 Agony Mask
+折磨 Torment
+窒息 Suffocate
+巫术法杖 Wand of Witchcraft
+强击 Assaulting
+圣杯 Grail
+法力源泉 Fountain of Mana
+时之预言 Prophecy of Time
+英勇奖赏 Heroic Award
+守护 Guardian
+贤者之书 Book of Saints
+刻印 Engraving
+噬神之书 Book of Devouring God
+嗜血 Bloodthirsty
 
 神速之靴 Boots of Divine Speed
 影忍之足 Boots of Foritude
 抵抗之靴 Boots of Resistance
 冷静之靴 Boots of Tranquility
+静谧 Tranquil
 秘法之靴 Boots of the Arcane
+法术精通 Magic Mastery
 急速战靴 Boots of Dexterity
 疾步之靴 Boots of Deftness
+神行 Marvellous Speed
 
 红玛瑙 Resilient Agate
 布甲 Cloth Jerkin
@@ -113,17 +133,32 @@
 提神水晶 Revitalizing Crystal
 力量腰带 Belt of Might
 熔炼之心 Fusion Core
+献祭 Sacrifice
 神隐斗篷 Clandestine Cape
 雪山圆盾 Frosthold Targe
 守护者之铠 Protector’s Vest
+寒铁 Cold Iron
 红莲斗篷 Red Lotus Cape
+献祭 Sacrifice
 霸者重装 Overload's Platemail
+复苏 Recovery
 不祥征兆 Ominous Premonition
+寒铁 Cold Iron
 不死鸟之眼 Eye of the Phoenix
+血统 Ancestry
 魔女斗篷 Succubus Cloak
+迷雾 Dense Fog
 反伤刺甲 Spikemail
+荆棘 Thistles and Thorns
 血魔之怒 Blood Rage
+血怒（主动）Bloodrage
 极寒风暴 Glacial Buckler
+冰心 Icy Heart
 贤者的庇护 Sage's Sanctuary
+复生 Resuscitation
 暴烈之甲 Cuirass of Savagery
+无畏 Fearless
 冰痕之握 Frostscar’s Embrace
+强击 Assaulting
+冲击铠甲 Pounding Armor
+冲击（主动） Pounding
