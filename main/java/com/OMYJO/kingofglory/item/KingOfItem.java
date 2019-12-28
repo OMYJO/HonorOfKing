@@ -96,5 +96,9 @@ public interface KingOfItem
 	}
 
 	boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker);
+
+	/**
+	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
+	 */
 	Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot);
 }

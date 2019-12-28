@@ -1,5 +1,6 @@
 package com.OMYJO.kingofglory.event;
 
+import com.OMYJO.kingofglory.item.CloudPiercingBow;
 import com.OMYJO.kingofglory.item.IronSword;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import net.minecraft.item.Item;
@@ -16,5 +17,6 @@ public class Items
 	{
 		new SharedKingAttributes();
 		event.getRegistry().register(new IronSword());
+		event.getRegistry().register(new CloudPiercingBow());
 	}
 }

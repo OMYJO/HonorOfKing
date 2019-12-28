@@ -1,18 +1,20 @@
 {
   "item.kingofglory.iron_sword": "铁剑",
 
-  "kingofglory.magicAttack": "法术攻击",
-  "kingofglory.armor": "物理防御",
-  "kingofglory.magicDefence": "魔法防御",
-  "kingofglory.criticalChance": "暴击率",
-  "kingofglory.criticalDamage": "暴击效果",
-  "kingofglory.lifeSteal": "物理吸血",
-  "kingofglory.magicLifeSteal": "法术吸血",
-  "kingofglory.cooldownReduction": "冷却缩减",
-  "kingofglory.armorPierce": "物理穿透",
-  "kingofglory.magicPierce": "法术穿透",
-  "kingofglory.maxMana": "最大法力",
-  "kingofglory.resistance": "韧性",
-  "kingofglory.manaPer5Second": "每5秒回蓝",
-  "kingofglory.HPPer5Second": "每5秒回血"
+
+
+  "attribute.name.kingofglory.magicAttack": "法术攻击",
+  "attribute.name.kingofglory.armor": "物理防御",
+  "attribute.name.kingofglory.magicDefence": "魔法防御",
+  "attribute.name.kingofglory.criticalChance": "暴击率",
+  "attribute.name.kingofglory.criticalDamage": "暴击效果",
+  "attribute.name.kingofglory.lifeSteal": "物理吸血",
+  "attribute.name.kingofglory.magicLifeSteal": "法术吸血",
+  "attribute.name.kingofglory.cooldownReduction": "冷却缩减",
+  "attribute.name.kingofglory.armorPierce": "物理穿透",
+  "attribute.name.kingofglory.magicPierce": "法术穿透",
+  "attribute.name.kingofglory.maxMana": "最大法力",
+  "attribute.name.kingofglory.resistance": "韧性",
+  "attribute.name.kingofglory.manaPer5Second": "每5秒回蓝",
+  "attribute.name.kingofglory.HPPer5Second": "每5秒回血"
 }

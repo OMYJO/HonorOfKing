@@ -4,6 +4,7 @@ import com.OMYJO.kingofglory.KingOfGlory;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.SweepingEnchantment;
 import net.minecraft.enchantment.UnbreakingEnchantment;
 import net.minecraft.entity.Entity;
@@ -23,13 +24,18 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 		super(tier, 0, 0F, (new Item.Properties()).group(ItemGroup.COMBAT).rarity(rarity));
 	}
 
+	/**
+	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
+	 */
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
 	{
-		Multimap<String, AttributeModifier> multimap = HashMultimap.create();;
+		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
+		if (equipmentSlot == EquipmentSlotType.MAINHAND) {
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -3F, AttributeModifier.Operation.ADDITION));
+		}
 		return multimap;
 	}
-
 
 	/**
 	 * Checks whether an item can be enchanted with a certain enchantment. This
@@ -47,11 +53,27 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
 	{
-		if(enchantment instanceof UnbreakingEnchantment)
+		if(enchantment == Enchantments.FIRE_ASPECT)
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment instanceof SweepingEnchantment)
+		else if(enchantment == Enchantments.LOOTING)
+		{
+			return enchantment.type.canEnchantItem(stack.getItem());
+		}
+		else if(enchantment == Enchantments.UNBREAKING)
+		{
+			return enchantment.type.canEnchantItem(stack.getItem());
+		}
+		else if(enchantment == Enchantments.KNOCKBACK)
+		{
+			return enchantment.type.canEnchantItem(stack.getItem());
+		}
+		else if(enchantment == Enchantments.MENDING)
+		{
+			return enchantment.type.canEnchantItem(stack.getItem());
+		}
+		else if(enchantment == Enchantments.SWEEPING)
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
@@ -78,7 +100,7 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 		long time = worldIn.getDayTime();
 		if(time % 100 == 0)
 		{
-			this.setDamage(stack,this.getDamage(stack)-(int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECOND.getName()).getValue()));
+			stack.grow((int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECOND.getName()).getValue()));
 		}
 	}
 }
