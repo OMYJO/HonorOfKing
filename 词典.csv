@@ -1,87 +1,86 @@
-ï»¿å¦å…‹ Tank
-æˆ˜å£« Warrior
-åˆºå®¢ Assassin
-æ³•å¸ˆ Mage
-å°„æ‰‹ Marksman
-è¾…åŠ© Support
-
-ç‰©ç†æ”»å‡» attack damage
-æ³•æœ¯æ”»å‡» MagicAttack
-ç‰©ç†é˜²å¾¡ armor
-æ³•æœ¯é˜²å¾¡ Magic Defence
-æ”»å‡»é€Ÿåº¦ attackSpeed
-æš´å‡»ç‡ criticalChance
-æš´å‡»æ•ˆæœ criticalDamage
-ç‰©ç†å¸è¡€ lifeSteal
-æ³•æœ¯å¸è¡€ magicLifeSteal
-å†·å´ç¼©å‡ cooldown Reduction
-ç‰©ç†ç©¿é€ armor pierce
-æ³•æœ¯ç©¿é€ magic pierce
-æœ€å¤§æ³•åŠ› max mana
-æœ€å¤§ç”Ÿå‘½ Max HP
-ç§»é€Ÿ movementSpeed
-éŸ§æ€§ resistance
-æ¯5ç§’å›è“ Mana/5 sec
-æ¯5ç§’å›è¡€ HP/5 sec
-
-é“å‰‘ Iron Sword
-åŒ•é¦– Dagger
-æå‡»æ‹³å¥— Pugilist's Gauntlet
-å¸è¡€ä¹‹é•° Blood Drinker
-é›·é¸£åˆƒ Thunderclap Brand
-é£æš´å·¨å‰‘ Storm Sword
-æ—¥å†• Sunglow Striker
-ç‹‚æš´åŒåˆƒ Twinblades of Destruction
-é™¨æ˜Ÿ Meteror
-ç ´é­”åˆ€ Spellbane Blade
-æœ«ä¸– Doomsday
-æ³£è¡€ä¹‹åˆƒ Bloodweeper
-æ— å°½æˆ˜åˆƒ Endless Edge
-å®—å¸ˆä¹‹åŠ› Master Sword
-é—ªç”µåŒ•é¦– Sparkforged Dagger
-å†²èƒ½æ‹³å¥— Raging Claw
-ååˆ€ Destiny
-å†°éœœé•¿çŸ› Frigid Lance
-é€Ÿå‡»ä¹‹æª Swiftstrike Lance
-ç¢æ˜Ÿé”¤ Broken Star Mace
-ç©¿äº‘å¼“ Cloud Piercing Bow
-å½±åˆƒ Shadow Ripper
-æš—å½±æˆ˜æ–§ Nightmare
-ç ´å†› Siege Breaker
-é€æ—¥ä¹‹å¼“ Twilight Bow
-ç ´æ™“ Daybreaker
-åˆ¶è£ä¹‹åˆƒ Divine Punisher
-çº¯å‡€è‹ç©¹ Pure Sky
-
-è“å®çŸ³ Sparking Sapphire
-å…‰è¾‰ä¹‹å‰‘ Sword of Glory
-
-ç¥é€Ÿä¹‹é´ Boots of Divine Speed
-å½±å¿ä¹‹è¶³ Boots of Foritude
-æŠµæŠ—ä¹‹é´ Boots of Resistance
-å†·é™ä¹‹é´ Boots of Tranquility
-ç§˜æ³•ä¹‹é´ Boots of the Arcane
-æ€¥é€Ÿæˆ˜é´ Boots of Dexterity
-ç–¾æ­¥ä¹‹é´ Boots of Deftness
-
-çº¢ç›ç‘™ Resilient Agate
-å¸ƒç”² Cloth Jerkin
-æŠ—é­”æŠ«é£ Ani-mage Cloak
-æç¥æ°´æ™¶ Revitalizing Crystal
-åŠ›é‡è…°å¸¦ Belt of Might
-ç†”ç‚¼ä¹‹å¿ƒ Fusion Core
-ç¥éšæ–—ç¯· Clandestine Cape
-é›ªå±±åœ†ç›¾ Frosthold Targe
-å®ˆæŠ¤è€…ä¹‹é“  Protectorâ€™s Vest
-çº¢è²æ–—ç¯· Red Lotus Cape
-éœ¸è€…é‡è£… Overload's Platemail
-ä¸ç¥¥å¾å…† Ominous Premonition
-ä¸æ­»é¸Ÿä¹‹çœ¼ Eye of the Phoenix
-é­”å¥³æ–—ç¯· Succubus Cloak
-åä¼¤åˆºç”² Spikemail
-è¡€é­”ä¹‹æ€’ Blood Rage
-æå¯’é£æš´ Glacial Buckler
-è´¤è€…çš„åº‡æŠ¤ Sage's Sanctuary
-æš´çƒˆä¹‹ç”² Cuirass of Savagery
-å†°ç—•ä¹‹æ¡ Frostscarâ€™s Embrace
-
+Ì¹¿Ë Tank,,,,
+Õ½Ê¿ Warrior,,,,
+´Ì¿Í Assassin,,,,
+·¨Ê¦ Mage,,,,
+ÉäÊÖ Marksman,,,,
+¸¨Öú Support,,,,
+,,,,
+ÎïÀí¹¥»÷ attack damage,,,,
+·¨Êõ¹¥»÷ MagicAttack,,,,
+ÎïÀí·ÀÓù armor,,,,
+·¨Êõ·ÀÓù Magic Defence,,,,
+¹¥»÷ËÙ¶È attackSpeed,,,,
+±©»÷ÂÊ criticalChance,,,,
+±©»÷Ğ§¹û criticalDamage,,,,
+ÎïÀíÎüÑª lifeSteal,,,,
+·¨ÊõÎüÑª magicLifeSteal,,,,
+ÀäÈ´Ëõ¼õ cooldown Reduction,,,,
+ÎïÀí´©Í¸ armor pierce,,,,
+·¨Êõ´©Í¸ magic pierce,,,,
+×î´ó·¨Á¦ max mana,,,,
+×î´óÉúÃü Max HP,,,,
+ÒÆËÙ movementSpeed,,,,
+ÈÍĞÔ resistance,,,,
+Ã¿5Ãë»ØÀ¶ Mana/5 sec,,,,
+Ã¿5Ãë»ØÑª HP/5 sec,,,,
+,,,,
+Ìú½£ Iron Sword,/,,,
+Ø°Ê× Dagger,/,,,
+²«»÷È­Ì× Pugilist's Gauntlet,/,,,
+ÎüÑªÖ®Á­ Blood Drinker,/,,,
+À×ÃùÈĞ Thunderclap Brand,/,,,
+·ç±©¾Ş½£ Storm Sword,/,,,
+ÈÕÃá Sunglow Striker,²Ğ·Ï,Cripple,,
+¿ñ±©Ë«ÈĞ Twinblades of Destruction,/,,,
+ÔÉĞÇ Meteror,ÇĞ¸î,Dissection,,
+ÆÆÄ§µ¶ Spellbane Blade,ÆÆÄ§,Exorcism,,
+Ä©ÊÀ Doomsday,ÆÆ°Ü,Dilapidation,,
+ÆüÑªÖ®ÈĞ Bloodweeper,/,,,
+ÎŞ¾¡Õ½ÈĞ Endless Edge,,,,
+×ÚÊ¦Ö®Á¦ Master Sword,Ç¿»÷,Assaulting,,
+ÉÁµçØ°Ê× Sparkforged Dagger,µç»¡,Electric Arc,,
+³åÄÜÈ­Ì× Raging Claw,/,,,
+Ãûµ¶ Destiny,°µÄ»,Dark Curtain,,
+±ùËª³¤Ã¬ Frigid Lance,Ëé±ù,Crushing Ice,,
+ËÙ»÷Ö®Ç¹ Swiftstrike Lance,¾«×¼,Accuracy,,
+ËéĞÇ´¸ Broken Star Mace,ÆÆ¼×,Armor Breaking,,
+´©ÔÆ¹­ Cloud Piercing Bow,ÆÆ¼×,Armor Breaking,,
+Ó°ÈĞ Shadow Ripper,±©·ç,Storm,,
+°µÓ°Õ½¸« Nightmare,ÇĞ¸î,Dissection,²Ğ·Ï,Cripple
+ÆÆ¾ü Siege Breaker,ÆÆ¾ü,Army Breaking,,
+ÖğÈÕÖ®¹­ Twilight Bow,¾«×¼,Accuracy,ÖğÈÕ£¨Ö÷¶¯£©,Chasing Sun
+ÆÆÏş Daybreaker,ÆÆ¼×,Armor Breaking,,
+ÖÆ²ÃÖ®ÈĞ Divine Punisher,ÖØÉË,Severe Wound,,
+´¿¾»²Ôñ· Pure Sky,¾«×¼,Accuracy,ÇıÉ¢£¨Ö÷¶¯£©,Dispelling
+,,,,
+À¶±¦Ê¯ Sparking Sapphire,,,,
+¹â»ÔÖ®½£ Sword of Glory,,,,
+,,,,
+ÉñËÙÖ®Ñ¥ Boots of Divine Speed,,,,
+Ó°ÈÌÖ®×ã Boots of Foritude,,,,
+µÖ¿¹Ö®Ñ¥ Boots of Resistance,,,,
+Àä¾²Ö®Ñ¥ Boots of Tranquility,,,,
+ÃØ·¨Ö®Ñ¥ Boots of the Arcane,,,,
+¼±ËÙÕ½Ñ¥ Boots of Dexterity,,,,
+¼²²½Ö®Ñ¥ Boots of Deftness,,,,
+,,,,
+ºìÂêè§ Resilient Agate,,,,
+²¼¼× Cloth Jerkin,,,,
+¿¹Ä§Åû·ç Ani-mage Cloak,,,,
+ÌáÉñË®¾§ Revitalizing Crystal,,,,
+Á¦Á¿Ñü´ø Belt of Might,,,,
+ÈÛÁ¶Ö®ĞÄ Fusion Core,,,,
+ÉñÒş¶·Åñ Clandestine Cape,,,,
+Ñ©É½Ô²¶Ü Frosthold Targe,,,,
+ÊØ»¤ÕßÖ®îø Protector¡¯s Vest,,,,
+ºìÁ«¶·Åñ Red Lotus Cape,,,,
+°ÔÕßÖØ×° Overload's Platemail,,,,
+²»ÏéÕ÷Õ× Ominous Premonition,,,,
+²»ËÀÄñÖ®ÑÛ Eye of the Phoenix,,,,
+Ä§Å®¶·Åñ Succubus Cloak,,,,
+·´ÉË´Ì¼× Spikemail,,,,
+ÑªÄ§Ö®Å­ Blood Rage,,,,
+¼«º®·ç±© Glacial Buckler,,,,
+ÏÍÕßµÄ±Ó»¤ Sage's Sanctuary,,,,
+±©ÁÒÖ®¼× Cuirass of Savagery,,,,
+±ùºÛÖ®ÎÕ Frostscar¡¯s Embrace,,,,
