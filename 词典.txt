@@ -76,8 +76,14 @@
 
 蓝宝石 Sparking Sapphire
 光辉之剑 Sword of Glory
+强击 Assaulting
 咒术典籍 Book of Magic
 炼金护符 Alchemy Tailsman
+圣者法典 Saint Code
+元素杖 Element Cane
+大棒 Big Stick
+破碎圣杯 Broken Grail
+魅影面罩 Phantom Mask
 
 
 
