@@ -18,9 +18,9 @@ import net.minecraft.world.World;
 public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 {
 
-	KingOfWeapon(IItemTier tier)
+	KingOfWeapon(IItemTier tier, Rarity rarity)
 	{
-		super(tier, 0, 0F, (new Item.Properties()).group(ItemGroup.COMBAT));
+		super(tier, 0, 0F, (new Item.Properties()).group(ItemGroup.COMBAT).rarity(rarity));
 	}
 
 	@Override
