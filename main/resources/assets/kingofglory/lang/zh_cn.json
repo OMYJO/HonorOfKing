@@ -1,7 +1,8 @@
 {
   "item.kingofglory.iron_sword": "铁剑",
+  "item.kingofglory.cloud_piercing_bow": "穿云弓",
 
-
+  "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
   "attribute.name.kingofglory.armor": "物理防御",
