@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item;
 
-import com.OMYJO.kingofglory.event.Effects;
+import com.OMYJO.kingofglory.potion.Effects;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;

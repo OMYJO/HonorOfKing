@@ -1,4 +1,4 @@
-package com.OMYJO.kingofglory.event;
+package com.OMYJO.kingofglory.potion;
 
 import com.OMYJO.kingofglory.potion.ChasingSun;
 import net.minecraft.item.Item;
