@@ -1,12 +1,17 @@
 {
   "item.kingofglory.iron_sword": "铁剑",
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
+  "item.kingofglory.twilight_bow": "逐日之弓",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
+  "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
+  "item_effect.kingofglory.twilight_bow.1": "唯一主动：逐日",
+
+  "effect.kingofglory.chasing_sun": "逐日",
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
   "attribute.name.kingofglory.armor": "物理防御",
-  "attribute.name.kingofglory.magicDefence": "魔法防御",
+  "attribute.name.kingofglory.magicDefence": "法术防御",
   "attribute.name.kingofglory.criticalChance": "暴击率",
   "attribute.name.kingofglory.criticalDamage": "暴击效果",
   "attribute.name.kingofglory.lifeSteal": "物理吸血",

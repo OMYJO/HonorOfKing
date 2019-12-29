@@ -10,7 +10,7 @@ public class KingOfMaterial implements IItemTier
 {
 	private static TreeSet<KingOfMaterial> set = new TreeSet<>();
 	private int harvestLevel = 3;
-	private int maxUses = 1561;
+	private int maxUses = 250;
 	private float efficiency = 12.0F;
 	private float attackDamage = 0F;
 	private int enchantability = 22;

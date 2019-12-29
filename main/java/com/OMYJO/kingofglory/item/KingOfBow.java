@@ -1,5 +1,6 @@
 package com.OMYJO.kingofglory.item;
 
+import com.OMYJO.kingofglory.event.Effects;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -74,7 +75,12 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 										playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue()
 										- playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getBaseValue()
 									) / 3.0F);
-						abstractarrowentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+						if(playerentity.isPotionActive(Effects.CHASING_SUN))
+						{
+							abstractarrowentity.setDamage(abstractarrowentity.getDamage()/1.2F);
+						}
+						abstractarrowentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F * (playerentity.isPotionActive(Effects.CHASING_SUN)?1.2F:1F), 1.0F);
+
 
 
 						int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
@@ -103,6 +109,11 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 							playerentity.inventory.deleteStack(itemstack);
 						}
 					}
+
+					stack.damageItem(1, playerentity, (p_220009_1_) -> {
+						p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
+					});
+
 					playerentity.getCooldownTracker().setCooldown(this, (int)Math.min(
 								20 * playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_SPEED.getName()).getBaseValue()
 									/ playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_SPEED.getName()).getValue()
@@ -196,7 +207,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 		long time = worldIn.getDayTime();
 		if(time % 100 == 0)
 		{
-			stack.grow((int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECOND.getName()).getValue()));
+			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECOND.getName()).getValue()));
 		}
 	}
 

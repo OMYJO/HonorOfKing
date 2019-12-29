@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.event.Effects;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -8,9 +8,13 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.Rarity;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
@@ -20,23 +24,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class CloudPiercingBow extends KingOfBow
+public class TwilightBow extends KingOfBow
 {
-	private float attackDamage = Convertor.attackDamage(40);
-	private float attackSpeed = 0.1F;
-	private float armorPierce = 0.1F;
-	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
+	private float attackSpeed = 0.25F;
+	private float criticalChance = 0.15F;
+	private final HashMap<EquipmentSlotType, UUID> criticalChanceModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> attackSpeedModifierMap = new HashMap<>();
-	public static final UUID ARMOR_BREAKING = UUID.randomUUID();
 
-	public CloudPiercingBow()
+	public TwilightBow()
 	{
-		super(new KingOfMaterial(),Rarity.UNCOMMON);
-		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		super(new KingOfMaterial(),Rarity.RARE);
+		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("cloud_piercing_bow");
+		setRegistryName("twilight_bow");
 	}
 
 	/**
@@ -65,12 +67,20 @@ public class CloudPiercingBow extends KingOfBow
 				return null;
 			}
 		});
-	}
+		tooltip.add(new TextComponent()
+		{
+			@Override
+			public String getUnformattedComponentText()
+			{
+				return I18n.format("item_effect"+"."+getRegistryName().getNamespace() + "." + getRegistryName().getPath() +".1");
+			}
 
-	@Override
-	public float getAttackDamage()
-	{
-		return attackDamage;
+			@Override
+			public ITextComponent shallowCopy()
+			{
+				return null;
+			}
+		});
 	}
 
 	@Override
@@ -80,7 +90,7 @@ public class CloudPiercingBow extends KingOfBow
 	}
 
 	@Override
-	public float getArmorPierce() { return armorPierce; }
+	public float getCriticalChance() { return criticalChance; }
 
 	/**
 	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
@@ -93,19 +103,33 @@ public class CloudPiercingBow extends KingOfBow
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(attackSpeedModifierMap.get(equipmentSlot), "Weapon modifier", (double)this.attackSpeed, AttributeModifier.Operation.MULTIPLY_BASE));
-		}
-		if(equipmentSlot == EquipmentSlotType.MAINHAND)
-		{
-			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(ARMOR_BREAKING, "Weapon modifier", (double)this.getArmorPierce()*2, AttributeModifier.Operation.ADDITION));
-		}
-		else if(equipmentSlot == EquipmentSlotType.OFFHAND)
-		{
-			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(ARMOR_BREAKING, "Weapon modifier", (double)this.getArmorPierce(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.CRITICAL_CHANCE.getName(), new AttributeModifier(criticalChanceModifierMap.get(equipmentSlot), "Weapon modifier", (double)this.criticalChance, AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
 
-
+	/**
+	 * Called when this item is used when targetting a Block
+	 *
+	 * @param context
+	 */
+	@Override
+	public ActionResultType onItemUse(ItemUseContext context)
+	{
+		ItemStack stack = context.getItem();
+		if(stack.getDamage() * 2 < stack.getMaxDamage())
+		{
+			PlayerEntity playerentity = context.getPlayer();
+			playerentity.addPotionEffect(new EffectInstance(Effects.CHASING_SUN,100));
+			stack.damageItem(stack.getMaxDamage()/2, playerentity, (p_220009_1_) -> {
+				p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
+			});
+			return ActionResultType.SUCCESS;
+		}
+		else
+		{
+			return ActionResultType.FAIL;
+		}
+	}
 }
