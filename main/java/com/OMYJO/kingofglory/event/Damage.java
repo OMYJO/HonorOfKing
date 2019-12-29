@@ -144,9 +144,9 @@ public class Damage
 			{
 				if (source.isMagicDamage())
 				{
-					double lifeSteal = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_LIFE_STEAL.getName()).getValue();
+					double magicLifeSteal = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_LIFE_STEAL.getName()).getValue();
 					float damage = event.getAmount();
-					event.getEntityLiving().heal(damage * (float) lifeSteal);
+					event.getEntityLiving().heal(damage * (float) magicLifeSteal);
 				}
 				else
 				{
