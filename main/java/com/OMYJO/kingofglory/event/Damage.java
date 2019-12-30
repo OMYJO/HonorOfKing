@@ -117,6 +117,8 @@ public class Damage
 		}
 		//苍穹
 		//名刀被动
+		//反甲、不详、冰心、守护者之铠
+
 	}
 
 	@SubscribeEvent
