@@ -17,7 +17,6 @@ public class Items
 	@SubscribeEvent
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> event)
 	{
-		new SharedKingAttributes();
 		event.getRegistry().register(new IronSword());
 		event.getRegistry().register(new CloudPiercingBow());
 		event.getRegistry().register(new TwilightBow());
