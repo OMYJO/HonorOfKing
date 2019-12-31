@@ -1,6 +1,7 @@
 package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
@@ -25,5 +26,9 @@ public class Regeneration
 	public void onLivingHeal(LivingHealEvent event)
 	{
 		//制裁
+		if(event.getEntityLiving().isPotionActive(Effects.SEVERE_WOUND))
+		{
+			event.setAmount(event.getAmount()/2);
+		}
 	}
 }

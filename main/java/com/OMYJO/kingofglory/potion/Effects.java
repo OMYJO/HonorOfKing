@@ -13,13 +13,18 @@ import net.minecraftforge.registries.ObjectHolder;
 @net.minecraftforge.registries.ObjectHolder("kingofglory")
 public class Effects
 {
+	@ObjectHolder("cripple")
+	public static Cripple CRIPPLE;
 	@ObjectHolder("chasing_sun")
 	public static ChasingSun CHASING_SUN;
-
+	@ObjectHolder("severe_wound")
+	public static SevereWound SEVERE_WOUND;
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
 	{
+		event.getRegistry().register(new Cripple());
+		event.getRegistry().register(new SevereWound());
 		event.getRegistry().register(new ChasingSun());
 	}
 }

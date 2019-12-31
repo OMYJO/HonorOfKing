@@ -1,4 +1,4 @@
-package com.OMYJO.kingofglory.item;
+package com.OMYJO.kingofglory.item.bow;
 
 import com.OMYJO.kingofglory.potion.Effects;
 import com.OMYJO.kingofglory.other.KingOfMaterial;

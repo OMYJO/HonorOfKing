@@ -1,5 +1,6 @@
-package com.OMYJO.kingofglory.item;
+package com.OMYJO.kingofglory.item.armor;
 
+import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;

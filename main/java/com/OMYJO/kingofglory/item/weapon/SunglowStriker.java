@@ -1,8 +1,9 @@
-package com.OMYJO.kingofglory.item;
+package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -10,6 +11,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -19,10 +21,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class IronSword extends KingOfWeapon
+public class SunglowStriker extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(20);
+	private float attackDamage = Convertor.attackDamage(10);
+	private float maxHealth = Convertor.maxHealth(300);
 	private final HashMap<EquipmentSlotType,UUID> attackDamageModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType,UUID> maxHealthModifierMap = new HashMap<>();
+
+	public SunglowStriker()
+	{
+		super(new KingOfMaterial(), Rarity.UNCOMMON);
+		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		setRegistryName("sunglow_striker");
+	}
 
 	@Override
 	public float getAttackDamage()
@@ -30,13 +44,10 @@ public class IronSword extends KingOfWeapon
 		return attackDamage;
 	}
 
-	public IronSword()
+	@Override
+	public float getMaxHealth()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
-		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("iron_sword");
-
+		return maxHealth;
 	}
 
 	@Override
@@ -46,6 +57,7 @@ public class IronSword extends KingOfWeapon
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
@@ -63,5 +75,19 @@ public class IronSword extends KingOfWeapon
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
 	{
 		super.addInformation(stack, worldIn, tooltip, flagIn);
+		tooltip.add(new TextComponent()
+		{
+			@Override
+			public String getUnformattedComponentText()
+			{
+				return I18n.format("item_effect"+"."+getRegistryName().getNamespace() + "." + getRegistryName().getPath() +".0");
+			}
+
+			@Override
+			public ITextComponent shallowCopy()
+			{
+				return null;
+			}
+		});
 	}
 }

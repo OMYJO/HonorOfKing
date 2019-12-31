@@ -1,14 +1,20 @@
 package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.item.TwilightBow;
+import com.OMYJO.kingofglory.item.bow.DayBreaker;
+import com.OMYJO.kingofglory.item.bow.TwilightBow;
+import com.OMYJO.kingofglory.item.weapon.DivinePunisher;
+import com.OMYJO.kingofglory.item.weapon.SunglowStriker;
+import com.OMYJO.kingofglory.item.weapon.SwiftStrikeLance;
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -37,6 +43,21 @@ public class Damage
 				float base = event.getAmount();
 				if ((!(source instanceof IndirectEntityDamageSource) || source.getImmediateSource() instanceof AbstractArrowEntity))//普通攻击
 				{
+					//残废
+					if(attacker.getHeldItemMainhand().getItem() instanceof SunglowStriker || attacker.getHeldItemOffhand().getItem() instanceof SunglowStriker)
+					{
+						if(Math.random()<0.3F)
+						{
+							target.addPotionEffect(new EffectInstance(Effects.CRIPPLE,40));
+						}
+					}
+
+					//重伤
+					if(attacker.getHeldItemMainhand().getItem() instanceof DivinePunisher || attacker.getHeldItemOffhand().getItem() instanceof DivinePunisher)
+					{
+						target.addPotionEffect(new EffectInstance(Effects.SEVERE_WOUND,60));
+					}
+
 					//精准、破败
 					{
 						int n = 1;
@@ -44,15 +65,23 @@ public class Damage
 						{
 							n = 2;
 						}
-						for (int i = 0; i < n; i++)
+						for (int i = 0; i < n; i++)//远程英雄使用翻倍
 						{
 							if (attacker.getHeldItemMainhand().getItem() instanceof TwilightBow || attacker.getHeldItemOffhand().getItem() instanceof TwilightBow)
 							{
 								event.setAmount(event.getAmount() + Convertor.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 							//else if 纯净苍穹
-							//else if 速击之枪
-							//if破晓
+							else if (attacker.getHeldItemMainhand().getItem() instanceof SwiftStrikeLance || attacker.getHeldItemOffhand().getItem() instanceof SwiftStrikeLance)
+							{
+								event.setAmount(event.getAmount() + Convertor.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+							}
+
+							//破晓
+							if (attacker.getHeldItemMainhand().getItem() instanceof DayBreaker || attacker.getHeldItemOffhand().getItem() instanceof DayBreaker)
+							{
+								event.setAmount(event.getAmount() + Convertor.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+							}
 						}
 						//if末世
 					}
@@ -70,6 +99,14 @@ public class Damage
 
 					}
 				}
+				else
+				{
+					//重伤
+					if(attacker.getHeldItemMainhand().getItem() instanceof DivinePunisher || attacker.getHeldItemOffhand().getItem() instanceof DivinePunisher)
+					{
+						target.addPotionEffect(new EffectInstance(Effects.SEVERE_WOUND,30));
+					}
+				}
 				//破军
 				{
 
@@ -80,7 +117,7 @@ public class Damage
 		//抗性计算
 		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isUnblockable())
 		{
-
+			//nothing to do
 		}
 		else
 		{
@@ -140,7 +177,7 @@ public class Damage
 			DamageSource source = event.getSource();
 			if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isUnblockable())
 			{
-
+				//nothing to do
 			}
 			else
 			{

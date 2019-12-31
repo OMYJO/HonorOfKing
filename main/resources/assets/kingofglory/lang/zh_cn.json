@@ -1,16 +1,36 @@
 {
   "item.kingofglory.iron_sword": "铁剑",
+  "item.kingofglory.dagger": "匕首",
+  "item.kingofglory.pugilists_gauntlet": "搏击拳套",
+  "item.kingofglory.blood_drinker": "吸血之镰",
+  "item.kingofglory.thunderclap_brand": "雷鸣刃",
+  "item.kingofglory.raging_claw": "冲能拳套",
+  "item.kingofglory.sunglow_striker": "日冕",
+  "item.kingofglory.swift_strike_lance": "速击之枪",
+  "item.kingofglory.twin_blades_of_destruction": "狂暴双刃",
+  "item.kingofglory.storm_sword": "风暴巨剑",
+  "item.kingofglory.meteor": "陨星",
+  "item.kingofglory.blood_weeper": "泣血之刃",
+  "item.kingofglory.divine_punisher": "制裁之刃",
+
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
+  "item.kingofglory.day_breaker": "破晓",
+
   "item.kingofglory.cloth_jerkin": "布甲",
-
-
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
   "item_effect.kingofglory.twilight_bow.1": "唯一主动：逐日",
+  "item_effect.kingofglory.day_breaker.0": "唯一被动：破甲",
+  "item_effect.kingofglory.day_breaker.1": "唯一被动",
+  "item_effect.kingofglory.sunglow_striker.0": "唯一被动:残废",
+  "item_effect.kingofglory.swift_strike_lance.0": "唯一被动:精准",
+  "item_effect.kingofglory.meteor.0": "唯一被动:切割",
+  "item_effect.kingofglory.divine_punisher.0": "唯一被动:重伤",
 
   "effect.kingofglory.chasing_sun": "逐日",
+  "effect.kingofglory.cripple": "残废",
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
   "attribute.name.kingofglory.armor": "物理防御",

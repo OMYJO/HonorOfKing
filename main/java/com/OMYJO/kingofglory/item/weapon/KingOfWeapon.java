@@ -1,16 +1,13 @@
-package com.OMYJO.kingofglory.item;
+package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.KingOfGlory;
+import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.enchantment.SweepingEnchantment;
-import net.minecraft.enchantment.UnbreakingEnchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
