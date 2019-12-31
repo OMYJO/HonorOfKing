@@ -16,7 +16,7 @@ public class ClothJerkin extends KingOfArmor implements KingOfItem
 
 	public ClothJerkin(EquipmentSlotType slot,String registryName)
 	{
-		super(new KingOfMaterial(), slot, Rarity.COMMON);
+		super(new KingOfMaterial().setName("cloth_jerkin"), slot, Rarity.COMMON);
 		setRegistryName(registryName);
 	}
 

@@ -8,6 +8,10 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyLoadBase;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
 import java.util.TreeSet;
 
@@ -109,9 +113,10 @@ public class KingOfMaterial implements IItemTier, IArmorMaterial
 	}
 
 	@Override
+	@OnlyIn(Dist.CLIENT)
 	public String getName()
 	{
-		return name;
+		return "kingofglory:"+name;
 	}
 
 	public KingOfMaterial setName(String name)
