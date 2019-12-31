@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Cripple extends Effect implements KingOfEffect
 {
-	private static UUID CRIPPLE_MODIFIER = UUID.randomUUID();
+	private static final UUID CRIPPLE_MODIFIER = UUID.randomUUID();
 	public Cripple()
 	{
 		super(EffectType.HARMFUL, 0x000000);

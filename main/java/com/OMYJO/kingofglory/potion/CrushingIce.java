@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class CrushingIce extends Effect implements KingOfEffect
 {
-	private static UUID CRUSHING_ICE_MODIFIER = UUID.randomUUID();
+	private static final UUID CRUSHING_ICE_MODIFIER = UUID.randomUUID();
 	public CrushingIce()
 	{
 		super(EffectType.HARMFUL, 0x000000);

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class ChasingSun extends Effect implements KingOfEffect
 {
-	private static UUID CHASING_SUN_MODIFIER = UUID.randomUUID();
+	private static final UUID CHASING_SUN_MODIFIER = UUID.randomUUID();
 	public ChasingSun()
 	{
 		super(EffectType.BENEFICIAL, 0x000000);

@@ -7,6 +7,7 @@ import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.OMYJO.kingofglory.potion.Assaulting;
 import com.OMYJO.kingofglory.potion.CrushingIce;
 import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.entity.Entity;
@@ -18,6 +19,7 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShootableItem;
@@ -156,6 +158,7 @@ public class Damage
 						}
 						for (int i = 0; i < n; i++)//远程英雄使用翻倍
 						{
+							//if 逐日之弓
 							if (attacker.getHeldItemMainhand().getItem() instanceof TwilightBow || attacker.getHeldItemOffhand().getItem() instanceof TwilightBow)
 							{
 								event.setAmount(event.getAmount() + Convertor.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
@@ -188,8 +191,15 @@ public class Damage
 						}
 					}
 					//强击：蓝刀4》巫法3》宗师2》冰脉1》光辉0
+					if(attacker.isPotionActive(Effects.ASSAULTING))
 					{
-
+						switch (attacker.getActivePotionEffect(Effects.ASSAULTING).getAmplifier())
+						{
+							case 2:
+								event.setAmount(event.getAmount() + (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								attacker.removePotionEffect(Effects.ASSAULTING);
+								break;
+						}
 					}
 				}
 				else
@@ -205,6 +215,26 @@ public class Damage
 
 				}
 			}
+			//触发强击
+			if(attacker instanceof PlayerEntity)
+			{
+				//宗师
+				if(attacker.getHeldItemMainhand().getItem() instanceof MasterSword || attacker.getHeldItemOffhand().getItem() instanceof MasterSword)
+				{
+					ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof MasterSword? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
+					if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
+					{
+						((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
+						itemStack.damageItem(1, attacker, (p_220045_0_) -> {
+						p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+						});
+						attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,40,2));
+					}
+				}
+				//else if 冰脉
+				//else if 光辉
+			}
+
 		}
 
 		//抗性计算

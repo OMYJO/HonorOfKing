@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Storm extends Effect implements KingOfEffect
 {
-	private static UUID STORM_MODIFIER = UUID.randomUUID();
+	private static final UUID STORM_MODIFIER = UUID.randomUUID();
 	public Storm()
 	{
 		super(EffectType.BENEFICIAL, 0x000000);

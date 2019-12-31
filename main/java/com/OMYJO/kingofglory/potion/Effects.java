@@ -25,6 +25,8 @@ public class Effects
 	public static CrushingIce CRUSHING_ICE;
 	@ObjectHolder("storm")
 	public static Storm STORM;
+	@ObjectHolder("assaulting")
+	public static Assaulting ASSAULTING;
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
@@ -35,5 +37,6 @@ public class Effects
 		event.getRegistry().register(new DarkCurtain());
 		event.getRegistry().register(new CrushingIce());
 		event.getRegistry().register(new Storm());
+		event.getRegistry().register(new Assaulting());
 	}
 }

@@ -18,6 +18,7 @@
   "item.kingofglory.spell_bane_blade": "破魔刀",
   "item.kingofglory.shadow_ripper": "影刃",
   "item.kingofglory.nightmare": "暗影战斧",
+  "item.kingofglory.master_sword": "宗师之力",
 
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
@@ -41,6 +42,7 @@
   "item_effect.kingofglory.shadow_ripper.0": "唯一被动:暴风",
   "item_effect.kingofglory.nightmare.0": "唯一被动:切割",
   "item_effect.kingofglory.nightmare.1": "唯一被动:残废",
+  "item_effect.kingofglory.master_sword.0": "唯一被动:强击",
 
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",
@@ -48,6 +50,7 @@
   "effect.kingofglory.dark_curtain": "暗幕",
   "effect.kingofglory.crushing_ice": "碎冰",
   "effect.kingofglory.storm": "暴风",
+  "effect.kingofglory.assaulting": "强击",
 
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
