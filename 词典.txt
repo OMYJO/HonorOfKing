@@ -1,164 +1,164 @@
-Ì¹¿Ë Tank
-Õ½Ê¿ Warrior
-´Ì¿Í Assassin
-·¨Ê¦ Mage
-ÉäÊÖ Marksman
-¸¨Öú Support
+ï»¿å¦å…‹ Tank
+æˆ˜å£« Warrior
+åˆºå®¢ Assassin
+æ³•å¸ˆ Mage
+å°„æ‰‹ Marksman
+è¾…åŠ© Support
 
-ÎïÀí¹¥»÷ attack damage
-·¨Êõ¹¥»÷ MagicAttack
-ÎïÀí·ÀÓù armor
-·¨Êõ·ÀÓù Magic Defence
-¹¥»÷ËÙ¶È attackSpeed
-±©»÷ÂÊ criticalChance
-±©»÷Ğ§¹û criticalDamage
-ÎïÀíÎüÑª lifeSteal
-·¨ÊõÎüÑª magicLifeSteal
-ÀäÈ´Ëõ¼õ cooldown Reduction
-ÎïÀí´©Í¸ armor pierce
-·¨Êõ´©Í¸ magic pierce
-×î´ó·¨Á¦ max mana
-×î´óÉúÃü Max HP
-ÒÆËÙ movementSpeed
-ÈÍĞÔ resistance
-Ã¿5Ãë»ØÀ¶ Mana/5 sec
-Ã¿5Ãë»ØÑª HP/5 sec
+ç‰©ç†æ”»å‡» attack damage
+æ³•æœ¯æ”»å‡» MagicAttack
+ç‰©ç†é˜²å¾¡ armor
+æ³•æœ¯é˜²å¾¡ Magic Defence
+æ”»å‡»é€Ÿåº¦ attackSpeed
+æš´å‡»ç‡ criticalChance
+æš´å‡»æ•ˆæœ criticalDamage
+ç‰©ç†å¸è¡€ lifeSteal
+æ³•æœ¯å¸è¡€ magicLifeSteal
+å†·å´ç¼©å‡ cooldown Reduction
+ç‰©ç†ç©¿é€ armor pierce
+æ³•æœ¯ç©¿é€ magic pierce
+æœ€å¤§æ³•åŠ› max mana
+æœ€å¤§ç”Ÿå‘½ Max HP
+ç§»é€Ÿ movementSpeed
+éŸ§æ€§ resistance
+æ¯5ç§’å›è“ Mana/5 sec
+æ¯5ç§’å›è¡€ HP/5 sec
 
-Ìú½£ Iron Sword
-Ø°Ê× Dagger
-²«»÷È­Ì× Pugilist's Gauntlet
-ÎüÑªÖ®Á­ Blood Drinker
-À×ÃùÈĞ Thunderclap Brand
-·ç±©¾Ş½£ Storm Sword
-ÈÕÃá Sunglow Striker
-²Ğ·Ï Cripple
-¿ñ±©Ë«ÈĞ Twinblades of Destruction
-ÔÉĞÇ Meteror
-ÇĞ¸î Dissection
-ÆÆÄ§µ¶ Spellbane Blade
-ÆÆÄ§ Exorcism
-Ä©ÊÀ Doomsday
-ÆÆ°Ü Dilapidation
-ÆüÑªÖ®ÈĞ Bloodweeper
-ÎŞ¾¡Õ½ÈĞ Endless Edge
-×ÚÊ¦Ö®Á¦ Master Sword
-Ç¿»÷ Assaulting
-ÉÁµçØ°Ê× Sparkforged Dagger
-µç»¡ Electric Arc
-³åÄÜÈ­Ì× Raging Claw
-Ãûµ¶ Destiny
-°µÄ» Dark Curtain
-±ùËª³¤Ã¬ Frigid Lance
-Ëé±ù Crushing Ice
-ËÙ»÷Ö®Ç¹ Swiftstrike Lance
-¾«×¼ Accuracy
-ËéĞÇ´¸ Broken Star Mace
-ÆÆ¼× Armor Breaking
-´©ÔÆ¹­ Cloud Piercing Bow
-ÆÆ¼× Armor Breaking
-Ó°ÈĞ Shadow Ripper
-±©·ç Storm
-°µÓ°Õ½¸« Nightmare
-ÇĞ¸î Dissection
-²Ğ·Ï Cripple
-ÆÆ¾ü Siege Breaker
-ÆÆ¾ü Army Breaking
-ÖğÈÕÖ®¹­ Twilight Bow
-¾«×¼ Accuracy
-ÖğÈÕ£¨Ö÷¶¯£© Chasing Sun
-ÆÆÏş Daybreaker
-ÆÆ¼× Armor Breaking
-ÖÆ²ÃÖ®ÈĞ Divine Punisher
-ÖØÉË Severe Wound
-´¿¾»²Ôñ· Pure Sky
-¾«×¼ Accuracy
-ÇıÉ¢£¨Ö÷¶¯£© Dispelling
+é“å‰‘ Iron Sword
+åŒ•é¦– Dagger
+æå‡»æ‹³å¥— Pugilist's Gauntlet
+å¸è¡€ä¹‹é•° Blood Drinker
+é›·é¸£åˆƒ Thunderclap Brand
+é£æš´å·¨å‰‘ Storm Sword
+æ—¥å†• Sunglow Striker
+æ®‹åºŸ Cripple
+ç‹‚æš´åŒåˆƒ Twinblades of Destruction
+é™¨æ˜Ÿ Meteror
+åˆ‡å‰² Dissection
+ç ´é­”åˆ€ Spellbane Blade
+ç ´é­” Exorcism
+æœ«ä¸– Doomsday
+ç ´è´¥ Dilapidation
+æ³£è¡€ä¹‹åˆƒ Bloodweeper
+æ— å°½æˆ˜åˆƒ Endless Edge
+å®—å¸ˆä¹‹åŠ› Master Sword
+å¼ºå‡» Assaulting
+é—ªç”µåŒ•é¦– Sparkforged Dagger
+ç”µå¼§ Electric Arc
+å†²èƒ½æ‹³å¥— Raging Claw
+ååˆ€ Destiny
+æš—å¹• Dark Curtain
+å†°éœœé•¿çŸ› Frigid Lance
+ç¢å†° Crushing Ice
+é€Ÿå‡»ä¹‹æª Swiftstrike Lance
+ç²¾å‡† Accuracy
+ç¢æ˜Ÿé”¤ Broken Star Mace
+ç ´ç”² Armor Breaking
+ç©¿äº‘å¼“ Cloud Piercing Bow
+ç ´ç”² Armor Breaking
+å½±åˆƒ Shadow Ripper
+æš´é£ Storm
+æš—å½±æˆ˜æ–§ Nightmare
+åˆ‡å‰² Dissection
+æ®‹åºŸ Cripple
+ç ´å†› Siege Breaker
+ç ´å†› Army Breaking
+é€æ—¥ä¹‹å¼“ Twilight Bow
+ç²¾å‡† Accuracy
+é€æ—¥ï¼ˆä¸»åŠ¨ï¼‰ Chasing Sun
+ç ´æ™“ Daybreaker
+ç ´ç”² Armor Breaking
+åˆ¶è£ä¹‹åˆƒ Divine Punisher
+é‡ä¼¤ Severe Wound
+çº¯å‡€è‹ç©¹ Pure Sky
+ç²¾å‡† Accuracy
+é©±æ•£ï¼ˆä¸»åŠ¨ï¼‰ Dispelling
 
-À¶±¦Ê¯ Sparking Sapphire
-¹â»ÔÖ®½£ Sword of Glory
-Ç¿»÷ Assaulting
-ÖäÊõµä¼® Book of Magic
-Á¶½ğ»¤·û Alchemy Tailsman
-Ê¥Õß·¨µä Saint Code
-ÔªËØÕÈ Element Cane
-´ó°ô Big Stick
-ÆÆËéÊ¥±­ Broken Grail
-÷ÈÓ°ÃæÕÖ Phantom Mask
-½ø»¯Ë®¾§ Evolutionary Crystal
-Ó¢ÓÂ½±ÉÍ Heroic Award
-Ñª×åÖ®Êé Book of Bloodline
-ÊÈÑª Bloodthirsty
-³ãÈÈÖ§ÅäÕß Blaze Dominator
-·¨Á¦»¤¶Ü Mana Shield
-ÃÎ÷ÊÖ®ÑÀ Tooth of Nightmare
-ÖØÉË Severe Wound
-ĞéÎŞ·¨ÕÈ Stick of Nihility
-²©Ñ§ÕßÖ®Å­ Rage of Polymath
-»ÙÃğ Ruin
-»ÔÔÂ Bright Moon
-ÔÂÖ®ÊØ»¤£¨Ö÷¶¯£© Guardian of Moon
-»ØÏìÖ®ÕÈ Reverberant Cane
-»ØÏì Reverberation
-±ùËª·¨ÕÈ Frost Stick
-½áËª Frosting
-Í´¿àÃæ¾ß Agony Mask
-ÕÛÄ¥ Torment
-ÖÏÏ¢ Suffocate
-Î×Êõ·¨ÕÈ Wand of Witchcraft
-Ç¿»÷ Assaulting
-Ê¥±­ Grail
-·¨Á¦Ô´Èª Fountain of Mana
-Ê±Ö®Ô¤ÑÔ Prophecy of Time
-Ó¢ÓÂ½±ÉÍ Heroic Award
-ÊØ»¤ Guardian
-ÏÍÕßÖ®Êé Book of Saints
-¿ÌÓ¡ Engraving
-ÊÉÉñÖ®Êé Book of Devouring God
-ÊÈÑª Bloodthirsty
+è“å®çŸ³ Sparking Sapphire
+å…‰è¾‰ä¹‹å‰‘ Sword of Glory
+å¼ºå‡» Assaulting
+å’’æœ¯å…¸ç± Book of Magic
+ç‚¼é‡‘æŠ¤ç¬¦ Alchemy Tailsman
+åœ£è€…æ³•å…¸ Saint Code
+å…ƒç´ æ– Element Cane
+å¤§æ£’ Big Stick
+ç ´ç¢åœ£æ¯ Broken Grail
+é­…å½±é¢ç½© Phantom Mask
+è¿›åŒ–æ°´æ™¶ Evolutionary Crystal
+è‹±å‹‡å¥–èµ Heroic Award
+è¡€æ—ä¹‹ä¹¦ Book of Bloodline
+å—œè¡€ Bloodthirsty
+ç‚½çƒ­æ”¯é…è€… Blaze Dominator
+æ³•åŠ›æŠ¤ç›¾ Mana Shield
+æ¢¦é­‡ä¹‹ç‰™ Tooth of Nightmare
+é‡ä¼¤ Severe Wound
+è™šæ— æ³•æ– Stick of Nihility
+åšå­¦è€…ä¹‹æ€’ Rage of Polymath
+æ¯ç­ Ruin
+è¾‰æœˆ Bright Moon
+æœˆä¹‹å®ˆæŠ¤ï¼ˆä¸»åŠ¨ï¼‰ Guardian of Moon
+å›å“ä¹‹æ– Reverberant Cane
+å›å“ Reverberation
+å†°éœœæ³•æ– Frost Stick
+ç»“éœœ Frosting
+ç—›è‹¦é¢å…· Agony Mask
+æŠ˜ç£¨ Torment
+çª’æ¯ Suffocate
+å·«æœ¯æ³•æ– Wand of Witchcraft
+å¼ºå‡» Assaulting
+åœ£æ¯ Grail
+æ³•åŠ›æºæ³‰ Fountain of Mana
+æ—¶ä¹‹é¢„è¨€ Prophecy of Time
+è‹±å‹‡å¥–èµ Heroic Award
+å®ˆæŠ¤ Guardian
+è´¤è€…ä¹‹ä¹¦ Book of Saints
+åˆ»å° Engraving
+å™¬ç¥ä¹‹ä¹¦ Book of Devouring God
+å—œè¡€ Bloodthirsty
 
-ÉñËÙÖ®Ñ¥ Boots of Divine Speed
-Ó°ÈÌÖ®×ã Boots of Foritude
-µÖ¿¹Ö®Ñ¥ Boots of Resistance
-Àä¾²Ö®Ñ¥ Boots of Tranquility
-¾²Ú× Tranquil
-ÃØ·¨Ö®Ñ¥ Boots of the Arcane
-·¨Êõ¾«Í¨ Magic Mastery
-¼±ËÙÕ½Ñ¥ Boots of Dexterity
-¼²²½Ö®Ñ¥ Boots of Deftness
-ÉñĞĞ Marvellous Speed
+ç¥é€Ÿä¹‹é´ Boots of Divine Speed
+å½±å¿ä¹‹è¶³ Boots of Foritude
+æŠµæŠ—ä¹‹é´ Boots of Resistance
+å†·é™ä¹‹é´ Boots of Tranquility
+é™è°§ Tranquil
+ç§˜æ³•ä¹‹é´ Boots of the Arcane
+æ³•æœ¯ç²¾é€š Magic Mastery
+æ€¥é€Ÿæˆ˜é´ Boots of Dexterity
+ç–¾æ­¥ä¹‹é´ Boots of Deftness
+ç¥è¡Œ Marvellous Speed
 
-ºìÂêè§ Resilient Agate
-²¼¼× Cloth Jerkin
-¿¹Ä§Åû·ç Ani-mage Cloak
-ÌáÉñË®¾§ Revitalizing Crystal
-Á¦Á¿Ñü´ø Belt of Might
-ÈÛÁ¶Ö®ĞÄ Fusion Core
-Ï×¼À Sacrifice
-ÉñÒş¶·Åñ Clandestine Cape
-Ñ©É½Ô²¶Ü Frosthold Targe
-ÊØ»¤ÕßÖ®îø Protector¡¯s Vest
-º®Ìú Cold Iron
-ºìÁ«¶·Åñ Red Lotus Cape
-Ï×¼À Sacrifice
-°ÔÕßÖØ×° Overload's Platemail
-¸´ËÕ Recovery
-²»ÏéÕ÷Õ× Ominous Premonition
-º®Ìú Cold Iron
-²»ËÀÄñÖ®ÑÛ Eye of the Phoenix
-ÑªÍ³ Ancestry
-Ä§Å®¶·Åñ Succubus Cloak
-ÃÔÎí Dense Fog
-·´ÉË´Ì¼× Spikemail
-¾£¼¬ Thistles and Thorns
-ÑªÄ§Ö®Å­ Blood Rage
-ÑªÅ­£¨Ö÷¶¯£©Bloodrage
-¼«º®·ç±© Glacial Buckler
-±ùĞÄ Icy Heart
-ÏÍÕßµÄ±Ó»¤ Sage's Sanctuary
-¸´Éú Resuscitation
-±©ÁÒÖ®¼× Cuirass of Savagery
-ÎŞÎ· Fearless
-±ùºÛÖ®ÎÕ Frostscar¡¯s Embrace
-Ç¿»÷ Assaulting
-³å»÷îø¼× Pounding Armor
-³å»÷£¨Ö÷¶¯£© Pounding
+çº¢ç›ç‘™ Resilient Agate
+å¸ƒç”² Cloth Jerkin
+æŠ—é­”æŠ«é£ Ani-mage Cloak
+æç¥æ°´æ™¶ Revitalizing Crystal
+åŠ›é‡è…°å¸¦ Belt of Might
+ç†”ç‚¼ä¹‹å¿ƒ Fusion Core
+çŒ®ç¥­ Sacrifice
+ç¥éšæ–—ç¯· Clandestine Cape
+é›ªå±±åœ†ç›¾ Frosthold Targe
+å®ˆæŠ¤è€…ä¹‹é“  Protectorâ€™s Vest
+å¯’é“ Cold Iron
+çº¢è²æ–—ç¯· Red Lotus Cape
+çŒ®ç¥­ Sacrifice
+éœ¸è€…é‡è£… Overload's Platemail
+å¤è‹ Recovery
+ä¸ç¥¥å¾å…† Ominous Premonition
+å¯’é“ Cold Iron
+ä¸æ­»é¸Ÿä¹‹çœ¼ Eye of the Phoenix
+è¡€ç»Ÿ Ancestry
+é­”å¥³æ–—ç¯· Succubus Cloak
+è¿·é›¾ Dense Fog
+åä¼¤åˆºç”² Spikemail
+è†æ£˜ Thistles and Thorns
+è¡€é­”ä¹‹æ€’ Blood Rage
+è¡€æ€’ï¼ˆä¸»åŠ¨ï¼‰Bloodrage
+æå¯’é£æš´ Glacial Buckler
+å†°å¿ƒ Icy Heart
+è´¤è€…çš„åº‡æŠ¤ Sage's Sanctuary
+å¤ç”Ÿ Resuscitation
+æš´çƒˆä¹‹ç”² Cuirass of Savagery
+æ— ç• Fearless
+å†°ç—•ä¹‹æ¡ Frostscarâ€™s Embrace
+å¼ºå‡» Assaulting
+å†²å‡»é“ ç”² Pounding Armor
+å†²å‡»ï¼ˆä¸»åŠ¨ï¼‰ Pounding
