@@ -31,6 +31,7 @@ public class Items
 		event.getRegistry().register(new Meteor());
 		event.getRegistry().register(new BloodWeeper());
 		event.getRegistry().register(new DivinePunisher());
+		event.getRegistry().register(new SparkForgedDagger());
 
 		event.getRegistry().register(new CloudPiercingBow());
 		event.getRegistry().register(new TwilightBow());

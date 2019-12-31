@@ -12,6 +12,7 @@
   "item.kingofglory.meteor": "陨星",
   "item.kingofglory.blood_weeper": "泣血之刃",
   "item.kingofglory.divine_punisher": "制裁之刃",
+  "item.kingofglory.spark_forged_dagger": "闪电匕首",
 
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
@@ -28,6 +29,7 @@
   "item_effect.kingofglory.swift_strike_lance.0": "唯一被动:精准",
   "item_effect.kingofglory.meteor.0": "唯一被动:切割",
   "item_effect.kingofglory.divine_punisher.0": "唯一被动:重伤",
+  "item_effect.kingofglory.spark_forged_dagger.0": "唯一被动:电弧",
 
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",

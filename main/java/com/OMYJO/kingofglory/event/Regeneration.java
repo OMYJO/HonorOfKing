@@ -8,11 +8,11 @@ import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Regeneration
 {
 	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent event)
+	public static void onPlayerTick(TickEvent.PlayerTickEvent event)
 	{
 		PlayerEntity playerEntity = event.player;
 		long time = playerEntity.getEntityWorld().getDayTime();
@@ -23,7 +23,7 @@ public class Regeneration
 	}
 
 	@SubscribeEvent
-	public void onLivingHeal(LivingHealEvent event)
+	public static void onLivingHeal(LivingHealEvent event)
 	{
 		//制裁
 		if(event.getEntityLiving().isPotionActive(Effects.SEVERE_WOUND))
