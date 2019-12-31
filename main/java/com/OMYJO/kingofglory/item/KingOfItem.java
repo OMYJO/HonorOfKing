@@ -53,6 +53,11 @@ public interface KingOfItem
 		return 0F;
 	}
 
+	default float getMaxHealth()
+	{
+		return 0F;
+	}
+
 	default float getCooldownReduction()
 	{
 		return 0F;
@@ -69,11 +74,6 @@ public interface KingOfItem
 	}
 
 	default float getMana() { return 0F; }
-
-	default float getMaxHealth()
-	{
-		return 0F;
-	}
 
 	default float getMovementSpeed()
 	{

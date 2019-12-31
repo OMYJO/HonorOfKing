@@ -32,6 +32,9 @@ public class Items
 		event.getRegistry().register(new BloodWeeper());
 		event.getRegistry().register(new DivinePunisher());
 		event.getRegistry().register(new SparkForgedDagger());
+		event.getRegistry().register(new Destiny());
+		event.getRegistry().register(new FrigidLance());
+		event.getRegistry().register(new ShadowRipper());
 
 		event.getRegistry().register(new CloudPiercingBow());
 		event.getRegistry().register(new TwilightBow());

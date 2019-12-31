@@ -20,23 +20,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class Meteor extends KingOfWeapon
+public class Destiny extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(45);
-	private float cooldownReduction = 0.1F;
-	private float armorPierce = 60;
+	private float attackDamage = Convertor.attackDamage(60);
+	private float cooldownReduction = 0.05F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> cooldownReductionModifierMap = new HashMap<>();
-	public static final UUID DISSECTION_MODIFIER = UUID.randomUUID();
 
-	public Meteor()
+	public Destiny()
 	{
 		super(new KingOfMaterial(), Rarity.UNCOMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		cooldownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		cooldownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("meteor");
+		setRegistryName("destiny");
 	}
 
 	/**
@@ -79,12 +77,6 @@ public class Meteor extends KingOfWeapon
 		return cooldownReduction;
 	}
 
-	@Override
-	public float getArmorPierce()
-	{
-		return armorPierce;
-	}
-
 
 	/**
 	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
@@ -99,7 +91,6 @@ public class Meteor extends KingOfWeapon
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(cooldownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCooldownReduction(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(DISSECTION_MODIFIER, "Weapon modifier", getArmorPierce(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

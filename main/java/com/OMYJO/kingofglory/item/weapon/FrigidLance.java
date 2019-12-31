@@ -2,7 +2,6 @@ package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
-import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,23 +19,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class Meteor extends KingOfWeapon
+public class FrigidLance extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(45);
-	private float cooldownReduction = 0.1F;
-	private float armorPierce = 60;
+	private float attackDamage = Convertor.attackDamage(80);
+	private float maxHealth = Convertor.maxHealth(600);
+	private float attackSpeed = 0.15F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
-	private final HashMap<EquipmentSlotType, UUID> cooldownReductionModifierMap = new HashMap<>();
-	public static final UUID DISSECTION_MODIFIER = UUID.randomUUID();
+	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> attackSpeedModifierMap = new HashMap<>();
 
-	public Meteor()
+	public FrigidLance()
 	{
 		super(new KingOfMaterial(), Rarity.UNCOMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		cooldownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		cooldownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("meteor");
+		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		attackSpeedModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		setRegistryName("frigid_lance");
 	}
 
 	/**
@@ -74,15 +75,15 @@ public class Meteor extends KingOfWeapon
 	}
 
 	@Override
-	public float getCooldownReduction()
+	public float getMaxHealth()
 	{
-		return cooldownReduction;
+		return maxHealth;
 	}
 
 	@Override
-	public float getArmorPierce()
+	public float getAttackSpeed()
 	{
-		return armorPierce;
+		return attackSpeed;
 	}
 
 
@@ -98,8 +99,8 @@ public class Meteor extends KingOfWeapon
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(cooldownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCooldownReduction(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(DISSECTION_MODIFIER, "Weapon modifier", getArmorPierce(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(attackSpeedModifierMap.get(equipmentSlot), "Weapon modifier", getAttackSpeed(), AttributeModifier.Operation.MULTIPLY_BASE));
 		}
 		return multimap;
 	}

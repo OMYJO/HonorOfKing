@@ -13,6 +13,11 @@
   "item.kingofglory.blood_weeper": "泣血之刃",
   "item.kingofglory.divine_punisher": "制裁之刃",
   "item.kingofglory.spark_forged_dagger": "闪电匕首",
+  "item.kingofglory.destiny": "名刀·司命",
+  "item.kingofglory.frigid_lance": "冰霜长矛",
+  "item.kingofglory.spell_bane_blade": "破魔刀",
+  "item.kingofglory.shadow_ripper": "影刃",
+  "item.kingofglory.nightmare": "暗影战斧",
 
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
@@ -30,9 +35,20 @@
   "item_effect.kingofglory.meteor.0": "唯一被动:切割",
   "item_effect.kingofglory.divine_punisher.0": "唯一被动:重伤",
   "item_effect.kingofglory.spark_forged_dagger.0": "唯一被动:电弧",
+  "item_effect.kingofglory.destiny.0": "唯一被动:暗幕",
+  "item_effect.kingofglory.frigid_lance.0": "唯一被动:碎冰",
+  "item_effect.kingofglory.spell_bane_blade.0": "唯一被动:破魔",
+  "item_effect.kingofglory.shadow_ripper.0": "唯一被动:暴风",
+  "item_effect.kingofglory.nightmare.0": "唯一被动:切割",
+  "item_effect.kingofglory.nightmare.1": "唯一被动:残废",
 
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",
+  "effect.kingofglory.severe_wound": "重伤",
+  "effect.kingofglory.dark_curtain": "暗幕",
+  "effect.kingofglory.crushing_ice": "碎冰",
+  "effect.kingofglory.storm": "暴风",
+
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
   "attribute.name.kingofglory.armor": "物理防御",

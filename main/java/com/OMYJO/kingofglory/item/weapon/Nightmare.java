@@ -20,23 +20,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class Meteor extends KingOfWeapon
+public class Nightmare extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(45);
-	private float cooldownReduction = 0.1F;
-	private float armorPierce = 60;
+	private float attackDamage = Convertor.attackDamage(85);
+	private float maxHealth = Convertor.maxHealth(500);
+	private float cooldownReduction = 0.15F;
+	private float armorPierce = 170;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> cooldownReductionModifierMap = new HashMap<>();
-	public static final UUID DISSECTION_MODIFIER = UUID.randomUUID();
+	public static final UUID DISSECTION_MODIFIER = Meteor.DISSECTION_MODIFIER;
 
-	public Meteor()
+	public Nightmare()
 	{
 		super(new KingOfMaterial(), Rarity.UNCOMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		cooldownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		cooldownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("meteor");
+		setRegistryName("nightmare");
 	}
 
 	/**
@@ -65,6 +69,20 @@ public class Meteor extends KingOfWeapon
 				return null;
 			}
 		});
+		tooltip.add(new TextComponent()
+		{
+			@Override
+			public String getUnformattedComponentText()
+			{
+				return I18n.format("item_effect"+"."+getRegistryName().getNamespace() + "." + getRegistryName().getPath() +".1");
+			}
+
+			@Override
+			public ITextComponent shallowCopy()
+			{
+				return null;
+			}
+		});
 	}
 
 	@Override
@@ -74,17 +92,19 @@ public class Meteor extends KingOfWeapon
 	}
 
 	@Override
+	public float getMaxHealth()
+	{
+		return maxHealth;
+	}
+
+	@Override
 	public float getCooldownReduction()
 	{
 		return cooldownReduction;
 	}
 
 	@Override
-	public float getArmorPierce()
-	{
-		return armorPierce;
-	}
-
+	public float getArmorPierce() { return armorPierce; }
 
 	/**
 	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
@@ -98,6 +118,7 @@ public class Meteor extends KingOfWeapon
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(cooldownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCooldownReduction(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(DISSECTION_MODIFIER, "Weapon modifier", getArmorPierce(), AttributeModifier.Operation.ADDITION));
 		}
