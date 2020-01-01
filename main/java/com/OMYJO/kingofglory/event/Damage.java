@@ -1,6 +1,7 @@
 package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
+import com.OMYJO.kingofglory.item.armor.ProtectorsVest;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
@@ -260,7 +261,13 @@ public class Damage
 					}
 				}
 			}
-
+			//if不祥
+			//else if守护者
+			if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
+			{
+				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
+			}
+			//反甲
 		}
 
 		//抗性计算
@@ -301,7 +308,7 @@ public class Damage
 				event.setAmount(event.getAmount() * 602 / (float) (armor + 602));
 			}
 		}
-		//反甲、不详、冰心、守护者之铠
+		//冰心
 		//苍穹
 		if(event.getEntityLiving().isPotionActive(Effects.DARK_CURTAIN))
 		{

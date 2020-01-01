@@ -2,6 +2,7 @@ package com.OMYJO.kingofglory.item;
 
 import com.OMYJO.kingofglory.item.armor.AntiMageCloak;
 import com.OMYJO.kingofglory.item.armor.ClothJerkin;
+import com.OMYJO.kingofglory.item.armor.ProtectorsVest;
 import com.OMYJO.kingofglory.item.bow.CloudPiercingBow;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
@@ -53,5 +54,7 @@ public class Items
 		event.getRegistry().register(new ClothJerkin(EquipmentSlotType.CHEST,"cloth_jerkin"));
 		event.getRegistry().register(new RevitalizingCrystal());
 		event.getRegistry().register(new AntiMageCloak(EquipmentSlotType.CHEST,"anti-mage_cloak"));
+		event.getRegistry().register(new ResilientAgate());
+		event.getRegistry().register(new ProtectorsVest(EquipmentSlotType.CHEST,"protectors_vest"));
 	}
 }

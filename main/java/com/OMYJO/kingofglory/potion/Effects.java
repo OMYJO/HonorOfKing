@@ -29,6 +29,8 @@ public class Effects
 	public static Assaulting ASSAULTING;
 	@ObjectHolder("dispelling")
 	public static Dispelling DISPELLING;
+	@ObjectHolder("cold_iron")
+	public static ColdIron COLD_IRON;
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
@@ -41,5 +43,6 @@ public class Effects
 		event.getRegistry().register(new Storm());
 		event.getRegistry().register(new Assaulting());
 		event.getRegistry().register(new Dispelling());
+		event.getRegistry().register(new ColdIron());
 	}
 }

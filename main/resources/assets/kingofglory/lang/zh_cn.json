@@ -35,6 +35,8 @@
   "item.kingofglory.cloth_jerkin": "布甲",
   "item.kingofglory.revitalizing_crystal": "提神水晶",
   "item.kingofglory.anti-mage_cloak": "抗魔披风",
+  "item.kingofglory.resilient_agate": "红玛瑙",
+  "item.kingofglory.protectors_vest": "守护者之铠",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -60,6 +62,8 @@
   "item_effect.kingofglory.pure_sky.1": "唯一主动：驱散",
   "item_effect.kingofglory.siege_breaker.0": "唯一被动：破军",
   "item_effect.kingofglory.sword_of_glory.0": "唯一被动：强击",
+  "item_effect.kingofglory.protectors_vest.0": "唯一被动：寒铁",
+
 
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",
@@ -69,6 +73,7 @@
   "effect.kingofglory.storm": "暴风",
   "effect.kingofglory.assaulting": "强击",
   "effect.kingofglory.dispelling": "驱散",
+  "effect.kingofglory.cold_iron": "寒铁",
 
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
@@ -78,7 +83,7 @@
   "attribute.name.kingofglory.criticalDamage": "暴击效果",
   "attribute.name.kingofglory.lifeSteal": "物理吸血",
   "attribute.name.kingofglory.magicLifeSteal": "法术吸血",
-  "attribute.name.kingofglory.cooldownReduction": "冷却缩减",
+  "attribute.name.kingofglory.coolDownReduction": "冷却缩减",
   "attribute.name.kingofglory.armorPierce": "物理穿透",
   "attribute.name.kingofglory.magicPierce": "法术穿透",
   "attribute.name.kingofglory.maxMana": "最大法力",
