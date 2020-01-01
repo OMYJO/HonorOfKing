@@ -209,7 +209,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 		long time = worldIn.getDayTime();
 		if(time % 100 == 0)
 		{
-			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECOND.getName()).getValue()));
+			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECONDS.getName()).getValue()));
 		}
 	}
 

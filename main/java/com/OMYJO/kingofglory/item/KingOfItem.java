@@ -81,12 +81,12 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getManaPer5Second()
+	default float getManaPer5Seconds()
 	{
 		return 0F;
 	}
 
-	default float getHPPer5Second()
+	default float getHPPer5Seconds()
 	{
 		return 0F;
 	}

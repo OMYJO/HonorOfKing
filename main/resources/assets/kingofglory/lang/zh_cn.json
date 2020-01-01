@@ -39,6 +39,8 @@
   "item.kingofglory.protectors_vest": "守护者之铠",
   "item.kingofglory.frosthold_targe": "雪山圆盾",
   "item.kingofglory.fusion_core": "熔炼之心",
+  "item.kingofglory.belt_of_might": "力量腰带",
+  "item.kingofglory.clandestine_cape": "神隐斗篷",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -91,6 +93,6 @@
   "attribute.name.kingofglory.magicPierce": "法术穿透",
   "attribute.name.kingofglory.maxMana": "最大法力",
   "attribute.name.kingofglory.resistance": "韧性",
-  "attribute.name.kingofglory.manaPer5Second": "每5秒回蓝",
-  "attribute.name.kingofglory.HPPer5Second": "每5秒回血"
+  "attribute.name.kingofglory.manaPer5Seconds": "每5秒回蓝",
+  "attribute.name.kingofglory.HPPer5Seconds": "每5秒回血"
 }

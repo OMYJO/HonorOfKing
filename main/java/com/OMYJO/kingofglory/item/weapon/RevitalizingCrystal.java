@@ -5,7 +5,6 @@ import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -46,7 +45,7 @@ public class RevitalizingCrystal extends KingOfWeapon
 	}
 
 	@Override
-	public float getHPPer5Second()
+	public float getHPPer5Seconds()
 	{
 		return HPPer5Second;
 	}
@@ -57,7 +56,7 @@ public class RevitalizingCrystal extends KingOfWeapon
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
 		if (equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
-			multimap.put(SharedKingAttributes.HP_PER_5_SECOND.getName(), new AttributeModifier(HPPer5SecondsModifierMap.get(equipmentSlot), "Weapon modifier", getHPPer5Second(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.HP_PER_5_SECONDS.getName(), new AttributeModifier(HPPer5SecondsModifierMap.get(equipmentSlot), "Weapon modifier", getHPPer5Seconds(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

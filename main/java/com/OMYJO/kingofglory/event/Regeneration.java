@@ -18,7 +18,7 @@ public class Regeneration
 		long time = playerEntity.getEntityWorld().getDayTime();
 		if (time % 100 == 0)
 		{
-			playerEntity.heal((float) playerEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.HP_PER_5_SECOND.getName()).getValue());
+			playerEntity.heal((float) playerEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.HP_PER_5_SECONDS.getName()).getValue());
 		}
 	}
 
