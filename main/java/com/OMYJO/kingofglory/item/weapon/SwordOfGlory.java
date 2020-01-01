@@ -20,26 +20,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class MasterSword extends KingOfWeapon
+public class SwordOfGlory extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(60);
-	private float criticalChance = 0.2F;
 	private float maxHealth = Convertor.maxHealth(400);
 	private float mana = Convertor.maxMana(400);
-	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
-	private final HashMap<EquipmentSlotType, UUID> criticalChanceModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
 
-	public MasterSword()
+	public SwordOfGlory()
 	{
-		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.RARE);
-		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.UNCOMMON);
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("master_sword");
+		setRegistryName("sword_of_glory");
 	}
 
 	/**
@@ -71,18 +63,6 @@ public class MasterSword extends KingOfWeapon
 	}
 
 	@Override
-	public float getAttackDamage()
-	{
-		return attackDamage;
-	}
-
-	@Override
-	public float getCriticalChance()
-	{
-		return criticalChance;
-	}
-
-	@Override
 	public float getMaxHealth()
 	{
 		return maxHealth;
@@ -105,9 +85,7 @@ public class MasterSword extends KingOfWeapon
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.CRITICAL_CHANCE.getName(), new AttributeModifier(criticalChanceModifierMap.get(equipmentSlot), "Weapon modifier", getCriticalChance(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

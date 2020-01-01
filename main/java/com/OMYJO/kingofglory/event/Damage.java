@@ -23,6 +23,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShootableItem;
+import net.minecraft.item.SwordItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
@@ -210,6 +211,11 @@ public class Damage
 								event.setAmount(event.getAmount() + (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 								attacker.removePotionEffect(Effects.ASSAULTING);
 								break;
+							case 0:
+								event.setAmount(event.getAmount() + 0.5F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue()+ 0.3F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_ATTACK.getName()).getValue());
+								attacker.removePotionEffect(Effects.ASSAULTING);
+								event.getSource().setMagicDamage();
+								break;
 						}
 					}
 				}
@@ -247,7 +253,18 @@ public class Damage
 					}
 				}
 				//else if 冰脉
-				//else if 光辉
+				else if(attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory || attacker.getHeldItemOffhand().getItem() instanceof SwordOfGlory)
+				{
+					ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
+					if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
+					{
+						((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
+						itemStack.damageItem(1, attacker, (p_220045_0_) -> {
+							p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+						});
+						attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,0));
+					}
+				}
 			}
 
 		}

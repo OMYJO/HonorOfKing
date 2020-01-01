@@ -46,6 +46,9 @@ public class Items
 		event.getRegistry().register(new TwilightBow());
 		event.getRegistry().register(new DayBreaker());
 
+		event.getRegistry().register(new SparkingSapphire());
+		event.getRegistry().register(new SwordOfGlory());
+
 		event.getRegistry().register(new ClothJerkin(EquipmentSlotType.CHEST,"cloth_jerkin"));
 	}
 }
