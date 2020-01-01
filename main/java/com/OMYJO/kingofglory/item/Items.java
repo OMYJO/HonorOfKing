@@ -36,6 +36,9 @@ public class Items
 		event.getRegistry().register(new FrigidLance());
 		event.getRegistry().register(new ShadowRipper());
 		event.getRegistry().register(new MasterSword());
+		event.getRegistry().register(new BrokenStarMace());
+		event.getRegistry().register(new EndlessEdge());
+		event.getRegistry().register(new Doomsday());
 
 		event.getRegistry().register(new CloudPiercingBow());
 		event.getRegistry().register(new TwilightBow());

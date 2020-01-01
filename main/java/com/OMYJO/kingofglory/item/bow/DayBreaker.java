@@ -104,10 +104,7 @@ public class DayBreaker extends KingOfBow
 	}
 
 	@Override
-	public float getArmorPierce()
-	{
-		return armorPierce;
-	}
+	public float getArmorPierce() { return armorPierce; }
 
 	/**
 	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.

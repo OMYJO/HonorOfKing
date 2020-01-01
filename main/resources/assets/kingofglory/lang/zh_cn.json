@@ -19,6 +19,9 @@
   "item.kingofglory.shadow_ripper": "影刃",
   "item.kingofglory.nightmare": "暗影战斧",
   "item.kingofglory.master_sword": "宗师之力",
+  "item.kingofglory.broken_star_mace": "碎星锤",
+  "item.kingofglory.endless_edge": "无尽战刃",
+  "item.kingofglory.doomsday": "末世",
 
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
@@ -43,6 +46,9 @@
   "item_effect.kingofglory.nightmare.0": "唯一被动:切割",
   "item_effect.kingofglory.nightmare.1": "唯一被动:残废",
   "item_effect.kingofglory.master_sword.0": "唯一被动:强击",
+  "item_effect.kingofglory.broken_star_mace.0": "唯一被动:破甲",
+  "item_effect.kingofglory.endless_edge.0": "唯一被动",
+  "item_effect.kingofglory.doomsday.0": "唯一被动:破败",
 
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",

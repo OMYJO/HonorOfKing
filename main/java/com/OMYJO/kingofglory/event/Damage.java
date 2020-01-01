@@ -149,7 +149,7 @@ public class Damage
 					}
 
 
-					//精准、破败
+					//精准
 					{
 						int n = 1;
 						if (source.getImmediateSource() instanceof AbstractArrowEntity)
@@ -175,7 +175,6 @@ public class Damage
 								event.setAmount(event.getAmount() + Convertor.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 						}
-						//if末世
 					}
 					//暴击
 					{
@@ -190,6 +189,13 @@ public class Damage
 							}
 						}
 					}
+
+					//末世
+					if (attacker.getHeldItemMainhand().getItem() instanceof Doomsday || attacker.getHeldItemOffhand().getItem() instanceof Doomsday)
+					{
+						event.setAmount(event.getAmount() + 0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+					}
+
 					//强击：蓝刀4》巫法3》宗师2》冰脉1》光辉0
 					if(attacker.isPotionActive(Effects.ASSAULTING))
 					{

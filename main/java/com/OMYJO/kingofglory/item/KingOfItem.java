@@ -28,10 +28,7 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getAttackSpeed()
-	{
-		return 0F;
-	}
+	default float getAttackSpeed() { return 0F; }
 
 	default float getCriticalChance()
 	{

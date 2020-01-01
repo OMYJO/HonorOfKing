@@ -1,4 +1,4 @@
-package com.OMYJO.kingofglory.item.bow;
+package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
@@ -20,23 +20,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class CloudPiercingBow extends KingOfBow
+public class EndlessEdge extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(40);
-	private float attackSpeed = 0.1F;
-	private float armorPierce = 0.1F;
+	private float attackDamage = Convertor.attackDamage(130);
+	private float criticalChance = 0.2F;
+	private float criticalDamage = 0.4F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
-	private final HashMap<EquipmentSlotType, UUID> attackSpeedModifierMap = new HashMap<>();
-	public static final UUID ARMOR_BREAKING_MODIFIER = UUID.randomUUID();
+	private final HashMap<EquipmentSlotType, UUID> criticalChanceModifierMap = new HashMap<>();
+	public static final UUID ENDLESS_EDGE_MODIFIER = UUID.randomUUID();
 
-	public CloudPiercingBow()
+	public EndlessEdge()
 	{
-		super(new KingOfMaterial(),Rarity.UNCOMMON);
+		super(new KingOfMaterial(), Rarity.RARE);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		attackSpeedModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("cloud_piercing_bow");
+		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		setRegistryName("endless_edge");
 	}
 
 	/**
@@ -74,13 +74,17 @@ public class CloudPiercingBow extends KingOfBow
 	}
 
 	@Override
-	public float getAttackSpeed()
+	public float getCriticalChance()
 	{
-		return attackSpeed;
+		return criticalChance;
 	}
 
 	@Override
-	public float getArmorPierce() { return armorPierce; }
+	public float getCriticalDamage()
+	{
+		return criticalDamage;
+	}
+
 
 	/**
 	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
@@ -94,18 +98,9 @@ public class CloudPiercingBow extends KingOfBow
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(attackSpeedModifierMap.get(equipmentSlot), "Weapon modifier", getAttackSpeed(), AttributeModifier.Operation.MULTIPLY_BASE));
-		}
-		if(equipmentSlot == EquipmentSlotType.MAINHAND)
-		{
-			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(ARMOR_BREAKING_MODIFIER, "Weapon modifier", this.getArmorPierce()*2, AttributeModifier.Operation.ADDITION));
-		}
-		else if(equipmentSlot == EquipmentSlotType.OFFHAND)
-		{
-			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(ARMOR_BREAKING_MODIFIER, "Weapon modifier", this.getArmorPierce(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.CRITICAL_CHANCE.getName(), new AttributeModifier(criticalChanceModifierMap.get(equipmentSlot), "Weapon modifier", getCriticalChance(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.CRITICAL_DAMAGE.getName(), new AttributeModifier(ENDLESS_EDGE_MODIFIER, "Weapon modifier", this.getCriticalDamage(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
-
-
 }
