@@ -213,6 +213,18 @@ public class Damage
 								event.setAmount(event.getAmount() + 0.8F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 								attacker.removePotionEffect(Effects.ASSAULTING);
 								break;
+							case 1:
+								int amplifier = source instanceof IndirectEntityDamageSource?0:1;
+								event.setAmount(event.getAmount() + Convertor.attackDamage(450));
+								target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS,20,amplifier));
+								for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
+								{
+									if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+									{
+										livingentity.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS,20,amplifier));
+									}
+								}
+								break;
 							case 0:
 								event.setAmount(event.getAmount() + 0.5F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue()+ 0.3F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_ATTACK.getName()).getValue());
 								attacker.removePotionEffect(Effects.ASSAULTING);
@@ -257,10 +269,23 @@ public class Damage
 							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
 								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
 							});
-							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,40,2));
+							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,2));
+							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SPEED,40));
 						}
 					}
 					//else if 冰脉
+					else if(attacker.getHeldItemMainhand().getItem() instanceof FrostscarsEmbrace || attacker.getHeldItemOffhand().getItem() instanceof FrostscarsEmbrace)
+					{
+						ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
+						if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
+						{
+							((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),60);
+							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
+								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+							});
+							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,1));
+						}
+					}
 					//else if 光辉之剑
 					else if(attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory || attacker.getHeldItemOffhand().getItem() instanceof SwordOfGlory)
 					{

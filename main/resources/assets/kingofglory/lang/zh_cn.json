@@ -44,6 +44,7 @@
   "item.kingofglory.red_lotus_cape": "红莲斗篷",
   "item.kingofglory.spikemail": "反伤刺甲",
   "item.kingofglory.cuirass_of_savagery": "暴烈之甲",
+  "item.kingofglory.frostscars_embrace": "冰痕之握",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -74,6 +75,7 @@
   "item_effect.kingofglory.red_lotus_cape.0": "唯一被动：献祭",
   "item_effect.kingofglory.spikemail.0": "唯一被动：荆棘",
   "item_effect.kingofglory.cuirass_of_savagery.0": "唯一被动：无畏",
+  "item_effect.kingofglory.frostscars_embrace.0": "唯一被动：强击",
 
 
   "effect.kingofglory.chasing_sun": "逐日",
@@ -85,6 +87,8 @@
   "effect.kingofglory.assaulting": "强击",
   "effect.kingofglory.dispelling": "驱散",
   "effect.kingofglory.cold_iron": "寒铁",
+  "effect.kingofglory.assaulting_slowness": "强击减速",
+  "effect.kingofglory.assaulting_speed": "强击加速",
 
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",
