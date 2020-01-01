@@ -26,9 +26,15 @@ public class Regeneration
 	public static void onLivingHeal(LivingHealEvent event)
 	{
 		//制裁
-		if(event.getEntityLiving().isPotionActive(Effects.SEVERE_WOUND))
+		if (event.getEntityLiving().isPotionActive(Effects.SEVERE_WOUND))
 		{
-			event.setAmount(event.getAmount()/2);
+			event.setAmount(event.getAmount() / 2);
+		}
+		//不死鸟
+		if (event.getEntityLiving().isPotionActive(Effects.ANCESTRY))
+		{
+			float amplifier = 0.06F * (int) ((event.getEntityLiving().getMaxHealth() - event.getEntityLiving().getMaxHealth()) * 10 / event.getEntityLiving().getMaxHealth());
+			event.setAmount(event.getAmount() * (1 + amplifier));
 		}
 	}
 }
