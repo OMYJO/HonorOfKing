@@ -208,7 +208,7 @@ public class Damage
 						switch (attacker.getActivePotionEffect(Effects.ASSAULTING).getAmplifier())
 						{
 							case 2:
-								event.setAmount(event.getAmount() + (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								event.setAmount(event.getAmount() + 0.8F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 								attacker.removePotionEffect(Effects.ASSAULTING);
 								break;
 							case 0:
