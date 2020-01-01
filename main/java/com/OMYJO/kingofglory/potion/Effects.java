@@ -37,6 +37,8 @@ public class Effects
 	public static AssaultingSlowness ASSAULTING_SLOWNESS;
 	@ObjectHolder("assaulting_speed")
 	public static AssaultingSlowness ASSAULTING_SPEED;
+	@ObjectHolder("ice_heart")
+	public static IceHeart ICE_HEART;
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
@@ -53,5 +55,6 @@ public class Effects
 		event.getRegistry().register(new Fearless());
 		event.getRegistry().register(new AssaultingSlowness());
 		event.getRegistry().register(new AssaultingSpeed());
+		event.getRegistry().register(new IceHeart());
 	}
 }

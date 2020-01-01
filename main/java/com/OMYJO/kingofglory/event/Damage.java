@@ -2,6 +2,7 @@ package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.item.armor.CuirassOfSavagery;
+import com.OMYJO.kingofglory.item.armor.GlacialBuckler;
 import com.OMYJO.kingofglory.item.armor.ProtectorsVest;
 import com.OMYJO.kingofglory.item.armor.Spikemail;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
@@ -300,15 +301,13 @@ public class Damage
 						}
 					}
 				}
-
-				//if触发不祥
-				//else if触发守护者
-				if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
-				{
-					attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
-				}
 			}
-
+			//if触发不祥
+			//else if触发守护者
+			if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
+			{
+				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
+			}
 		}
 
 		//抗性计算
@@ -362,7 +361,6 @@ public class Damage
 			event.setAmount(0);
 			return;
 		}
-		//冰心
 		//暴烈之甲触发无畏
 		if(target.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof CuirassOfSavagery)
 		{
@@ -391,7 +389,9 @@ public class Damage
 	@SubscribeEvent
 	public static void onLivingDamage(LivingDamageEvent event)
 	{
+		DamageSource source = event.getSource();
 		Entity entity = event.getSource().getTrueSource();
+		LivingEntity target = event.getEntityLiving();
 		//名刀触发
 		if(event.getAmount() >= event.getEntityLiving().getHealth())
 		{
@@ -420,15 +420,46 @@ public class Damage
 				}
 			}
 		}
+
+		//触发冰心
+		if(event.getAmount()*10>target.getMaxHealth())
+		{
+			if(target.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem() instanceof GlacialBuckler)
+			{
+				ItemStack itemStack = target.getItemStackFromSlot(EquipmentSlotType.LEGS);
+				boolean flag = false;
+				if(target instanceof PlayerEntity)
+				{
+					flag = ((PlayerEntity) target).getCooldownTracker().hasCooldown(itemStack.getItem());
+					if(!flag)
+					{
+						int cooldown = (int)(40 * (1-target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
+						((PlayerEntity) target).getCooldownTracker().setCooldown(itemStack.getItem(),cooldown);
+					}
+				}
+				if (!flag)
+				{
+					for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
+					{
+						if (livingentity != target && !target.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+						{
+							livingentity.attackEntityFrom(new IndirectEntityDamageSource("ice_heart",target,target).setMagicDamage().setDamageBypassesArmor(),Convertor.attackDamage(200));
+							livingentity.addPotionEffect(new EffectInstance(Effects.ICE_HEART,40));
+						}
+					}
+				}
+			}
+		}
+
+
+
 		//反甲
-		DamageSource source = event.getSource();
 		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isMagicDamage())
 		{
 			//nothing to do
 		}
 		else
 		{
-			LivingEntity target = event.getEntityLiving();
 			if(entity instanceof LivingEntity)
 			{
 				LivingEntity attacker = (LivingEntity) entity;

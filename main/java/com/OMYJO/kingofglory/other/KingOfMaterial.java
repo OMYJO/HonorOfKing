@@ -66,7 +66,7 @@ public class KingOfMaterial implements IItemTier, IArmorMaterial
 		return this;
 	}
 
-	public KingOfMaterial setMaxUses(int maxUses)
+	private KingOfMaterial setMaxUses(int maxUses)
 	{
 		this.maxUses = maxUses;
 		return this;
@@ -107,9 +107,16 @@ public class KingOfMaterial implements IItemTier, IArmorMaterial
 		return durability;
 	}
 
-	public void setDurability(int durability)
+	private KingOfMaterial setDurability(int durability)
 	{
 		this.durability = durability;
+		return this;
+	}
+
+	public KingOfMaterial addDurability(int durability)
+	{
+		this.durability += durability;
+		return this;
 	}
 
 	@Override

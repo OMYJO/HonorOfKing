@@ -47,6 +47,7 @@
   "item.kingofglory.frostscars_embrace": "冰痕之握",
   "item.kingofglory.overloads_platemail": "霸者重装",
   "item.kingofglory.sages_sanctuary": "贤者的庇护",
+  "item.kingofglory.glacial_buckler": "极寒风暴",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -80,6 +81,7 @@
   "item_effect.kingofglory.frostscars_embrace.0": "唯一被动：强击",
   "item_effect.kingofglory.overloads_platemail.0": "唯一被动：复苏",
   "item_effect.kingofglory.sages_sanctuary.0": "唯一被动：复生",
+  "item_effect.kingofglory.glacial_buckler.0": "唯一被动：冰心",
 
 
   "effect.kingofglory.chasing_sun": "逐日",
@@ -93,6 +95,7 @@
   "effect.kingofglory.cold_iron": "寒铁",
   "effect.kingofglory.assaulting_slowness": "强击减速",
   "effect.kingofglory.assaulting_speed": "强击加速",
+  "effect.kingofglory.ice_heart": "冰心",
 
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",

@@ -64,5 +64,6 @@ public class Items
 		event.getRegistry().register(new FrostscarsEmbrace());
 		event.getRegistry().register(new OverloadsPlatemail(EquipmentSlotType.LEGS,"overloads_platemail"));
 		event.getRegistry().register(new SagesSanctuary());
+		event.getRegistry().register(new GlacialBuckler(EquipmentSlotType.LEGS,"glacial_buckler"));
 	}
 }
