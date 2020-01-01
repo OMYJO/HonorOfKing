@@ -162,3 +162,4 @@
 强击 Assaulting
 冲击铠甲 Pounding Armor
 冲击（主动） Pounding
+数据面板 Data Panel
