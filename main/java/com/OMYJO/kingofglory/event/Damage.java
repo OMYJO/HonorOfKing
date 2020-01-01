@@ -164,6 +164,11 @@ public class Damage
 								event.setAmount(event.getAmount() + Convertor.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 							//else if 纯净苍穹
+							if (attacker.getHeldItemMainhand().getItem() instanceof PureSky || attacker.getHeldItemOffhand().getItem() instanceof PureSky)
+							{
+								event.setAmount(event.getAmount() + Convertor.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+							}
+							//else if 速击之枪
 							else if (attacker.getHeldItemMainhand().getItem() instanceof SwiftStrikeLance || attacker.getHeldItemOffhand().getItem() instanceof SwiftStrikeLance)
 							{
 								event.setAmount(event.getAmount() + Convertor.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
