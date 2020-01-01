@@ -41,6 +41,8 @@
   "item.kingofglory.fusion_core": "熔炼之心",
   "item.kingofglory.belt_of_might": "力量腰带",
   "item.kingofglory.clandestine_cape": "神隐斗篷",
+  "item.kingofglory.red_lotus_cape": "红莲斗篷",
+  "item.kingofglory.spikemail": "反伤刺甲",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -68,6 +70,8 @@
   "item_effect.kingofglory.sword_of_glory.0": "唯一被动：强击",
   "item_effect.kingofglory.protectors_vest.0": "唯一被动：寒铁",
   "item_effect.kingofglory.fusion_core.0": "唯一被动：献祭",
+  "item_effect.kingofglory.red_lotus_cape.0": "唯一被动：献祭",
+  "item_effect.kingofglory.spikemail.0": "唯一被动：荆棘",
 
 
   "effect.kingofglory.chasing_sun": "逐日",

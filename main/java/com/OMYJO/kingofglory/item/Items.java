@@ -58,5 +58,7 @@ public class Items
 		event.getRegistry().register(new FusionCore(EquipmentSlotType.CHEST,"fusion_core"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"belt_of_might"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"clandestine_cape"));
+		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"red_lotus_cape"));
+		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.LEGS,"spikemail"));
 	}
 }

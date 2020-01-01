@@ -2,6 +2,7 @@ package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.item.armor.ProtectorsVest;
+import com.OMYJO.kingofglory.item.armor.Spikemail;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
@@ -144,7 +145,6 @@ public class Damage
 						}
 					}
 
-
 					//精准
 					{
 						int n = 1;
@@ -177,6 +177,7 @@ public class Damage
 							}
 						}
 					}
+
 					//暴击
 					{
 						double r = Math.random();
@@ -194,7 +195,12 @@ public class Damage
 					//末世
 					if (attacker.getHeldItemMainhand().getItem() instanceof Doomsday || attacker.getHeldItemOffhand().getItem() instanceof Doomsday)
 					{
-						event.setAmount(event.getAmount() + 0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+						float amount =0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+						if(!(target instanceof PlayerEntity))
+						{
+							amount = Math.min(amount,Convertor.attackDamage(80));
+						}
+						event.setAmount(event.getAmount() + amount);
 					}
 
 					//强击：蓝刀4》巫法3》宗师2》冰脉1》光辉0
@@ -230,48 +236,51 @@ public class Damage
 						event.setAmount(event.getAmount()*(1+0.3F));
 					}
 				}
-			}
-			//触发强击
-			if(attacker instanceof PlayerEntity)
-			{
-				//宗师
-				if(attacker.getHeldItemMainhand().getItem() instanceof MasterSword || attacker.getHeldItemOffhand().getItem() instanceof MasterSword)
+
+				//触发强击
+				if(attacker instanceof PlayerEntity)
 				{
-					ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof MasterSword? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
-					if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
+					//宗师
+					if(attacker.getHeldItemMainhand().getItem() instanceof MasterSword || attacker.getHeldItemOffhand().getItem() instanceof MasterSword)
 					{
-						((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
-						itemStack.damageItem(1, attacker, (p_220045_0_) -> {
-						p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-						});
-						attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,40,2));
+						ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof MasterSword? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
+						if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
+						{
+							((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
+							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
+								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+							});
+							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,40,2));
+						}
+					}
+					//else if 冰脉
+					//else if 光辉之剑
+					else if(attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory || attacker.getHeldItemOffhand().getItem() instanceof SwordOfGlory)
+					{
+						ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
+						if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
+						{
+							((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
+							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
+								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+							});
+							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,0));
+						}
 					}
 				}
-				//else if 冰脉
-				else if(attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory || attacker.getHeldItemOffhand().getItem() instanceof SwordOfGlory)
+
+				//if触发不祥
+				//else if触发守护者
+				if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
 				{
-					ItemStack itemStack = attacker.getHeldItemMainhand().getItem() instanceof SwordOfGlory? attacker.getHeldItemMainhand():attacker.getHeldItemOffhand();
-					if(!((PlayerEntity) attacker).getCooldownTracker().hasCooldown(itemStack.getItem()))
-					{
-						((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
-						itemStack.damageItem(1, attacker, (p_220045_0_) -> {
-							p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-						});
-						attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,0));
-					}
+					attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
 				}
 			}
-			//if不祥
-			//else if守护者
-			if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
-			{
-				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
-			}
-			//反甲
+
 		}
 
 		//抗性计算
-		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isUnblockable())
+		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion())
 		{
 			//nothing to do
 		}
@@ -309,10 +318,17 @@ public class Damage
 			}
 		}
 		//冰心
-		//苍穹
+		//苍穹驱散
+		if(event.getEntityLiving().isPotionActive(Effects.DISPELLING))
+		{
+			event.setAmount(event.getAmount()/2);
+		}
+		//名刀
 		if(event.getEntityLiving().isPotionActive(Effects.DARK_CURTAIN))
 		{
 			event.setCanceled(true);
+			event.setAmount(0);
+			return;
 		}
 	}
 
@@ -329,6 +345,7 @@ public class Damage
 	public static void onLivingDamage(LivingDamageEvent event)
 	{
 		Entity entity = event.getSource().getTrueSource();
+		//名刀触发
 		if(event.getAmount() >= event.getEntityLiving().getHealth())
 		{
 			if(event.getEntityLiving().getHeldItemMainhand().getItem() instanceof Destiny || event.getEntityLiving().getHeldItemOffhand().getItem() instanceof Destiny)
@@ -351,16 +368,42 @@ public class Damage
 				if(flag)
 				{
 					event.setCanceled(true);
+					event.setAmount(0);
 					return;
 				}
 			}
-
 		}
+		//反甲
+		DamageSource source = event.getSource();
+		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isMagicDamage())
+		{
+			//nothing to do
+		}
+		else
+		{
+			LivingEntity target = event.getEntityLiving();
+			if(entity instanceof LivingEntity)
+			{
+				LivingEntity attacker = (LivingEntity) entity;
+				if(target.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem() instanceof Spikemail)
+				{
+					float up = 0.2F;
+					up += 0.01F * target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue()/20;
+					up = Math.min(up,0.4F);
+					float down = 1F;
+					down -= 0.3F * target.getDistance(attacker)/16;
+					down = Math.max(down,0.7F);
+					attacker.attackEntityFrom(new IndirectEntityDamageSource("thorns",target,target).setMagicDamage().setDamageBypassesArmor(),event.getAmount()*up*down);
+				}
+			}
+		}
+
+
+		//吸血
 		if(entity instanceof LivingEntity)
 		{
 			LivingEntity attacker = (LivingEntity)entity;
-			DamageSource source = event.getSource();
-			if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isUnblockable())
+			if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion())
 			{
 				//nothing to do
 			}
@@ -386,7 +429,6 @@ public class Damage
 	public static void onLivingDeath(LivingDeathEvent event)
 	{
 		LivingEntity livingEntity = event.getEntityLiving();
-		//触发名刀
 		//触发复活甲
 	}
 }
