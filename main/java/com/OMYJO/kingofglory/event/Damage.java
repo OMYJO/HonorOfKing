@@ -1,14 +1,11 @@
 package com.OMYJO.kingofglory.event;
 
-import com.OMYJO.kingofglory.KingOfGlory;
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
-import com.OMYJO.kingofglory.potion.Assaulting;
-import com.OMYJO.kingofglory.potion.CrushingIce;
 import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -20,17 +17,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShootableItem;
-import net.minecraft.item.SwordItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -104,7 +98,7 @@ public class Damage
 								flag = ((PlayerEntity) attacker).getCooldownTracker().hasCooldown(sparkForgedDagger);
 								if(!flag)
 								{
-									int cooldown = (int)(10 * (1-attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOLDOWN_REDUCTION.getName()).getValue()));
+									int cooldown = (int)(10 * (1-attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
 									((PlayerEntity) attacker).getCooldownTracker().setCooldown(sparkForgedDagger,cooldown);
 								}
 							}
