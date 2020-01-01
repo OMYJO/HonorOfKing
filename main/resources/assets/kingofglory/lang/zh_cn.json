@@ -45,6 +45,7 @@
   "item.kingofglory.spikemail": "反伤刺甲",
   "item.kingofglory.cuirass_of_savagery": "暴烈之甲",
   "item.kingofglory.frostscars_embrace": "冰痕之握",
+  "item.kingofglory.overloads_platemail": "霸者重装",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -76,6 +77,7 @@
   "item_effect.kingofglory.spikemail.0": "唯一被动：荆棘",
   "item_effect.kingofglory.cuirass_of_savagery.0": "唯一被动：无畏",
   "item_effect.kingofglory.frostscars_embrace.0": "唯一被动：强击",
+  "item_effect.kingofglory.overloads_platemail.0": "唯一被动：复苏",
 
 
   "effect.kingofglory.chasing_sun": "逐日",
