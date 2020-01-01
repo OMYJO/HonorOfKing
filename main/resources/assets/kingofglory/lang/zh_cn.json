@@ -43,6 +43,7 @@
   "item.kingofglory.clandestine_cape": "神隐斗篷",
   "item.kingofglory.red_lotus_cape": "红莲斗篷",
   "item.kingofglory.spikemail": "反伤刺甲",
+  "item.kingofglory.cuirass_of_savagery": "暴烈之甲",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -72,6 +73,7 @@
   "item_effect.kingofglory.fusion_core.0": "唯一被动：献祭",
   "item_effect.kingofglory.red_lotus_cape.0": "唯一被动：献祭",
   "item_effect.kingofglory.spikemail.0": "唯一被动：荆棘",
+  "item_effect.kingofglory.cuirass_of_savagery.0": "唯一被动：无畏",
 
 
   "effect.kingofglory.chasing_sun": "逐日",

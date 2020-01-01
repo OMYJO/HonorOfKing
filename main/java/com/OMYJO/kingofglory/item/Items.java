@@ -60,5 +60,6 @@ public class Items
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"clandestine_cape"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"red_lotus_cape"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.LEGS,"spikemail"));
+		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.HEAD,"cuirass_of_savagery"));
 	}
 }

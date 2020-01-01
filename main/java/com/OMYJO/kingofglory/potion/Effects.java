@@ -31,6 +31,8 @@ public class Effects
 	public static Dispelling DISPELLING;
 	@ObjectHolder("cold_iron")
 	public static ColdIron COLD_IRON;
+	@ObjectHolder("fearless")
+	public static Fearless FEARLESS;
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
@@ -44,5 +46,6 @@ public class Effects
 		event.getRegistry().register(new Assaulting());
 		event.getRegistry().register(new Dispelling());
 		event.getRegistry().register(new ColdIron());
+		event.getRegistry().register(new Fearless());
 	}
 }

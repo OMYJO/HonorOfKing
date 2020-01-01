@@ -26,16 +26,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class RedLotusCape extends KingOfArmor implements KingOfItem
+public class CuirassOfSavagery extends KingOfArmor implements KingOfItem
 {
 	private float maxHealth = Convertor.maxHealth(1000);
-	private float armor = 240;
+	private float armor = 220;
 	private final UUID maxHealthModifier = UUID.randomUUID();
 	private final UUID armorModifier = UUID.randomUUID();
 
-	public RedLotusCape(EquipmentSlotType slot, String registryName)
+	public CuirassOfSavagery(EquipmentSlotType slot, String registryName)
 	{
-		super(new KingOfMaterial().setName("red_lotus_cape"), slot, Rarity.RARE);
+		super(new KingOfMaterial().setName("cuirass_of_savagery"), slot, Rarity.RARE);
 		setRegistryName(registryName);
 	}
 
@@ -92,29 +92,5 @@ public class RedLotusCape extends KingOfArmor implements KingOfItem
 				return null;
 			}
 		});
-	}
-
-	/**
-	 * Called to tick armor in the armor slot. Override to do something
-	 *
-	 * @param stack
-	 * @param world
-	 * @param player
-	 */
-	@Override
-	public void onArmorTick(ItemStack stack, World world, PlayerEntity player)
-	{
-		super.onArmorTick(stack, world, player);
-		long time = world.getDayTime();
-		if(time % 20 == 0)
-		{
-			for (LivingEntity livingentity : player.world.getEntitiesWithinAABB(LivingEntity.class, player.getBoundingBox().grow(2.0D, 0.5D, 2D)))
-			{
-				if (livingentity != player && !player.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
-				{
-					livingentity.attackEntityFrom(new IndirectEntityDamageSource("sacrifice", player, player).setMagicDamage().setDamageBypassesArmor(), 0.02F * player.getMaxHealth());
-				}
-			}
-		}
 	}
 }

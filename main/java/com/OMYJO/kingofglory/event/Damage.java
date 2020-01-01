@@ -1,6 +1,7 @@
 package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
+import com.OMYJO.kingofglory.item.armor.CuirassOfSavagery;
 import com.OMYJO.kingofglory.item.armor.ProtectorsVest;
 import com.OMYJO.kingofglory.item.armor.Spikemail;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
@@ -236,6 +237,12 @@ public class Damage
 						event.setAmount(event.getAmount()*(1+0.3F));
 					}
 				}
+				//无畏
+				if(attacker.isPotionActive(Effects.FEARLESS))
+				{
+					event.setAmount(event.getAmount() * (1 + (0.02F * attacker.getActivePotionEffect(Effects.FEARLESS).getAmplifier() + 1)));
+				}
+
 
 				//触发强击
 				if(attacker instanceof PlayerEntity)
@@ -317,7 +324,7 @@ public class Damage
 				event.setAmount(event.getAmount() * 602 / (float) (armor + 602));
 			}
 		}
-		//冰心
+
 		//苍穹驱散
 		if(event.getEntityLiving().isPotionActive(Effects.DISPELLING))
 		{
@@ -330,6 +337,21 @@ public class Damage
 			event.setAmount(0);
 			return;
 		}
+		//冰心
+		//暴烈之甲触发无畏
+		if(target.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof CuirassOfSavagery)
+		{
+			if(target.getActivePotionEffect(Effects.FEARLESS) == null)
+			{
+				target.addPotionEffect(new EffectInstance(Effects.FEARLESS,60));
+			}
+			else
+			{
+				int amplifier = target.getActivePotionEffect(Effects.FEARLESS).getAmplifier();
+				target.addPotionEffect(new EffectInstance(Effects.FEARLESS,60,Math.min(4,amplifier+1)));
+			}
+		}
+
 	}
 
 	@SubscribeEvent
