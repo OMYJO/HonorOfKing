@@ -129,7 +129,7 @@
 
 红玛瑙 Resilient Agate
 布甲 Cloth Jerkin
-抗魔披风 Ani-mage Cloak
+抗魔披风 Anti-mage Cloak
 提神水晶 Revitalizing Crystal
 力量腰带 Belt of Might
 熔炼之心 Fusion Core
