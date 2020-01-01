@@ -48,6 +48,7 @@ public class Items
 
 		event.getRegistry().register(new SparkingSapphire());
 		event.getRegistry().register(new SwordOfGlory());
+		event.getRegistry().register(new AlchemyTailsman());
 
 		event.getRegistry().register(new ClothJerkin(EquipmentSlotType.CHEST,"cloth_jerkin"));
 		event.getRegistry().register(new RevitalizingCrystal());
