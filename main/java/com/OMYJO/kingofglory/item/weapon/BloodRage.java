@@ -3,14 +3,19 @@ package com.OMYJO.kingofglory.item.weapon;
 import com.OMYJO.kingofglory.other.Convertor;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.OMYJO.kingofglory.potion.Effects;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.Rarity;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
@@ -20,21 +25,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-public class SwordOfGlory extends KingOfWeapon
+public class BloodRage extends KingOfWeapon
 {
-	private float maxHealth = Convertor.maxHealth(400);
-	private float mana = Convertor.maxMana(400);
+	private float attackDamage = Convertor.attackDamage(20);
+	private float maxHealth = Convertor.maxHealth(1000);
+	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
-	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
-	public SwordOfGlory()
+	public BloodRage()
 	{
-		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.UNCOMMON);
+		super(new KingOfMaterial(), Rarity.UNCOMMON);
+		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		manaModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("sword_of_glory");
+		setRegistryName("blood_rage");
 	}
 
 	/**
@@ -66,15 +71,15 @@ public class SwordOfGlory extends KingOfWeapon
 	}
 
 	@Override
-	public float getMaxHealth()
+	public float getAttackDamage()
 	{
-		return maxHealth;
+		return attackDamage;
 	}
 
 	@Override
-	public float getMana()
+	public float getMaxHealth()
 	{
-		return mana;
+		return maxHealth;
 	}
 
 	/**
@@ -88,9 +93,34 @@ public class SwordOfGlory extends KingOfWeapon
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.MAX_MANA.getName(), new AttributeModifier(manaModifierMap.get(equipmentSlot), "Weapon modifier", getMana(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
+
+	/**
+	 * Called when this item is used when targetting a Block
+	 *
+	 * @param context
+	 */
+	@Override
+	public ActionResultType onItemUse(ItemUseContext context)
+	{
+		ItemStack stack = context.getItem();
+		if(stack.getDamage() * 2 < stack.getMaxDamage())
+		{
+			PlayerEntity playerentity = context.getPlayer();
+			playerentity.addPotionEffect(new EffectInstance(Effects.BLOOD_RAGE,80));
+			stack.damageItem(stack.getMaxDamage()/2, playerentity, (p_220009_1_) -> {
+				p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
+			});
+			return ActionResultType.SUCCESS;
+		}
+		else
+		{
+			return ActionResultType.FAIL;
+		}
+	}
+
 }

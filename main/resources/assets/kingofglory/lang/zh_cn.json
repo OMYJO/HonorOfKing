@@ -51,6 +51,7 @@
   "item.kingofglory.eye_of_the_phoenix": "不死鸟之眼",
   "item.kingofglory.succubus_cloak": "魔女斗篷",
   "item.kingofglory.ominous_premonition": "不祥征兆",
+  "item.kingofglory.blood_rage": "血魔之怒",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -88,6 +89,7 @@
   "item_effect.kingofglory.eye_of_the_phoenix.0": "唯一被动：血统",
   "item_effect.kingofglory.succubus_cloak.0": "唯一被动：迷雾",
   "item_effect.kingofglory.ominous_premonition.0": "唯一被动：寒铁",
+  "item_effect.kingofglory.blood_rage.0": "唯一被动：血怒",
 
 
   "effect.kingofglory.chasing_sun": "逐日",
@@ -98,11 +100,13 @@
   "effect.kingofglory.storm": "暴风",
   "effect.kingofglory.assaulting": "强击",
   "effect.kingofglory.dispelling": "驱散",
+  "effect.kingofglory.fearless": "无畏",
   "effect.kingofglory.cold_iron": "寒铁",
   "effect.kingofglory.assaulting_slowness": "强击减速",
   "effect.kingofglory.assaulting_speed": "强击加速",
   "effect.kingofglory.ice_heart": "冰心",
   "effect.kingofglory.ancestry": "血统",
+  "effect.kingofglory.blood_rage": "血怒",
 
 
   "attribute.name.kingofglory.magicAttack": "法术攻击",

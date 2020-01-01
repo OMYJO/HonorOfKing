@@ -57,10 +57,10 @@ public class Items
 		event.getRegistry().register(new FrostholdTarge());
 		event.getRegistry().register(new FusionCore(EquipmentSlotType.CHEST,"fusion_core"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"belt_of_might"));
-		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"clandestine_cape"));
-		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"red_lotus_cape"));
-		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.LEGS,"spikemail"));
-		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.HEAD,"cuirass_of_savagery"));
+		event.getRegistry().register(new ClandestineCape(EquipmentSlotType.CHEST,"clandestine_cape"));
+		event.getRegistry().register(new RedLotusCape(EquipmentSlotType.CHEST,"red_lotus_cape"));
+		event.getRegistry().register(new Spikemail(EquipmentSlotType.LEGS,"spikemail"));
+		event.getRegistry().register(new CuirassOfSavagery(EquipmentSlotType.HEAD,"cuirass_of_savagery"));
 		event.getRegistry().register(new FrostscarsEmbrace());
 		event.getRegistry().register(new OverloadsPlatemail(EquipmentSlotType.LEGS,"overloads_platemail"));
 		event.getRegistry().register(new SagesSanctuary());

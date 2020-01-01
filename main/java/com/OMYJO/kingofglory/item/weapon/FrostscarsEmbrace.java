@@ -29,6 +29,7 @@ public class FrostscarsEmbrace extends KingOfWeapon
 	private final HashMap<EquipmentSlotType, UUID> coolDownReductionModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> armorModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
 	public FrostscarsEmbrace()
 	{
@@ -39,6 +40,8 @@ public class FrostscarsEmbrace extends KingOfWeapon
 		armorModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("frostscars_embrace");
 	}
 
@@ -108,6 +111,7 @@ public class FrostscarsEmbrace extends KingOfWeapon
 			multimap.put(SharedKingAttributes.COOL_DOWN_REDUCTION.getName(), new AttributeModifier(coolDownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCoolDownReduction(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.ARMOR.getName(), new AttributeModifier(armorModifierMap.get(equipmentSlot), "Weapon modifier", getArmor(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.MAX_MANA.getName(), new AttributeModifier(manaModifierMap.get(equipmentSlot), "Weapon modifier", getMana(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

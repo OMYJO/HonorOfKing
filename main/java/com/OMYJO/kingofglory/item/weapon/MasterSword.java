@@ -29,6 +29,7 @@ public class MasterSword extends KingOfWeapon
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> criticalChanceModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
 	public MasterSword()
 	{
@@ -39,6 +40,8 @@ public class MasterSword extends KingOfWeapon
 		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("master_sword");
 	}
 
@@ -108,6 +111,7 @@ public class MasterSword extends KingOfWeapon
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.CRITICAL_CHANCE.getName(), new AttributeModifier(criticalChanceModifierMap.get(equipmentSlot), "Weapon modifier", getCriticalChance(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.MAX_MANA.getName(), new AttributeModifier(manaModifierMap.get(equipmentSlot), "Weapon modifier", getMana(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

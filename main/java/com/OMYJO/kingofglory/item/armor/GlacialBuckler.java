@@ -28,6 +28,7 @@ public class GlacialBuckler extends KingOfArmor implements KingOfItem
 	private float mana = Convertor.maxMana(500);
 	private final UUID ArmorModifier = UUID.randomUUID();
 	private final UUID coolDownReductionModifier = UUID.randomUUID();
+	private final UUID manaModifier = UUID.randomUUID();
 
 	public GlacialBuckler(EquipmentSlotType slot, String registryName)
 	{
@@ -66,6 +67,7 @@ public class GlacialBuckler extends KingOfArmor implements KingOfItem
 		{
 			multimap.put(SharedKingAttributes.ARMOR.getName(),new AttributeModifier(ArmorModifier,"Armor modifier",getArmor(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.COOL_DOWN_REDUCTION.getName(),new AttributeModifier(coolDownReductionModifier,"Armor modifier",getCoolDownReduction(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.MAX_MANA.getName(),new AttributeModifier(manaModifier,"Armor modifier",getMana(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

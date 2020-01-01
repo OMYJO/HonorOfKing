@@ -23,10 +23,13 @@ import java.util.UUID;
 public class SparkingSapphire extends KingOfWeapon
 {
 	private float mana = Convertor.maxMana(300);
+	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
 	public SparkingSapphire()
 	{
 		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(300)), Rarity.COMMON);
+		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("sparking_sapphire");
 	}
 
@@ -48,5 +51,21 @@ public class SparkingSapphire extends KingOfWeapon
 	public float getMana()
 	{
 		return mana;
+	}
+
+	/**
+	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
+	 *
+	 * @param equipmentSlot
+	 */
+	@Override
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
+	{
+		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
+		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
+		{
+			multimap.put(SharedKingAttributes.MAX_MANA.getName(), new AttributeModifier(manaModifierMap.get(equipmentSlot), "Weapon modifier", getMana(), AttributeModifier.Operation.ADDITION));
+		}
+		return multimap;
 	}
 }

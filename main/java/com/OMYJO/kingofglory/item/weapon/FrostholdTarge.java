@@ -24,14 +24,17 @@ public class FrostholdTarge extends KingOfWeapon
 	private float mana = Convertor.maxMana(400);
 	private final HashMap<EquipmentSlotType, UUID> coolDownReductionModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> armorModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
 	public FrostholdTarge()
 	{
-		super(new KingOfMaterial().setMaxUses(Convertor.maxMana(400)), Rarity.UNCOMMON);
+		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.UNCOMMON);
 		coolDownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		coolDownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		armorModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		armorModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		manaModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("frosthold_targe");
 	}
 
@@ -80,6 +83,7 @@ public class FrostholdTarge extends KingOfWeapon
 		{
 			multimap.put(SharedKingAttributes.COOL_DOWN_REDUCTION.getName(), new AttributeModifier(coolDownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCoolDownReduction(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.ARMOR.getName(),new AttributeModifier(armorModifierMap.get(equipmentSlot),"Weapon modifier",getArmor(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.MAX_MANA.getName(), new AttributeModifier(manaModifierMap.get(equipmentSlot), "Weapon modifier", getMana(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
