@@ -92,7 +92,7 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker);
+	//boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker);
 
 	/**
 	 * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
