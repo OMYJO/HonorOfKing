@@ -476,6 +476,12 @@ public class Damage
 	public static void onLivingDeath(LivingDeathEvent event)
 	{
 		LivingEntity livingEntity = event.getEntityLiving();
-		//触发复活甲
+		if (event.getEntityLiving().getHeldItemMainhand().getItem() instanceof SagesSanctuary || event.getEntityLiving().getHeldItemOffhand().getItem() instanceof SagesSanctuary)
+		{
+			ItemStack itemStack = event.getEntityLiving().getHeldItemMainhand().getItem() instanceof SagesSanctuary ? event.getEntityLiving().getHeldItemMainhand() : event.getEntityLiving().getHeldItemOffhand();
+			event.setCanceled(true);
+			livingEntity.setHealth(Convertor.maxHealth(2000 + 1500));
+			itemStack.shrink(1);
+		}
 	}
 }

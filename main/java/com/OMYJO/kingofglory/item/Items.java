@@ -62,5 +62,7 @@ public class Items
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.LEGS,"spikemail"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.HEAD,"cuirass_of_savagery"));
 		event.getRegistry().register(new FrostscarsEmbrace());
+		event.getRegistry().register(new OverloadsPlatemail(EquipmentSlotType.LEGS,"overloads_platemail"));
+		event.getRegistry().register(new SagesSanctuary());
 	}
 }
