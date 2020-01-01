@@ -69,5 +69,13 @@ public class Items
 		event.getRegistry().register(new EyeOfThePhoenix(EquipmentSlotType.HEAD,"eye_of_the_phoenix"));
 		event.getRegistry().register(new SuccubusCloak(EquipmentSlotType.CHEST,"succubus_cloak"));
 		event.getRegistry().register(new OminousPremonition(EquipmentSlotType.HEAD,"ominous_premonition"));
+
+		event.getRegistry().register(new BootsOfDivineSpeed());
+		event.getRegistry().register(new BootsOfDeftness());
+		event.getRegistry().register(new BootsOfDexterity());
+		event.getRegistry().register(new BootsOfTheArcane());
+		event.getRegistry().register(new BootsOfTranquility());
+		event.getRegistry().register(new BootsOfResistance());
+		event.getRegistry().register(new BootsOfForitude());
 	}
 }

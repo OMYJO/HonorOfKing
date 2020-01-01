@@ -230,6 +230,10 @@ public class Damage
 								break;
 						}
 					}
+					if(target.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() instanceof BootsOfForitude)
+					{
+						event.setAmount(event.getAmount()*(1-0.15F));
+					}
 				}
 				else
 				{

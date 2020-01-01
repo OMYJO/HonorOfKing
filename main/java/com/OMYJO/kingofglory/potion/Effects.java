@@ -43,6 +43,8 @@ public class Effects
 	public static Ancestry ANCESTRY;
 	@ObjectHolder("blood_rage")
 	public static BloodRage BLOOD_RAGE;
+	@ObjectHolder("marvellous_speed")
+	public static MarvellousSpeed MARVELLOUS_SPEED;
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
@@ -62,5 +64,6 @@ public class Effects
 		event.getRegistry().register(new IceHeart());
 		event.getRegistry().register(new Ancestry());
 		event.getRegistry().register(new BloodRage());
+		event.getRegistry().register(new MarvellousSpeed());
 	}
 }
