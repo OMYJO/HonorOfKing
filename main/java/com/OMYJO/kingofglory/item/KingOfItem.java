@@ -51,7 +51,7 @@ public interface KingOfItem
 	}
 
 	default float getMaxHealth() { return 0F; }
-	
+
 	default float getMana() { return 0F; }
 
 	default float getCoolDownReduction()

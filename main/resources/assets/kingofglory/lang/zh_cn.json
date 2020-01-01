@@ -23,7 +23,7 @@
   "item.kingofglory.endless_edge": "无尽战刃",
   "item.kingofglory.doomsday": "末世",
   "item.kingofglory.pure_sky": "纯净苍穹",
-  "item.kingofglory.siege_Breaker": "破军",
+  "item.kingofglory.siege_breaker": "破军",
 
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
@@ -37,6 +37,8 @@
   "item.kingofglory.anti-mage_cloak": "抗魔披风",
   "item.kingofglory.resilient_agate": "红玛瑙",
   "item.kingofglory.protectors_vest": "守护者之铠",
+  "item.kingofglory.frosthold_targe": "雪山圆盾",
+  "item.kingofglory.fusion_core": "熔炼之心",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -63,6 +65,7 @@
   "item_effect.kingofglory.siege_breaker.0": "唯一被动：破军",
   "item_effect.kingofglory.sword_of_glory.0": "唯一被动：强击",
   "item_effect.kingofglory.protectors_vest.0": "唯一被动：寒铁",
+  "item_effect.kingofglory.fusion_core.0": "唯一被动：献祭",
 
 
   "effect.kingofglory.chasing_sun": "逐日",

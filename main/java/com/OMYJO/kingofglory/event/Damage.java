@@ -383,7 +383,7 @@ public class Damage
 	}
 
 	@SubscribeEvent
-	public void onLivingDeath(LivingDeathEvent event)
+	public static void onLivingDeath(LivingDeathEvent event)
 	{
 		LivingEntity livingEntity = event.getEntityLiving();
 		//触发名刀
