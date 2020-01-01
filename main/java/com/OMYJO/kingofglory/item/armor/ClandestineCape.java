@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,8 +22,8 @@ import java.util.UUID;
 public class ClandestineCape extends KingOfArmor implements KingOfItem
 {
 	private float magicDefence = 120;
-	private float maxHealth = Convertor.maxHealth(700);
-	private float HPPer5Seconds = Convertor.maxHealth(50);
+	private float maxHealth = Helper.maxHealth(700);
+	private float HPPer5Seconds = Helper.maxHealth(50);
 	private final UUID maxHealthModifier = UUID.randomUUID();
 	private final UUID magicDefenceModifier = UUID.randomUUID();
 	private final UUID HPPer5SecondsModifier = UUID.randomUUID();

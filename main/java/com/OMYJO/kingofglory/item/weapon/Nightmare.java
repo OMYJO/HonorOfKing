@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,8 +22,8 @@ import java.util.UUID;
 
 public class Nightmare extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(85);
-	private float maxHealth = Convertor.maxHealth(500);
+	private float attackDamage = Helper.attackDamage(85);
+	private float maxHealth = Helper.maxHealth(500);
 	private float coolDownReduction = 0.15F;
 	private float armorPierce = 170;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();

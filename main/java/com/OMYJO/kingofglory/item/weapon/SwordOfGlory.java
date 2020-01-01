@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,14 +22,14 @@ import java.util.UUID;
 
 public class SwordOfGlory extends KingOfWeapon
 {
-	private float maxHealth = Convertor.maxHealth(400);
-	private float mana = Convertor.maxMana(400);
+	private float maxHealth = Helper.maxHealth(400);
+	private float mana = Helper.maxMana(400);
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
 	public SwordOfGlory()
 	{
-		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.UNCOMMON);
+		super(new KingOfMaterial().addMaxUses(Helper.maxMana(400)), Rarity.UNCOMMON);
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

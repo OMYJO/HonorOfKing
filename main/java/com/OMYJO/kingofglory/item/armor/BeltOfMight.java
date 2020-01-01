@@ -1,23 +1,16 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.item.ArmorStandEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
-import net.minecraft.util.IndirectEntityDamageSource;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -28,7 +21,7 @@ import java.util.UUID;
 
 public class BeltOfMight extends KingOfArmor implements KingOfItem
 {
-	private float maxHealth = Convertor.maxHealth(1000);
+	private float maxHealth = Helper.maxHealth(1000);
 	private final UUID maxHealthModifier = UUID.randomUUID();
 
 	public BeltOfMight(EquipmentSlotType slot, String registryName)

@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class ThunderclapBrand extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(40);
+	private float attackDamage = Helper.attackDamage(40);
 	private final HashMap<EquipmentSlotType,UUID> attackDamageModifierMap = new HashMap<>();
 
 	@Override

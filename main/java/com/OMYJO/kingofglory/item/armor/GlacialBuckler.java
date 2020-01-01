@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -25,14 +25,14 @@ public class GlacialBuckler extends KingOfArmor implements KingOfItem
 {
 	private float armor = 360F;
 	private float coolDownReduction = 0.2F;
-	private float mana = Convertor.maxMana(500);
+	private float mana = Helper.maxMana(500);
 	private final UUID ArmorModifier = UUID.randomUUID();
 	private final UUID coolDownReductionModifier = UUID.randomUUID();
 	private final UUID manaModifier = UUID.randomUUID();
 
 	public GlacialBuckler(EquipmentSlotType slot, String registryName)
 	{
-		super(new KingOfMaterial().setName("glacial_buckler").addDurability(Convertor.maxMana(500)), slot, Rarity.RARE);
+		super(new KingOfMaterial().setName("glacial_buckler").addDurability(Helper.maxMana(500)), slot, Rarity.RARE);
 		setRegistryName(registryName);
 	}
 

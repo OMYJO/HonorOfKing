@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -19,7 +19,7 @@ import java.util.UUID;
 
 public class RevitalizingCrystal extends KingOfWeapon
 {
-	private float HPPer5Second = Convertor.maxHealth(30);
+	private float HPPer5Second = Helper.maxHealth(30);
 	private final HashMap<EquipmentSlotType, UUID> HPPer5SecondsModifierMap = new HashMap<>();
 
 	public RevitalizingCrystal()

@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.item.bow.CloudPiercingBow;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -23,7 +23,7 @@ import java.util.UUID;
 
 public class BrokenStarMace extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(80);
+	private float attackDamage = Helper.attackDamage(80);
 	private float coolDownReduction = 0.1F;
 	private float armorPierce = 0.4F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();

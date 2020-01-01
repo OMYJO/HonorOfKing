@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
@@ -23,8 +23,8 @@ import java.util.UUID;
 
 public class SunglowStriker extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(10);
-	private float maxHealth = Convertor.maxHealth(300);
+	private float attackDamage = Helper.attackDamage(10);
+	private float maxHealth = Helper.maxHealth(300);
 	private final HashMap<EquipmentSlotType,UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType,UUID> maxHealthModifierMap = new HashMap<>();
 

@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -24,8 +24,8 @@ public class FrostscarsEmbrace extends KingOfWeapon
 {
 	private float coolDownReduction = 0.1F;
 	private float armor = 240;
-	private float maxHealth = Convertor.maxHealth(800);
-	private float mana = Convertor.maxMana(500);
+	private float maxHealth = Helper.maxHealth(800);
+	private float mana = Helper.maxMana(500);
 	private final HashMap<EquipmentSlotType, UUID> coolDownReductionModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> armorModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
@@ -33,7 +33,7 @@ public class FrostscarsEmbrace extends KingOfWeapon
 
 	public FrostscarsEmbrace()
 	{
-		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(500)), Rarity.RARE);
+		super(new KingOfMaterial().addMaxUses(Helper.maxMana(500)), Rarity.RARE);
 		coolDownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		coolDownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		armorModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

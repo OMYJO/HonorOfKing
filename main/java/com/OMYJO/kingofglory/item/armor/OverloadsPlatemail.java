@@ -1,22 +1,18 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.item.ArmorStandEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
-import net.minecraft.util.IndirectEntityDamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
@@ -29,8 +25,8 @@ import java.util.UUID;
 
 public class OverloadsPlatemail extends KingOfArmor implements KingOfItem
 {
-	private float maxHealth = Convertor.maxHealth(2000);
-	private float HPPer5Seconds = Convertor.maxHealth(100);
+	private float maxHealth = Helper.maxHealth(2000);
+	private float HPPer5Seconds = Helper.maxHealth(100);
 	private final UUID maxHealthModifier = UUID.randomUUID();
 	private final UUID HPPer5SecondsModifier = UUID.randomUUID();
 
@@ -110,7 +106,7 @@ public class OverloadsPlatemail extends KingOfArmor implements KingOfItem
 	{
 		super.onArmorTick(stack, world, player);
 		long time = world.getDayTime();
-		if(time % 20 == 0 && player.getRevengeTarget() == null)
+		if(time % 20 == 0 && Helper.getEscapeTime(player) > 0)
 		{
 			player.heal(player.getMaxHealth() * 0.03F);
 		}

@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.bow;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class CloudPiercingBow extends KingOfBow
 {
-	private float attackDamage = Convertor.attackDamage(40);
+	private float attackDamage = Helper.attackDamage(40);
 	private float attackSpeed = 0.1F;
 	private float armorPierce = 0.1F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();

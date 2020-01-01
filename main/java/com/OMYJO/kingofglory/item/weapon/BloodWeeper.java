@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class BloodWeeper extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(100);
+	private float attackDamage = Helper.attackDamage(100);
 	private float lifeSteal = 0.25F;
 	private final HashMap<EquipmentSlotType,UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType,UUID> lifeStealModifierMap = new HashMap<>();

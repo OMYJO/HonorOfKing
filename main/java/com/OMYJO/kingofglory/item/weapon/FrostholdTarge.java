@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -21,14 +21,14 @@ public class FrostholdTarge extends KingOfWeapon
 {
 	private float coolDownReduction = 0.1F;
 	private float armor = 110;
-	private float mana = Convertor.maxMana(400);
+	private float mana = Helper.maxMana(400);
 	private final HashMap<EquipmentSlotType, UUID> coolDownReductionModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> armorModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> manaModifierMap = new HashMap<>();
 
 	public FrostholdTarge()
 	{
-		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.UNCOMMON);
+		super(new KingOfMaterial().addMaxUses(Helper.maxMana(400)), Rarity.UNCOMMON);
 		coolDownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		coolDownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		armorModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

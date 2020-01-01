@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -25,7 +25,7 @@ import java.util.UUID;
 
 public class SuccubusCloak extends KingOfArmor implements KingOfItem
 {
-	private float maxHealth = Convertor.maxHealth(1000);
+	private float maxHealth = Helper.maxHealth(1000);
 	private float magicDefence = 360;
 	private final UUID maxHealthModifier = UUID.randomUUID();
 	private final UUID magicDefenceModifier = UUID.randomUUID();
@@ -108,11 +108,11 @@ public class SuccubusCloak extends KingOfArmor implements KingOfItem
 		super.onArmorTick(stack, world, player);
 		if(player.getRevengeTarget() == null)
 		{
-			if(player.ticksExisted - player.getRevengeTimer() > 60)
+			if(Helper.getEscapeTime(player) > 60)
 			{
-				if(player.getAbsorptionAmount() < Convertor.maxHealth(200+15*120))
+				if(player.getAbsorptionAmount() < Helper.maxHealth(200+15*120))
 				{
-					player.setAbsorptionAmount(Convertor.maxHealth(200+15*120));
+					player.setAbsorptionAmount(Helper.maxHealth(200+15*120));
 				}
 			}
 		}

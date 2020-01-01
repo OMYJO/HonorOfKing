@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -9,7 +9,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
@@ -25,9 +24,9 @@ import java.util.UUID;
 
 public class EyeOfThePhoenix extends KingOfArmor implements KingOfItem
 {
-	private float maxHealth = Convertor.maxHealth(1200);
+	private float maxHealth = Helper.maxHealth(1200);
 	private float magicDefence = 240;
-	private float HPPer5Seconds = Convertor.maxHealth(100);
+	private float HPPer5Seconds = Helper.maxHealth(100);
 	private final UUID maxHealthModifier = UUID.randomUUID();
 	private final UUID magicDefenceModifier = UUID.randomUUID();
 	private final UUID HPPer5SecondsModifier = UUID.randomUUID();

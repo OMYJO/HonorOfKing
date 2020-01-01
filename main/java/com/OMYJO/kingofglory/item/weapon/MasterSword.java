@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,10 +22,10 @@ import java.util.UUID;
 
 public class MasterSword extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(60);
+	private float attackDamage = Helper.attackDamage(60);
 	private float criticalChance = 0.2F;
-	private float maxHealth = Convertor.maxHealth(400);
-	private float mana = Convertor.maxMana(400);
+	private float maxHealth = Helper.maxHealth(400);
+	private float mana = Helper.maxMana(400);
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> criticalChanceModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
@@ -33,7 +33,7 @@ public class MasterSword extends KingOfWeapon
 
 	public MasterSword()
 	{
-		super(new KingOfMaterial().addMaxUses(Convertor.maxMana(400)), Rarity.RARE);
+		super(new KingOfMaterial().addMaxUses(Helper.maxMana(400)), Rarity.RARE);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

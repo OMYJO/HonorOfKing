@@ -24,7 +24,7 @@ public class SharedKingAttributes extends SharedMonsterAttributes
 	public static final IAttribute MAX_MANA = (new RangedAttribute((IAttribute)null, "kingofglory.maxMana", 0D, 0D, 2048D)).setDescription("Max Mana").setShouldWatch(true);
 	public static final IAttribute RESISTANCE = (new RangedAttribute((IAttribute)null, "kingofglory.resistance", 0D, 0D, 1D)).setDescription("Resistance").setShouldWatch(true);
 	public static final IAttribute MANA_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.manaPer5Seconds", 1D, 0D, 1024D)).setDescription("Mana/5 seconds").setShouldWatch(true);
-	public static final IAttribute HP_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.HPPer5Seconds", 1D, 0D, 1024D)).setDescription("HP/5 seconds").setShouldWatch(true);
+	public static final IAttribute HP_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.HPPer5Seconds", 0D, 0D, 1024D)).setDescription("HP/5 seconds").setShouldWatch(true);
 
 	@SubscribeEvent
 	public static void onEntityJoinWorld(EntityJoinWorldEvent event)

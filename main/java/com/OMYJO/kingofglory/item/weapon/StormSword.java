@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class StormSword extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(80);
+	private float attackDamage = Helper.attackDamage(80);
 	private final HashMap<EquipmentSlotType,UUID> attackDamageModifierMap = new HashMap<>();
 
 	@Override

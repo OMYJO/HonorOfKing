@@ -1,8 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
-import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,7 +19,7 @@ import java.util.UUID;
 
 public class ResilientAgate extends KingOfWeapon
 {
-	private float maxHealth = Convertor.maxHealth(300);
+	private float maxHealth = Helper.maxHealth(300);
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
 
 	public ResilientAgate()

@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class EndlessEdge extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(130);
+	private float attackDamage = Helper.attackDamage(130);
 	private float criticalChance = 0.2F;
 	private float criticalDamage = 0.4F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();

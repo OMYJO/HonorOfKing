@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.bow;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class DayBreaker extends KingOfBow
 {
-	private float attackDamage = Convertor.attackDamage(50);
+	private float attackDamage = Helper.attackDamage(50);
 	private float attackSpeed = 0.35F;
 	private float criticalChance = 0.1F;
 	private float armorPierce = 0.2F;

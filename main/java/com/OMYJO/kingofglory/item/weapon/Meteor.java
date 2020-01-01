@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class Meteor extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(45);
+	private float attackDamage = Helper.attackDamage(45);
 	private float coolDownReduction = 0.1F;
 	private float armorPierce = 60;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();

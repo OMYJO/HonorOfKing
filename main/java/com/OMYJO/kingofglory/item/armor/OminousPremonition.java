@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -25,7 +25,7 @@ import java.util.UUID;
 public class OminousPremonition extends KingOfArmor implements KingOfItem
 {
 	private float armor = 270F;
-	private float maxHealth = Convertor.maxHealth(1200);
+	private float maxHealth = Helper.maxHealth(1200);
 	private final UUID ArmorModifier = UUID.randomUUID();
 	private final UUID maxHealthModifier = UUID.randomUUID();
 

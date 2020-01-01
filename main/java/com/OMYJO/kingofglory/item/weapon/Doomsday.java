@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -24,7 +24,7 @@ import java.util.UUID;
 
 public class Doomsday extends KingOfWeapon
 {
-	private float attackDamage = Convertor.attackDamage(60);
+	private float attackDamage = Helper.attackDamage(60);
 	private float attackSpeed = 0.3F;
 	private float lifeSteal = 0.1F;
 	private final HashMap<EquipmentSlotType,UUID> attackDamageModifierMap = new HashMap<>();

@@ -1,11 +1,10 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -20,7 +19,7 @@ import java.util.UUID;
 
 public class AlchemyTailsman extends KingOfWeapon
 {
-	private float manaPer5Seconds = Convertor.maxMana(10);
+	private float manaPer5Seconds = Helper.maxMana(10);
 	private final HashMap<EquipmentSlotType, UUID> manaPer5SecondsModifierMap = new HashMap<>();
 
 	public AlchemyTailsman()

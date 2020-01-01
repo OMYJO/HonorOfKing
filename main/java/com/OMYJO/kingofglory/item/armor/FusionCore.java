@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
@@ -28,7 +28,7 @@ import java.util.UUID;
 
 public class FusionCore extends KingOfArmor implements KingOfItem
 {
-	private float maxHealth = Convertor.maxHealth(700);
+	private float maxHealth = Helper.maxHealth(700);
 	private final UUID maxHealthModifier = UUID.randomUUID();
 
 	public FusionCore(EquipmentSlotType slot, String registryName)
@@ -106,7 +106,7 @@ public class FusionCore extends KingOfArmor implements KingOfItem
 			{
 				if (livingentity != player && !player.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 				{
-					livingentity.attackEntityFrom(new IndirectEntityDamageSource("sacrifice", player, player).setMagicDamage().setDamageBypassesArmor(), Convertor.attackDamage(90));
+					livingentity.attackEntityFrom(new IndirectEntityDamageSource("sacrifice", player, player).setMagicDamage().setDamageBypassesArmor(), Helper.attackDamage(90));
 				}
 			}
 		}

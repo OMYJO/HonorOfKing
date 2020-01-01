@@ -5,7 +5,7 @@ import com.OMYJO.kingofglory.item.armor.*;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
-import com.OMYJO.kingofglory.other.Convertor;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.entity.Entity;
@@ -111,7 +111,7 @@ public class Damage
 									{
 										if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 										{
-											float damage = Convertor.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+											float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
 											if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
 											{
 												damage *= 2;
@@ -126,7 +126,7 @@ public class Damage
 											livingentity.playSound(soundevent, f1, 1.0F);
 										}
 									}
-									float damage = Convertor.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+									float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
 									if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
 									{
 										damage *= 2;
@@ -156,23 +156,23 @@ public class Damage
 							//if 逐日之弓
 							if (attacker.getHeldItemMainhand().getItem() instanceof TwilightBow || attacker.getHeldItemOffhand().getItem() instanceof TwilightBow)
 							{
-								event.setAmount(event.getAmount() + Convertor.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 							//else if 纯净苍穹
 							if (attacker.getHeldItemMainhand().getItem() instanceof PureSky || attacker.getHeldItemOffhand().getItem() instanceof PureSky)
 							{
-								event.setAmount(event.getAmount() + Convertor.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 							//else if 速击之枪
 							else if (attacker.getHeldItemMainhand().getItem() instanceof SwiftStrikeLance || attacker.getHeldItemOffhand().getItem() instanceof SwiftStrikeLance)
 							{
-								event.setAmount(event.getAmount() + Convertor.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								event.setAmount(event.getAmount() + Helper.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 
 							//破晓
 							if (attacker.getHeldItemMainhand().getItem() instanceof DayBreaker || attacker.getHeldItemOffhand().getItem() instanceof DayBreaker)
 							{
-								event.setAmount(event.getAmount() + Convertor.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								event.setAmount(event.getAmount() + Helper.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
 							}
 						}
 					}
@@ -197,7 +197,7 @@ public class Damage
 						float amount =0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
 						if(!(target instanceof PlayerEntity))
 						{
-							amount = Math.min(amount,Convertor.attackDamage(80));
+							amount = Math.min(amount, Helper.attackDamage(80));
 						}
 						event.setAmount(event.getAmount() + amount);
 					}
@@ -213,7 +213,7 @@ public class Damage
 								break;
 							case 1:
 								int amplifier = source instanceof IndirectEntityDamageSource?0:1;
-								event.setAmount(event.getAmount() + Convertor.attackDamage(450));
+								event.setAmount(event.getAmount() + Helper.attackDamage(450));
 								target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS,20,amplifier));
 								for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
 								{
@@ -444,7 +444,7 @@ public class Damage
 					{
 						if (livingentity != target && !target.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 						{
-							livingentity.attackEntityFrom(new IndirectEntityDamageSource("ice_heart",target,target).setMagicDamage().setDamageBypassesArmor(),Convertor.attackDamage(200));
+							livingentity.attackEntityFrom(new IndirectEntityDamageSource("ice_heart",target,target).setMagicDamage().setDamageBypassesArmor(), Helper.attackDamage(200));
 							livingentity.addPotionEffect(new EffectInstance(Effects.ICE_HEART,40));
 						}
 					}
@@ -512,7 +512,7 @@ public class Damage
 		{
 			ItemStack itemStack = event.getEntityLiving().getHeldItemMainhand().getItem() instanceof SagesSanctuary ? event.getEntityLiving().getHeldItemMainhand() : event.getEntityLiving().getHeldItemOffhand();
 			event.setCanceled(true);
-			livingEntity.setHealth(Convertor.maxHealth(2000 + 1500));
+			livingEntity.setHealth(Helper.maxHealth(2000 + 1500));
 			itemStack.shrink(1);
 		}
 	}
