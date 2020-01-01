@@ -24,11 +24,11 @@ public class Nightmare extends KingOfWeapon
 {
 	private float attackDamage = Convertor.attackDamage(85);
 	private float maxHealth = Convertor.maxHealth(500);
-	private float cooldownReduction = 0.15F;
+	private float coolDownReduction = 0.15F;
 	private float armorPierce = 170;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
 	private final HashMap<EquipmentSlotType, UUID> maxHealthModifierMap = new HashMap<>();
-	private final HashMap<EquipmentSlotType, UUID> cooldownReductionModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> coolDownReductionModifierMap = new HashMap<>();
 	public static final UUID DISSECTION_MODIFIER = Meteor.DISSECTION_MODIFIER;
 
 	public Nightmare()
@@ -38,8 +38,8 @@ public class Nightmare extends KingOfWeapon
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		cooldownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		cooldownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		coolDownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		coolDownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("nightmare");
 	}
 
@@ -98,9 +98,9 @@ public class Nightmare extends KingOfWeapon
 	}
 
 	@Override
-	public float getCooldownReduction()
+	public float getCoolDownReduction()
 	{
-		return cooldownReduction;
+		return coolDownReduction;
 	}
 
 	@Override
@@ -119,7 +119,7 @@ public class Nightmare extends KingOfWeapon
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifierMap.get(equipmentSlot), "Weapon modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(cooldownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCooldownReduction(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(coolDownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCoolDownReduction(), AttributeModifier.Operation.ADDITION));
 			multimap.put(SharedKingAttributes.ARMOR_PIERCE.getName(), new AttributeModifier(DISSECTION_MODIFIER, "Weapon modifier", this.getArmorPierce(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;

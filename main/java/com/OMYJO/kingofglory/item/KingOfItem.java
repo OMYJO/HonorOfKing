@@ -55,7 +55,7 @@ public interface KingOfItem
 		return 0F;
 	}
 
-	default float getCooldownReduction()
+	default float getCoolDownReduction()
 	{
 		return 0F;
 	}

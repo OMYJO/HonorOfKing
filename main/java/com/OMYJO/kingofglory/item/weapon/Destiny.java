@@ -23,17 +23,17 @@ import java.util.UUID;
 public class Destiny extends KingOfWeapon
 {
 	private float attackDamage = Convertor.attackDamage(60);
-	private float cooldownReduction = 0.05F;
+	private float coolDownReduction = 0.05F;
 	private final HashMap<EquipmentSlotType, UUID> attackDamageModifierMap = new HashMap<>();
-	private final HashMap<EquipmentSlotType, UUID> cooldownReductionModifierMap = new HashMap<>();
+	private final HashMap<EquipmentSlotType, UUID> coolDownReductionModifierMap = new HashMap<>();
 
 	public Destiny()
 	{
 		super(new KingOfMaterial(), Rarity.UNCOMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		cooldownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
-		cooldownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
+		coolDownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
+		coolDownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("destiny");
 	}
 
@@ -72,9 +72,9 @@ public class Destiny extends KingOfWeapon
 	}
 
 	@Override
-	public float getCooldownReduction()
+	public float getCoolDownReduction()
 	{
-		return cooldownReduction;
+		return coolDownReduction;
 	}
 
 
@@ -90,7 +90,7 @@ public class Destiny extends KingOfWeapon
 		if(equipmentSlot == EquipmentSlotType.MAINHAND || equipmentSlot == EquipmentSlotType.OFFHAND)
 		{
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(attackDamageModifierMap.get(equipmentSlot), "Weapon modifier", getAttackDamage(), AttributeModifier.Operation.ADDITION));
-			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(cooldownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCooldownReduction(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.COOLDOWN_REDUCTION.getName(), new AttributeModifier(coolDownReductionModifierMap.get(equipmentSlot), "Weapon modifier", getCoolDownReduction(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
