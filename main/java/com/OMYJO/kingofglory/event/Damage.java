@@ -85,7 +85,7 @@ public class Damage
 					}
 
 
-					//重伤
+					//普攻制裁
 					if(attacker.getHeldItemMainhand().getItem() instanceof DivinePunisher || attacker.getHeldItemOffhand().getItem() instanceof DivinePunisher)
 					{
 						target.addPotionEffect(new EffectInstance(Effects.SEVERE_WOUND,60));
@@ -215,15 +215,19 @@ public class Damage
 				}
 				else
 				{
-					//重伤
+					//非普攻制裁
 					if(attacker.getHeldItemMainhand().getItem() instanceof DivinePunisher || attacker.getHeldItemOffhand().getItem() instanceof DivinePunisher)
 					{
 						target.addPotionEffect(new EffectInstance(Effects.SEVERE_WOUND,30));
 					}
 				}
 				//破军
+				if(attacker.getHeldItemMainhand().getItem() instanceof SiegeBreaker || attacker.getHeldItemOffhand().getItem() instanceof SiegeBreaker)
 				{
-
+					if(target.getHealth()*2<target.getMaxHealth())
+					{
+						event.setAmount(event.getAmount()*(1+0.3F));
+					}
 				}
 			}
 			//触发强击

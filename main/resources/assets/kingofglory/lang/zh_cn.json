@@ -23,6 +23,7 @@
   "item.kingofglory.endless_edge": "无尽战刃",
   "item.kingofglory.doomsday": "末世",
   "item.kingofglory.pure_sky": "纯净苍穹",
+  "item.kingofglory.siege_Breaker": "破军",
 
   "item.kingofglory.cloud_piercing_bow": "穿云弓",
   "item.kingofglory.twilight_bow": "逐日之弓",
@@ -52,6 +53,7 @@
   "item_effect.kingofglory.doomsday.0": "唯一被动：破败",
   "item_effect.kingofglory.pure_sky.0": "唯一被动：精准",
   "item_effect.kingofglory.pure_sky.1": "唯一主动：驱散",
+  "item_effect.kingofglory.siege_breaker.0": "唯一被动：破军",
 
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",
