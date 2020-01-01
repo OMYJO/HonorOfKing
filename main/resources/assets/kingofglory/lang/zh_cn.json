@@ -50,6 +50,7 @@
   "item.kingofglory.glacial_buckler": "极寒风暴",
   "item.kingofglory.eye_of_the_phoenix": "不死鸟之眼",
   "item.kingofglory.succubus_cloak": "魔女斗篷",
+  "item.kingofglory.ominous_premonition": "不祥征兆",
 
   "item_effect.kingofglory.cloud_piercing_bow.0": "唯一被动：破甲",
   "item_effect.kingofglory.twilight_bow.0": "唯一被动：精准",
@@ -86,6 +87,7 @@
   "item_effect.kingofglory.glacial_buckler.0": "唯一被动：冰心",
   "item_effect.kingofglory.eye_of_the_phoenix.0": "唯一被动：血统",
   "item_effect.kingofglory.succubus_cloak.0": "唯一被动：迷雾",
+  "item_effect.kingofglory.ominous_premonition.0": "唯一被动：寒铁",
 
 
   "effect.kingofglory.chasing_sun": "逐日",

@@ -1,10 +1,7 @@
 package com.OMYJO.kingofglory.event;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.item.armor.CuirassOfSavagery;
-import com.OMYJO.kingofglory.item.armor.GlacialBuckler;
-import com.OMYJO.kingofglory.item.armor.ProtectorsVest;
-import com.OMYJO.kingofglory.item.armor.Spikemail;
+import com.OMYJO.kingofglory.item.armor.*;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
@@ -303,8 +300,12 @@ public class Damage
 				}
 			}
 			//if触发不祥
+			if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof OminousPremonition)
+			{
+				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,1));
+			}
 			//else if触发守护者
-			if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
+			else if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
 			{
 				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
 			}
