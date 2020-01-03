@@ -193,7 +193,7 @@ public class Damage
 								//影刃
 								if (attacker.getHeldItemMainhand().getItem() instanceof ShadowRipper || attacker.getHeldItemOffhand().getItem() instanceof ShadowRipper)
 								{
-									attacker.addPotionEffect(new EffectInstance(Effects.STORM));
+									attacker.addPotionEffect(new EffectInstance(Effects.STORM, 40));
 								}
 							}
 						}
