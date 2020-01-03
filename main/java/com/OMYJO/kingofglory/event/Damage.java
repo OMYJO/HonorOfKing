@@ -44,192 +44,201 @@ public class Damage
 		DamageSource source = event.getSource();
 		Entity entity = source.getTrueSource();
 		LivingEntity target = event.getEntityLiving();
-		if (entity instanceof LivingEntity)
+		//判断伤害类型
+		if (source.isFireDamage() || source.isExplosion())
 		{
-			LivingEntity attacker = (LivingEntity) entity;
-			ItemStack stack = attacker.getHeldItemMainhand();
-			if (stack.getItem() instanceof KingOfItem)
+			//nothing to do
+		}
+		else
+		{
+			if (entity instanceof LivingEntity)
 			{
-				float base = event.getAmount();
+				LivingEntity attacker = (LivingEntity) entity;
 				if ((!(source instanceof IndirectEntityDamageSource) || source.getImmediateSource() instanceof AbstractArrowEntity))//普通攻击
 				{
-					//残废
-					if(attacker.getHeldItemMainhand().getItem() instanceof Nightmare || attacker.getHeldItemOffhand().getItem() instanceof Nightmare)
+					ItemStack stack = attacker.getHeldItemMainhand();
+					if (stack.getItem() instanceof KingOfItem)
 					{
-						if(Math.random()<0.3F)
+						float base = event.getAmount();
+						//残废
+						if (attacker.getHeldItemMainhand().getItem() instanceof Nightmare || attacker.getHeldItemOffhand().getItem() instanceof Nightmare)
 						{
-							target.addPotionEffect(new EffectInstance(Effects.CRIPPLE,40));
-						}
-					}
-					else if(attacker.getHeldItemMainhand().getItem() instanceof SunglowStriker || attacker.getHeldItemOffhand().getItem() instanceof SunglowStriker)
-					{
-						if(Math.random()<0.3F)
-						{
-							target.addPotionEffect(new EffectInstance(Effects.CRIPPLE,40));
-						}
-					}
-
-					//碎冰
-					if(attacker.getHeldItemMainhand().getItem() instanceof FrigidLance || attacker.getHeldItemOffhand().getItem() instanceof FrigidLance)
-					{
-						int time = 20;
-						if(!(source.getImmediateSource() instanceof AbstractArrowEntity))
-						{
-							time *= 2;
-						}
-						target.addPotionEffect(new EffectInstance(Effects.CRUSHING_ICE,time));
-					}
-
-
-					//普攻制裁
-					if(attacker.getHeldItemMainhand().getItem() instanceof DivinePunisher || attacker.getHeldItemOffhand().getItem() instanceof DivinePunisher)
-					{
-						target.addPotionEffect(new EffectInstance(Effects.SEVERE_WOUND,60));
-					}
-
-					//电弧
-					if(attacker.getHeldItemMainhand().getItem() instanceof SparkForgedDagger || attacker.getHeldItemOffhand().getItem() instanceof SparkForgedDagger)
-					{
-						SparkForgedDagger sparkForgedDagger = (SparkForgedDagger) (attacker.getHeldItemMainhand().getItem() instanceof SparkForgedDagger?attacker.getHeldItemMainhand().getItem() : attacker.getHeldItemOffhand().getItem());
-						if(Math.random()<0.3F)
-						{
-							boolean flag = false;
-							if(attacker instanceof PlayerEntity)
+							if (Math.random() < 0.3F)
 							{
-								flag = ((PlayerEntity) attacker).getCooldownTracker().hasCooldown(sparkForgedDagger);
-								if(!flag)
+								target.addPotionEffect(new EffectInstance(Effects.CRIPPLE, 40));
+							}
+						}
+						else if (attacker.getHeldItemMainhand().getItem() instanceof SunglowStriker || attacker.getHeldItemOffhand().getItem() instanceof SunglowStriker)
+						{
+							if (Math.random() < 0.3F)
+							{
+								target.addPotionEffect(new EffectInstance(Effects.CRIPPLE, 40));
+							}
+						}
+
+						//碎冰
+						if (attacker.getHeldItemMainhand().getItem() instanceof FrigidLance || attacker.getHeldItemOffhand().getItem() instanceof FrigidLance)
+						{
+							int time = 20;
+							if (!(source.getImmediateSource() instanceof AbstractArrowEntity))
+							{
+								time *= 2;
+							}
+							target.addPotionEffect(new EffectInstance(Effects.CRUSHING_ICE, time));
+						}
+
+
+						//普攻制裁
+						if (attacker.getHeldItemMainhand().getItem() instanceof DivinePunisher || attacker.getHeldItemOffhand().getItem() instanceof DivinePunisher)
+						{
+							target.addPotionEffect(new EffectInstance(Effects.SEVERE_WOUND, 60));
+						}
+
+						//电弧
+						if (attacker.getHeldItemMainhand().getItem() instanceof SparkForgedDagger || attacker.getHeldItemOffhand().getItem() instanceof SparkForgedDagger)
+						{
+							SparkForgedDagger sparkForgedDagger = (SparkForgedDagger) (attacker.getHeldItemMainhand().getItem() instanceof SparkForgedDagger ? attacker.getHeldItemMainhand().getItem() : attacker.getHeldItemOffhand().getItem());
+							if (Math.random() < 0.3F)
+							{
+								boolean flag = false;
+								if (attacker instanceof PlayerEntity)
 								{
-									int cooldown = (int)(10 * (1-attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
-									((PlayerEntity) attacker).getCooldownTracker().setCooldown(sparkForgedDagger,cooldown);
+									flag = ((PlayerEntity) attacker).getCooldownTracker().hasCooldown(sparkForgedDagger);
+									if (!flag)
+									{
+										int cooldown = (int) (10 * (1 - attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
+										((PlayerEntity) attacker).getCooldownTracker().setCooldown(sparkForgedDagger, cooldown);
+									}
+								}
+								if (!flag)
+								{
+									if (attacker.isServerWorld())
+									{
+										for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(5.0D, 1.25D, 5.0D)))
+										{
+											if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+											{
+												float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+												if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
+												{
+													damage *= 2;
+												}
+												BlockPos blockpos = livingentity.getPosition();
+												LightningBoltEntity lightningboltentity = new LightningBoltEntity(livingentity.world, (double) blockpos.getX() + 0.5D, (double) blockpos.getY(), (double) blockpos.getZ() + 0.5D, true);
+												livingentity.attackEntityFrom(new IndirectEntityDamageSource("electric_arc", lightningboltentity, attacker).setMagicDamage().setDamageBypassesArmor(), damage);
+												lightningboltentity.setCaster(attacker instanceof ServerPlayerEntity ? (ServerPlayerEntity) attacker : null);
+												((ServerWorld) livingentity.world).addLightningBolt(lightningboltentity);
+												SoundEvent soundevent = SoundEvents.ITEM_TRIDENT_THUNDER;
+												float f1 = 5.0F;
+												livingentity.playSound(soundevent, f1, 1.0F);
+											}
+										}
+										float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+										if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
+										{
+											damage *= 2;
+										}
+										BlockPos blockpos = target.getPosition();
+										LightningBoltEntity lightningboltentity = new LightningBoltEntity(target.world, (double) blockpos.getX() + 0.5D, (double) blockpos.getY(), (double) blockpos.getZ() + 0.5D, true);
+										event.setAmount(event.getAmount() + damage);
+										lightningboltentity.setCaster(attacker instanceof ServerPlayerEntity ? (ServerPlayerEntity) attacker : null);
+										((ServerWorld) target.world).addLightningBolt(lightningboltentity);
+										SoundEvent soundevent = SoundEvents.ITEM_TRIDENT_THUNDER;
+										float f1 = 5.0F;
+										target.playSound(soundevent, f1, 1.0F);
+									}
 								}
 							}
-							if (!flag)
+						}
+
+						//精准
+						{
+							int n = 1;
+							if (source.getImmediateSource() instanceof AbstractArrowEntity)
 							{
-								if (attacker.isServerWorld())
+								n = 2;
+							}
+							for (int i = 0; i < n; i++)//远程英雄使用翻倍
+							{
+								//if 逐日之弓
+								if (attacker.getHeldItemMainhand().getItem() instanceof TwilightBow || attacker.getHeldItemOffhand().getItem() instanceof TwilightBow)
 								{
-									for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(5.0D, 1.25D, 5.0D)))
+									event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								}
+								//else if 纯净苍穹
+								if (attacker.getHeldItemMainhand().getItem() instanceof PureSky || attacker.getHeldItemOffhand().getItem() instanceof PureSky)
+								{
+									event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								}
+								//else if 速击之枪
+								else if (attacker.getHeldItemMainhand().getItem() instanceof SwiftStrikeLance || attacker.getHeldItemOffhand().getItem() instanceof SwiftStrikeLance)
+								{
+									event.setAmount(event.getAmount() + Helper.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								}
+
+								//破晓
+								if (attacker.getHeldItemMainhand().getItem() instanceof DayBreaker || attacker.getHeldItemOffhand().getItem() instanceof DayBreaker)
+								{
+									event.setAmount(event.getAmount() + Helper.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+								}
+							}
+						}
+
+						//暴击
+						{
+							double r = Math.random();
+							if (r < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
+							{
+								event.setAmount(event.getAmount() * (float) attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_DAMAGE.getName()).getValue());
+								//影刃
+								if (attacker.getHeldItemMainhand().getItem() instanceof ShadowRipper || attacker.getHeldItemOffhand().getItem() instanceof ShadowRipper)
+								{
+									attacker.addPotionEffect(new EffectInstance(Effects.STORM));
+								}
+							}
+						}
+
+						//末世
+						if (attacker.getHeldItemMainhand().getItem() instanceof Doomsday || attacker.getHeldItemOffhand().getItem() instanceof Doomsday)
+						{
+							float amount = 0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+							if (!(target instanceof PlayerEntity))
+							{
+								amount = Math.min(amount, Helper.attackDamage(80));
+							}
+							event.setAmount(event.getAmount() + amount);
+						}
+
+						//强击：蓝刀4》巫法3》宗师2》冰脉1》光辉0
+						if (attacker.isPotionActive(Effects.ASSAULTING))
+						{
+							switch (attacker.getActivePotionEffect(Effects.ASSAULTING).getAmplifier())
+							{
+								case 2:
+									event.setAmount(event.getAmount() + 0.8F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+									attacker.removePotionEffect(Effects.ASSAULTING);
+									break;
+								case 1:
+									int amplifier = source instanceof IndirectEntityDamageSource ? 0 : 1;
+									event.setAmount(event.getAmount() + Helper.attackDamage(450));
+									target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
+									for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
 									{
 										if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 										{
-											float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
-											if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
-											{
-												damage *= 2;
-											}
-											BlockPos blockpos = livingentity.getPosition();
-											LightningBoltEntity lightningboltentity = new LightningBoltEntity(livingentity.world, (double) blockpos.getX() + 0.5D, (double) blockpos.getY(), (double) blockpos.getZ() + 0.5D, true);
-											livingentity.attackEntityFrom(new IndirectEntityDamageSource("electric_arc", lightningboltentity, attacker).setMagicDamage().setDamageBypassesArmor(), damage);
-											lightningboltentity.setCaster(attacker instanceof ServerPlayerEntity ? (ServerPlayerEntity) attacker : null);
-											((ServerWorld) livingentity.world).addLightningBolt(lightningboltentity);
-											SoundEvent soundevent = SoundEvents.ITEM_TRIDENT_THUNDER;
-											float f1 = 5.0F;
-											livingentity.playSound(soundevent, f1, 1.0F);
+											livingentity.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
 										}
 									}
-									float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
-									if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
-									{
-										damage *= 2;
-									}
-									BlockPos blockpos = target.getPosition();
-									LightningBoltEntity lightningboltentity = new LightningBoltEntity(target.world, (double) blockpos.getX() + 0.5D, (double) blockpos.getY(), (double) blockpos.getZ() + 0.5D, true);
-									event.setAmount(event.getAmount() + damage);
-									lightningboltentity.setCaster(attacker instanceof ServerPlayerEntity ? (ServerPlayerEntity) attacker : null);
-									((ServerWorld) target.world).addLightningBolt(lightningboltentity);
-									SoundEvent soundevent = SoundEvents.ITEM_TRIDENT_THUNDER;
-									float f1 = 5.0F;
-									target.playSound(soundevent, f1, 1.0F);
-								}
+									break;
+								case 0:
+									event.setAmount(event.getAmount() + 0.5F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue() + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_ATTACK.getName()).getValue());
+									attacker.removePotionEffect(Effects.ASSAULTING);
+									event.getSource().setMagicDamage();
+									break;
 							}
 						}
 					}
-
-					//精准
-					{
-						int n = 1;
-						if (source.getImmediateSource() instanceof AbstractArrowEntity)
-						{
-							n = 2;
-						}
-						for (int i = 0; i < n; i++)//远程英雄使用翻倍
-						{
-							//if 逐日之弓
-							if (attacker.getHeldItemMainhand().getItem() instanceof TwilightBow || attacker.getHeldItemOffhand().getItem() instanceof TwilightBow)
-							{
-								event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
-							}
-							//else if 纯净苍穹
-							if (attacker.getHeldItemMainhand().getItem() instanceof PureSky || attacker.getHeldItemOffhand().getItem() instanceof PureSky)
-							{
-								event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
-							}
-							//else if 速击之枪
-							else if (attacker.getHeldItemMainhand().getItem() instanceof SwiftStrikeLance || attacker.getHeldItemOffhand().getItem() instanceof SwiftStrikeLance)
-							{
-								event.setAmount(event.getAmount() + Helper.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
-							}
-
-							//破晓
-							if (attacker.getHeldItemMainhand().getItem() instanceof DayBreaker || attacker.getHeldItemOffhand().getItem() instanceof DayBreaker)
-							{
-								event.setAmount(event.getAmount() + Helper.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
-							}
-						}
-					}
-
-					//暴击
-					{
-						double r = Math.random();
-						if (r < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
-						{
-							event.setAmount(event.getAmount() * (float) attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_DAMAGE.getName()).getValue());
-							//影刃
-							if (attacker.getHeldItemMainhand().getItem() instanceof ShadowRipper || attacker.getHeldItemOffhand().getItem() instanceof ShadowRipper)
-							{
-								attacker.addPotionEffect(new EffectInstance(Effects.STORM));
-							}
-						}
-					}
-
-					//末世
-					if (attacker.getHeldItemMainhand().getItem() instanceof Doomsday || attacker.getHeldItemOffhand().getItem() instanceof Doomsday)
-					{
-						float amount =0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
-						if(!(target instanceof PlayerEntity))
-						{
-							amount = Math.min(amount, Helper.attackDamage(80));
-						}
-						event.setAmount(event.getAmount() + amount);
-					}
-
-					//强击：蓝刀4》巫法3》宗师2》冰脉1》光辉0
-					if(attacker.isPotionActive(Effects.ASSAULTING))
-					{
-						switch (attacker.getActivePotionEffect(Effects.ASSAULTING).getAmplifier())
-						{
-							case 2:
-								event.setAmount(event.getAmount() + 0.8F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
-								attacker.removePotionEffect(Effects.ASSAULTING);
-								break;
-							case 1:
-								int amplifier = source instanceof IndirectEntityDamageSource?0:1;
-								event.setAmount(event.getAmount() + Helper.attackDamage(450));
-								target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS,20,amplifier));
-								for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
-								{
-									if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
-									{
-										livingentity.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS,20,amplifier));
-									}
-								}
-								break;
-							case 0:
-								event.setAmount(event.getAmount() + 0.5F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue()+ 0.3F * (float)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_ATTACK.getName()).getValue());
-								attacker.removePotionEffect(Effects.ASSAULTING);
-								event.getSource().setMagicDamage();
-								break;
-						}
-					}
+					//影忍之足
 					if(target.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() instanceof BootsOfForitude)
 					{
 						event.setAmount(event.getAmount()*(1-0.15F));
@@ -256,8 +265,6 @@ public class Damage
 				{
 					event.setAmount(event.getAmount() * (1 + (0.02F * attacker.getActivePotionEffect(Effects.FEARLESS).getAmplifier() + 1)));
 				}
-
-
 				//触发强击
 				if(attacker instanceof PlayerEntity)
 				{
@@ -269,7 +276,7 @@ public class Damage
 						{
 							((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
 							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
-								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+								p_220045_0_.sendBreakAnimation(attacker.getActiveHand());
 							});
 							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,2));
 							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SPEED,40));
@@ -283,7 +290,7 @@ public class Damage
 						{
 							((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),60);
 							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
-								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+								p_220045_0_.sendBreakAnimation(attacker.getActiveHand());
 							});
 							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,1));
 						}
@@ -296,64 +303,62 @@ public class Damage
 						{
 							((PlayerEntity) attacker).getCooldownTracker().setCooldown(itemStack.getItem(),40);
 							itemStack.damageItem(1, attacker, (p_220045_0_) -> {
-								p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+								p_220045_0_.sendBreakAnimation(attacker.getActiveHand());
 							});
 							attacker.addPotionEffect(new EffectInstance(Effects.ASSAULTING,100,0));
 						}
 					}
 				}
-			}
-			//if触发不祥
-			if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof OminousPremonition)
-			{
-				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,1));
-			}
-			//else if触发守护者
-			else if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
-			{
-				attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
-			}
-		}
-
-		//抗性计算
-		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion())
-		{
-			//nothing to do
-		}
-		else
-		{
-			if(source.isMagicDamage())
-			{
-				double magicDefence = target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_DEFENCE.getName()).getValue();
-				double magicPierce = 0D;
-				double magicPierceRate = 0D;
-				if(entity instanceof LivingEntity)
+				//if触发不祥
+				if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof OminousPremonition)
 				{
-					LivingEntity attacker = (LivingEntity) entity;
-					magicPierce = (double)((int)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue());
-					magicPierceRate = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue() - magicPierce;
+					attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,1));
 				}
-				magicDefence = Math.max(magicDefence - magicPierce,0D);
-				magicDefence = magicDefence * (1-magicPierceRate);
-				event.setAmount(event.getAmount() * 602 / (float) (magicDefence + 602));
+				//else if触发守护者
+				else if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ProtectorsVest)
+				{
+					attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,0));
+				}
+			}
+
+			if(source.isDamageAbsolute())
+			{
+				//真伤什么都不做
 			}
 			else
 			{
-				double armor = target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue();
-				double armorPierce = 0D;
-				double armorPierceRate = 0D;
-				if(entity instanceof LivingEntity)
+				if(source.isMagicDamage())
 				{
-					LivingEntity attacker = (LivingEntity) entity;
-					armorPierce = (double)((int)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue());
-					armorPierceRate = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue() - armorPierce;
+					double magicDefence = target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_DEFENCE.getName()).getValue();
+					double magicPierce = 0D;
+					double magicPierceRate = 0D;
+					if(entity instanceof LivingEntity)
+					{
+						LivingEntity attacker = (LivingEntity) entity;
+						magicPierce = (double)((int)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue());
+						magicPierceRate = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue() - magicPierce;
+					}
+					magicDefence = Math.max(magicDefence - magicPierce,0D);
+					magicDefence = magicDefence * (1-magicPierceRate);
+					event.setAmount(event.getAmount() * 602 / (float) (magicDefence + 602));
 				}
-				armor = Math.max(armor - armorPierce,0D);
-				armor = armor * (1-armorPierceRate);
-				event.setAmount(event.getAmount() * 602 / (float) (armor + 602));
+				else
+				{
+					double armor = target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue();
+					double armorPierce = 0D;
+					double armorPierceRate = 0D;
+					if(entity instanceof LivingEntity)
+					{
+						LivingEntity attacker = (LivingEntity) entity;
+						armorPierce = (double)((int)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue());
+						armorPierceRate = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue() - armorPierce;
+					}
+					armor = Math.max(armor - armorPierce,0D);
+					armor = armor * (1-armorPierceRate);
+					event.setAmount(event.getAmount() * 602 / (float) (armor + 602));
+				}
 			}
 		}
-
 		//苍穹驱散
 		if(event.getEntityLiving().isPotionActive(Effects.DISPELLING))
 		{
@@ -379,7 +384,6 @@ public class Damage
 				target.addPotionEffect(new EffectInstance(Effects.FEARLESS,60,Math.min(4,amplifier+1)));
 			}
 		}
-
 	}
 
 	@SubscribeEvent
@@ -438,8 +442,8 @@ public class Damage
 					flag = ((PlayerEntity) target).getCooldownTracker().hasCooldown(itemStack.getItem());
 					if(!flag)
 					{
-						int cooldown = (int)(40 * (1-target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
-						((PlayerEntity) target).getCooldownTracker().setCooldown(itemStack.getItem(),cooldown);
+						int coolDown = (int)(40 * (1-target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
+						((PlayerEntity) target).getCooldownTracker().setCooldown(itemStack.getItem(),coolDown);
 					}
 				}
 				if (!flag)
@@ -455,8 +459,6 @@ public class Damage
 				}
 			}
 		}
-
-
 
 		//反甲
 		if (source.isDamageAbsolute() || source.isFireDamage() || source.isExplosion() || source.isMagicDamage())

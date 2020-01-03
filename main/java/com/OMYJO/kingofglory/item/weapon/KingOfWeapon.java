@@ -29,7 +29,7 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 	{
 		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 		if (equipmentSlot == EquipmentSlotType.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -3F, AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.8F, AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
@@ -95,7 +95,7 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 	{
 		super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
 		long time = worldIn.getDayTime();
-		if(time % 100 == 0)
+		if(time % 1000 == 0)
 		{
 			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECONDS.getName()).getValue()));
 		}

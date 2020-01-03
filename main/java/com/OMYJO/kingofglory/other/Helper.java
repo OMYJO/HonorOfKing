@@ -7,10 +7,10 @@ public class Helper
 {
 	public static float attackDamage(float attackDamage)
 	{
-		return attackDamage/10;
+		return attackDamage/20;
 	}
-	public static float maxHealth(float maxHealth) { return maxHealth/100; }
-	public static int maxMana(int maxMana) { return maxMana/4; }
+	public static float maxHealth(float maxHealth) { return maxHealth/250; }
+	public static int maxMana(int maxMana) { return maxMana/5; }
 	public static float movementSpeed(float movementSpeed){return movementSpeed/720; }
 	public static int getEscapeTime(PlayerEntity playerEntity)
 	{

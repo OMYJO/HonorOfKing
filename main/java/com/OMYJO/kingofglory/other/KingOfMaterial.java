@@ -24,7 +24,7 @@ public class KingOfMaterial implements IItemTier, IArmorMaterial
 	private int enchantability = 25;
 	private Ingredient repairMaterial = Ingredient.fromItems(Items.DIAMOND);
 
-	private int durability = 528;
+	private int durability = 240;
 	private String name = "king";
 	private int damageReductionAmount = 0;
 	private SoundEvent soundEvent = SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;

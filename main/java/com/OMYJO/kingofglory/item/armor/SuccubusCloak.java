@@ -108,7 +108,7 @@ public class SuccubusCloak extends KingOfArmor implements KingOfItem
 		super.onArmorTick(stack, world, player);
 		if(player.getRevengeTarget() == null)
 		{
-			if(Helper.getEscapeTime(player) > 60)
+			if(Helper.getEscapeTime(player) == 60)
 			{
 				if(player.getAbsorptionAmount() < Helper.maxHealth(200+15*120))
 				{

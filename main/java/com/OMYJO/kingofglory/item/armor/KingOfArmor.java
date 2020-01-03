@@ -110,7 +110,7 @@ public abstract class KingOfArmor extends ArmorItem implements KingOfItem
 	{
 		super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
 		long time = worldIn.getDayTime();
-		if(time % 100 == 0)
+		if(time % 1000 == 0)
 		{
 			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECONDS.getName()).getValue()));
 		}

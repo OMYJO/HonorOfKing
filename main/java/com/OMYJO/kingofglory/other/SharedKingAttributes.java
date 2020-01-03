@@ -12,8 +12,8 @@ import net.minecraftforge.fml.common.Mod;
 public class SharedKingAttributes extends SharedMonsterAttributes
 {
 	public static final IAttribute MAGIC_ATTACK = (new RangedAttribute((IAttribute)null, "kingofglory.magicAttack", 0D,0D, 1024.0D)).setDescription("Magic Attack").setShouldWatch(true);
-	public static final IAttribute ARMOR = (new RangedAttribute((IAttribute)null, "kingofglory.armor", 200D, 0D, 2048.0D)).setDescription("Armor in King").setShouldWatch(true);
-	public static final IAttribute MAGIC_DEFENCE = (new RangedAttribute((IAttribute)null, "kingofglory.magicDefence", 100D, 0D, 2048.0D)).setDescription("Magic Defence").setShouldWatch(true);
+	public static final IAttribute ARMOR = (new RangedAttribute((IAttribute)null, "kingofglory.armor", 183D, 0D, 2048.0D)).setDescription("Armor in King").setShouldWatch(true);
+	public static final IAttribute MAGIC_DEFENCE = (new RangedAttribute((IAttribute)null, "kingofglory.magicDefence", 183D, 0D, 2048.0D)).setDescription("Magic Defence").setShouldWatch(true);
 	public static final IAttribute CRITICAL_CHANCE = (new RangedAttribute((IAttribute)null, "kingofglory.criticalChance", 0D, 0D, 1D)).setDescription("Critical Chance").setShouldWatch(true);
 	public static final IAttribute CRITICAL_DAMAGE = (new RangedAttribute((IAttribute)null, "kingofglory.criticalDamage", 2D, 0D, 2.5D)).setDescription("Critical Damage").setShouldWatch(true);
 	public static final IAttribute LIFE_STEAL = (new RangedAttribute((IAttribute)null, "kingofglory.lifeSteal", 0D, 0D, 1D)).setDescription("Life Steal").setShouldWatch(true);
@@ -23,8 +23,8 @@ public class SharedKingAttributes extends SharedMonsterAttributes
 	public static final IAttribute MAGIC_PIERCE = (new RangedAttribute((IAttribute)null, "kingofglory.magicPierce", 0D, 0D, 1024D)).setDescription("Magic Pierce").setShouldWatch(true);
 	public static final IAttribute MAX_MANA = (new RangedAttribute((IAttribute)null, "kingofglory.maxMana", 0D, 0D, 2048D)).setDescription("Max Mana").setShouldWatch(true);
 	public static final IAttribute RESISTANCE = (new RangedAttribute((IAttribute)null, "kingofglory.resistance", 0D, 0D, 1D)).setDescription("Resistance").setShouldWatch(true);
-	public static final IAttribute MANA_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.manaPer5Seconds", 1D, 0D, 1024D)).setDescription("Mana/5 seconds").setShouldWatch(true);
-	public static final IAttribute HP_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.HPPer5Seconds", 0D, 0D, 1024D)).setDescription("HP/5 seconds").setShouldWatch(true);
+	public static final IAttribute MANA_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.manaPer5Seconds", 6D, 0D, 1024D)).setDescription("Mana/5 seconds").setShouldWatch(true);
+	public static final IAttribute HP_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.HPPer5Seconds", 0.6D, 0D, 1024D)).setDescription("HP/5 seconds").setShouldWatch(true);
 
 	@SubscribeEvent
 	public static void onEntityJoinWorld(EntityJoinWorldEvent event)
