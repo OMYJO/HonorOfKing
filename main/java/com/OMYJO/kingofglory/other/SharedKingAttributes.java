@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class SharedKingAttributes extends SharedMonsterAttributes
 {
 	public static final IAttribute MAGIC_ATTACK = (new RangedAttribute((IAttribute)null, "kingofglory.magicAttack", 0D,0D, 1024.0D)).setDescription("Magic Attack").setShouldWatch(true);

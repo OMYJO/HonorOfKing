@@ -10,11 +10,19 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 @net.minecraftforge.registries.ObjectHolder("kingofglory")
 public class Items
 {
+	@ObjectHolder("cloud_piercing_bow")
+	public static CloudPiercingBow CLOUD_PIERCING_BOW;
+	@ObjectHolder("storm_sword")
+	public static StormSword STORM_SWORD;
+	@ObjectHolder("meteor")
+	public static Meteor METEOR;
+
 	@SubscribeEvent
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> event)
 	{
