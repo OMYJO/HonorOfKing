@@ -59,7 +59,7 @@ public class Damage
 					ItemStack stack = attacker.getHeldItemMainhand();
 					if (stack.getItem() instanceof KingOfItem)
 					{
-						float base = event.getAmount();
+						//float base = event.getAmount();
 						//残废
 						if (attacker.getHeldItemMainhand().getItem() instanceof Nightmare || attacker.getHeldItemOffhand().getItem() instanceof Nightmare)
 						{
@@ -163,23 +163,23 @@ public class Damage
 								//if 逐日之弓
 								if (attacker.getHeldItemMainhand().getItem() instanceof TwilightBow || attacker.getHeldItemOffhand().getItem() instanceof TwilightBow)
 								{
-									event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+									event.setAmount(event.getAmount() + Helper.attackDamage(35));
 								}
 								//else if 纯净苍穹
-								if (attacker.getHeldItemMainhand().getItem() instanceof PureSky || attacker.getHeldItemOffhand().getItem() instanceof PureSky)
+								else if (attacker.getHeldItemMainhand().getItem() instanceof PureSky || attacker.getHeldItemOffhand().getItem() instanceof PureSky)
 								{
-									event.setAmount(event.getAmount() + Helper.attackDamage(35) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+									event.setAmount(event.getAmount() + Helper.attackDamage(35));
 								}
 								//else if 速击之枪
 								else if (attacker.getHeldItemMainhand().getItem() instanceof SwiftStrikeLance || attacker.getHeldItemOffhand().getItem() instanceof SwiftStrikeLance)
 								{
-									event.setAmount(event.getAmount() + Helper.attackDamage(30) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+									event.setAmount(event.getAmount() + Helper.attackDamage(30));
 								}
 
 								//破晓
 								if (attacker.getHeldItemMainhand().getItem() instanceof DayBreaker || attacker.getHeldItemOffhand().getItem() instanceof DayBreaker)
 								{
-									event.setAmount(event.getAmount() + Helper.attackDamage(50) * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+									event.setAmount(event.getAmount() + Helper.attackDamage(50));
 								}
 							}
 						}
@@ -201,7 +201,7 @@ public class Damage
 						//末世
 						if (attacker.getHeldItemMainhand().getItem() instanceof Doomsday || attacker.getHeldItemOffhand().getItem() instanceof Doomsday)
 						{
-							float amount = 0.08F * target.getHealth() * base / (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
+							float amount = 0.08F * target.getHealth();
 							if (!(target instanceof PlayerEntity))
 							{
 								amount = Math.min(amount, Helper.attackDamage(80));
