@@ -114,7 +114,8 @@ public class Damage
 								{
 									if (attacker.isServerWorld())
 									{
-										for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(5.0D, 1.25D, 5.0D)))
+										double d = Helper.distance(500);
+										for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 										{
 											if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 											{
@@ -222,7 +223,8 @@ public class Damage
 									int amplifier = source instanceof IndirectEntityDamageSource ? 0 : 1;
 									event.setAmount(event.getAmount() + Helper.attackDamage(450));
 									target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
-									for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
+									double d = Helper.distance(500);
+									for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 									{
 										if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 										{
@@ -448,7 +450,8 @@ public class Damage
 				}
 				if (!flag)
 				{
-					for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(2.0D, 0.5D, 2D)))
+					double d = Helper.distance(500);
+					for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 					{
 						if (livingentity != target && !target.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 						{
@@ -476,7 +479,7 @@ public class Damage
 					up += 0.01F * target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue()/20;
 					up = Math.min(up,0.4F);
 					float down = 1F;
-					down -= 0.3F * target.getDistance(attacker)/16;
+					down -= 0.3F * target.getDistance(attacker)/Helper.distance(800);
 					down = Math.max(down,0.7F);
 					attacker.attackEntityFrom(new IndirectEntityDamageSource("thorns",target,target).setMagicDamage().setDamageBypassesArmor(),event.getAmount()*up*down);
 				}

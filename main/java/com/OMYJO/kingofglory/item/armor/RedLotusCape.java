@@ -108,7 +108,8 @@ public class RedLotusCape extends KingOfArmor implements KingOfItem
 		long time = world.getDayTime();
 		if(time % 20 == 0)
 		{
-			for (LivingEntity livingentity : player.world.getEntitiesWithinAABB(LivingEntity.class, player.getBoundingBox().grow(2.0D, 0.5D, 2D)))
+			double d = Helper.distance(300);
+			for (LivingEntity livingentity : player.world.getEntitiesWithinAABB(LivingEntity.class, player.getBoundingBox().grow(2, 2, 2)))
 			{
 				if (livingentity != player && !player.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 				{

@@ -1,9 +1,11 @@
 package com.OMYJO.kingofglory.other;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +48,11 @@ public class SharedKingAttributes extends SharedMonsterAttributes
 			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.RESISTANCE);
 			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MANA_PER_5_SECONDS);
 			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.HP_PER_5_SECONDS);
+			if(livingEntity instanceof MobEntity)
+			{
+				livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).setBaseValue(183*Math.log10(livingEntity.getMaxHealth()));
+				livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_DEFENCE.getName()).setBaseValue(183*Math.log10(livingEntity.getMaxHealth()));
+			}
 		}
 	}
 }

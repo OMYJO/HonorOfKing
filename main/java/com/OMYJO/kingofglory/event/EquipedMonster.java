@@ -11,9 +11,11 @@ import net.minecraft.entity.monster.WitherSkeletonEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -32,7 +34,7 @@ public class EquipedMonster
 		if(event.getEntity() instanceof ZombieEntity)
 		{
 			ZombieEntity zombieEntity = (ZombieEntity) event.getEntity();
-			if(zombieEntity.getHeldItemMainhand() == ItemStack.EMPTY)
+			if(zombieEntity.getHeldItemOffhand() == ItemStack.EMPTY)
 			{
 				if(Math.random() < 0.5)
 				{
@@ -40,10 +42,9 @@ public class EquipedMonster
 				}
 				else
 				{
-					zombieEntity.setItemStackToSlot(EquipmentSlotType.MAINHAND,new ItemStack(Items.STORM_SWORD));
+					zombieEntity.setItemStackToSlot(EquipmentSlotType.OFFHAND,new ItemStack(Items.STORM_SWORD));
 				}
 			}
-
 		}
 		else if(event.getEntity() instanceof AbstractSkeletonEntity)
 		{
@@ -54,7 +55,7 @@ public class EquipedMonster
 			}
 			else
 			{
-				skeletonEntity.setItemStackToSlot(EquipmentSlotType.MAINHAND,new ItemStack(Items.CLOUD_PIERCING_BOW));
+				skeletonEntity.setItemStackToSlot(EquipmentSlotType.OFFHAND,new ItemStack(Items.METEOR));
 			}
 		}
 	}

@@ -74,7 +74,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 						abstractarrowentity = customeArrow(abstractarrowentity);
 						abstractarrowentity.setDamage(abstractarrowentity.getDamage() +
 								( playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue()
-								- playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getBaseValue()) / 6);
+								- playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getBaseValue()) / 4);
 						if(playerentity.isPotionActive(Effects.CHASING_SUN))
 						{
 							abstractarrowentity.setDamage(abstractarrowentity.getDamage()/1.2F);
