@@ -22,6 +22,8 @@ public class Items
 	public static StormSword STORM_SWORD;
 	@ObjectHolder("meteor")
 	public static Meteor METEOR;
+	@ObjectHolder("overlords_platemail")
+	public static OverlordsPlatemail OVERLORDS_PLATEMAIL;
 
 	@SubscribeEvent
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> event)
@@ -71,7 +73,7 @@ public class Items
 		event.getRegistry().register(new Spikemail(EquipmentSlotType.LEGS,"spikemail"));
 		event.getRegistry().register(new CuirassOfSavagery(EquipmentSlotType.HEAD,"cuirass_of_savagery"));
 		event.getRegistry().register(new FrostscarsEmbrace());
-		event.getRegistry().register(new OverloadsPlatemail(EquipmentSlotType.LEGS,"overloads_platemail"));
+		event.getRegistry().register(new OverlordsPlatemail(EquipmentSlotType.LEGS,"overlords_platemail"));
 		event.getRegistry().register(new SagesSanctuary());
 		event.getRegistry().register(new GlacialBuckler(EquipmentSlotType.LEGS,"glacial_buckler"));
 		event.getRegistry().register(new EyeOfThePhoenix(EquipmentSlotType.HEAD,"eye_of_the_phoenix"));

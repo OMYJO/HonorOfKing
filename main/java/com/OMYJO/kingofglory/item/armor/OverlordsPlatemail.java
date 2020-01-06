@@ -23,16 +23,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class OverloadsPlatemail extends KingOfArmor implements KingOfItem
+public class OverlordsPlatemail extends KingOfArmor implements KingOfItem
 {
 	private float maxHealth = Helper.maxHealth(2000);
 	private float HPPer5Seconds = Helper.maxHealth(100);
 	private final UUID maxHealthModifier = UUID.randomUUID();
 	private final UUID HPPer5SecondsModifier = UUID.randomUUID();
 
-	public OverloadsPlatemail(EquipmentSlotType slot, String registryName)
+	public OverlordsPlatemail(EquipmentSlotType slot, String registryName)
 	{
-		super(new KingOfMaterial().setName("overloads_platemail"), slot, Rarity.RARE);
+		super(new KingOfMaterial().setName("overlords_platemail"), slot, Rarity.RARE);
 		setRegistryName(registryName);
 	}
 
