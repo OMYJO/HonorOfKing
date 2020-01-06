@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "kingofglory:item/swift_strike_lance"
+    }
+}

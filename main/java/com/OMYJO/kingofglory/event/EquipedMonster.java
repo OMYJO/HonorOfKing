@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.AirItem;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
@@ -32,36 +33,84 @@ public class EquipedMonster
 	{
 		//所有灾厄村民穿副武器
 		//骷髅和僵尸给副武器及装备
-		if(event.getEntity() instanceof AbstractIllagerEntity)
+		if (event.getEntity() instanceof AbstractIllagerEntity || event.getEntity() instanceof ZombieEntity || event.getEntity() instanceof AbstractSkeletonEntity)
 		{
-			AbstractIllagerEntity illagerEntity = (AbstractIllagerEntity) event.getEntity();
-			illagerEntity.setItemStackToSlot(EquipmentSlotType.OFFHAND,new ItemStack(Items.METEOR));
-		}
-		if(event.getEntity() instanceof ZombieEntity)
-		{
-			ZombieEntity zombieEntity = (ZombieEntity) event.getEntity();
-			if(zombieEntity.getHeldItemOffhand() == ItemStack.EMPTY)
+			MonsterEntity entity = (MonsterEntity) event.getEntity();
+
+			ItemStack itemStack;
+			double a = Math.random();
+			if(a < 0.4) itemStack = ItemStack.EMPTY;
+			else if(a < 0.7) itemStack = new ItemStack(Items.METEOR);
+			else if(a < 0.9) itemStack = new ItemStack(Items.BROKEN_STAR_MACE);
+			else itemStack = new ItemStack(Items.NIGHTMARE);
+			if(itemStack != ItemStack.EMPTY)
 			{
-				if(Math.random() < 0.5)
+				EquipmentSlotType type = EquipmentSlotType.OFFHAND;
+				if (entity instanceof AbstractSkeletonEntity && !(entity instanceof WitherSkeletonEntity))
 				{
-					zombieEntity.setItemStackToSlot(EquipmentSlotType.OFFHAND,new ItemStack(Items.METEOR));
+					if (entity.getHeldItemOffhand() != ItemStack.EMPTY) type = EquipmentSlotType.MAINHAND;
 				}
-				else
+				entity.setItemStackToSlot(type, itemStack);
+				entity.setDropChance(type, 0);
+			}
+			if(entity instanceof ZombieEntity || entity instanceof AbstractSkeletonEntity)
+			{
+				double b = Math.random();
+				if(b < 0.4) itemStack = ItemStack.EMPTY;
+				else if(b < 0.7) itemStack = new ItemStack(Items.OMINOUS_PREMONITION);
+				else itemStack = new ItemStack(Items.CUIRASS_OF_SAVAGERY);
+				if(itemStack != ItemStack.EMPTY)
 				{
-					zombieEntity.setItemStackToSlot(EquipmentSlotType.OFFHAND,new ItemStack(Items.STORM_SWORD));
+					EquipmentSlotType type = EquipmentSlotType.HEAD;
+					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
+					{
+						entity.setItemStackToSlot(type, itemStack);
+						entity.setDropChance(type, 0);
+					}
 				}
-			}
-		}
-		else if(event.getEntity() instanceof AbstractSkeletonEntity)
-		{
-			AbstractSkeletonEntity skeletonEntity = (AbstractSkeletonEntity) event.getEntity();
-			if(skeletonEntity instanceof WitherSkeletonEntity)
-			{
-				skeletonEntity.setItemStackToSlot(EquipmentSlotType.MAINHAND,new ItemStack(Items.STORM_SWORD));
-			}
-			else
-			{
-				skeletonEntity.setItemStackToSlot(EquipmentSlotType.OFFHAND,new ItemStack(Items.METEOR));
+
+				b = Math.random();
+				if(b < 0.4) itemStack = ItemStack.EMPTY;
+				else if(b < 0.7) itemStack = new ItemStack(Items.RED_LOTUS_CAPE);
+				else itemStack = new ItemStack(Items.SUCCUBUS_CLOAK);
+				if(itemStack != ItemStack.EMPTY)
+				{
+					EquipmentSlotType type = EquipmentSlotType.CHEST;
+					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
+					{
+						entity.setItemStackToSlot(type, itemStack);
+						entity.setDropChance(type, 0);
+					}
+				}
+
+
+				b = Math.random();
+				if(b < 0.4) itemStack = ItemStack.EMPTY;
+				else if(b < 0.6) itemStack = new ItemStack(Items.SPIKEMAIL);
+				else if(b < 0.8) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
+				else itemStack = new ItemStack(Items.GLACIAL_BUCKLER);
+				if(itemStack != ItemStack.EMPTY)
+				{
+					EquipmentSlotType type = EquipmentSlotType.LEGS;
+					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
+					{
+						entity.setItemStackToSlot(type, itemStack);
+						entity.setDropChance(type, 0);
+					}
+				}
+
+				b = Math.random();
+				if(b < 0.5) itemStack = ItemStack.EMPTY;
+				else itemStack = new ItemStack(Items.BOOTS_OF_FORITUDE);
+				if(itemStack != ItemStack.EMPTY)
+				{
+					EquipmentSlotType type = EquipmentSlotType.FEET;
+					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
+					{
+						entity.setItemStackToSlot(type, itemStack);
+						entity.setDropChance(type, 0);
+					}
+				}
 			}
 		}
 	}

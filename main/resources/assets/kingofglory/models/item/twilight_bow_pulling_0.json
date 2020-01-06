@@ -1,0 +1,6 @@
+{
+    "parent": "kingofglory:item/twilight_bow",
+    "textures": {
+        "layer0": "kingofglory:item/bow_pulling_0"
+    }
+}

@@ -31,7 +31,7 @@ public class BootsOfForitude extends KingOfArmor implements KingOfItem
 
 	public BootsOfForitude()
 	{
-		super(new KingOfMaterial(), EquipmentSlotType.FEET, Rarity.UNCOMMON);
+		super(new KingOfMaterial().setName("boots_of_foritude"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
 		setRegistryName("boots_of_foritude");
 	}
 

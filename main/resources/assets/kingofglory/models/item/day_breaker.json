@@ -1,0 +1,21 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "kingofglory:item/day_breaker"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "pulling": 1
+            },
+            "model": "kingofglory:item/day_breaker_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 1
+            },
+            "model": "kingofglory:item/day_breaker_pulling_1"
+        }
+    ]
+}

@@ -34,7 +34,7 @@ public class BootsOfResistance extends KingOfArmor implements KingOfItem
 
 	public BootsOfResistance()
 	{
-		super(new KingOfMaterial(), EquipmentSlotType.FEET, Rarity.UNCOMMON);
+		super(new KingOfMaterial().setName("boots_of_resistance"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
 		setRegistryName("boots_of_resistance");
 	}
 

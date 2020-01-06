@@ -1,0 +1,6 @@
+{
+    "parent": "kingofglory:item/day_breaker",
+    "textures": {
+        "layer0": "kingofglory:item/bow_pulling_1"
+    }
+}

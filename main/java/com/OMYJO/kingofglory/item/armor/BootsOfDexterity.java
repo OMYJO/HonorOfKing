@@ -33,7 +33,7 @@ public class BootsOfDexterity extends KingOfArmor implements KingOfItem
 
 	public BootsOfDexterity()
 	{
-		super(new KingOfMaterial(), EquipmentSlotType.FEET, Rarity.UNCOMMON);
+		super(new KingOfMaterial().setName("boots_of_dexterity"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
 		setRegistryName("boots_of_dexterity");
 	}
 

@@ -36,7 +36,7 @@ public class Effects
 	@ObjectHolder("assaulting_slowness")
 	public static AssaultingSlowness ASSAULTING_SLOWNESS;
 	@ObjectHolder("assaulting_speed")
-	public static AssaultingSlowness ASSAULTING_SPEED;
+	public static AssaultingSpeed ASSAULTING_SPEED;
 	@ObjectHolder("ice_heart")
 	public static IceHeart ICE_HEART;
 	@ObjectHolder("ancestry")

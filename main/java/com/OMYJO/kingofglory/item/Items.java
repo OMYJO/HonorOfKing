@@ -16,14 +16,33 @@ import net.minecraftforge.registries.ObjectHolder;
 @net.minecraftforge.registries.ObjectHolder("kingofglory")
 public class Items
 {
-	@ObjectHolder("cloud_piercing_bow")
-	public static CloudPiercingBow CLOUD_PIERCING_BOW;
-	@ObjectHolder("storm_sword")
-	public static StormSword STORM_SWORD;
 	@ObjectHolder("meteor")
 	public static Meteor METEOR;
+	@ObjectHolder("nightmare")
+	public static Nightmare NIGHTMARE;
+	@ObjectHolder("broken_star_mace")
+	public static BrokenStarMace BROKEN_STAR_MACE;
+
+	@ObjectHolder("ominous_premonition")
+	public static OminousPremonition OMINOUS_PREMONITION;
+	@ObjectHolder("cuirass_of_savagery")
+	public static CuirassOfSavagery CUIRASS_OF_SAVAGERY;
+
+
+	@ObjectHolder("red_lotus_cape")
+	public static RedLotusCape RED_LOTUS_CAPE;
+	@ObjectHolder("succubus_cloak")
+	public static SuccubusCloak SUCCUBUS_CLOAK;
+
+	@ObjectHolder("spikemail")
+	public static Spikemail SPIKEMAIL;
 	@ObjectHolder("overlords_platemail")
 	public static OverlordsPlatemail OVERLORDS_PLATEMAIL;
+	@ObjectHolder("glacial_buckler")
+	public static GlacialBuckler GLACIAL_BUCKLER;
+
+	@ObjectHolder("boots_of_foritude")
+	public static BootsOfForitude BOOTS_OF_FORITUDE;
 
 	@SubscribeEvent
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> event)

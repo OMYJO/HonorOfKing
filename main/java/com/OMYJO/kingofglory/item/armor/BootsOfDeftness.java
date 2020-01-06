@@ -31,7 +31,7 @@ public class BootsOfDeftness extends KingOfArmor implements KingOfItem
 
 	public BootsOfDeftness()
 	{
-		super(new KingOfMaterial(), EquipmentSlotType.FEET, Rarity.UNCOMMON);
+		super(new KingOfMaterial().setName("boots_of_deftness"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
 		setRegistryName("boots_of_deftness");
 	}
 

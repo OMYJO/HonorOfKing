@@ -1,0 +1,6 @@
+{
+    "parent": "kingofglory:item/cloud_piercing_bow",
+    "textures": {
+        "layer0": "kingofglory:item/bow_pulling_0"
+    }
+}

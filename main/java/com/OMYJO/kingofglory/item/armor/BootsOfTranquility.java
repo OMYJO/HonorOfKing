@@ -31,7 +31,7 @@ public class BootsOfTranquility extends KingOfArmor implements KingOfItem
 
 	public BootsOfTranquility()
 	{
-		super(new KingOfMaterial(), EquipmentSlotType.FEET, Rarity.UNCOMMON);
+		super(new KingOfMaterial().setName("boots_of_tranquility"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
 		setRegistryName("boots_of_tranquility");
 	}
 

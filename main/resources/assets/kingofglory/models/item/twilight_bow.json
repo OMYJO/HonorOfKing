@@ -1,0 +1,21 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "kingofglory:item/twilight_bow"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "pulling": 1
+            },
+            "model": "kingofglory:item/twilight_bow_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 1
+            },
+            "model": "kingofglory:item/twilight_bow_pulling_1"
+        }
+    ]
+}

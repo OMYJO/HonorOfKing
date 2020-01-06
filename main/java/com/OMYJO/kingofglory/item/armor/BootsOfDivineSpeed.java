@@ -28,7 +28,7 @@ public class BootsOfDivineSpeed extends KingOfArmor implements KingOfItem
 
 	public BootsOfDivineSpeed()
 	{
-		super(new KingOfMaterial(), EquipmentSlotType.FEET, Rarity.COMMON);
+		super(new KingOfMaterial().setName("boots_of_divine_speed"), EquipmentSlotType.FEET, Rarity.COMMON);
 		setRegistryName("boots_of_divine_speed");
 	}
 
