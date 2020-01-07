@@ -1,5 +1,6 @@
 package com.OMYJO.kingofglory.other;
 
+import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,14 +14,18 @@ public class Helper
 {
 	public static float attackDamage(float attackDamage)
 	{
-		return attackDamage/10;
+		return attackDamage/12;
 	}
 	public static float maxHealth(float maxHealth) { return maxHealth/200; }
 	public static int maxMana(int maxMana) { return maxMana/5; }
-	public static float movementSpeed(float movementSpeed){return movementSpeed/720; }
-	public static double distance(float d){return movementSpeed(d)*20*Math.sqrt(Math.PI);}
+	public static float movementSpeed(float movementSpeed){return movementSpeed/800; }
+	public static double distance(float d){return movementSpeed(d)*20*Math.sqrt(Math.PI)/2;}
 	public static int getEscapeTime(PlayerEntity playerEntity)
 	{
+		if(playerEntity instanceof AbstractClientPlayerEntity)
+		{
+			return 0;
+		}
 		if(playerEntity.getRevengeTarget() == null)
 		{
 			if(playerEntity.ticksExisted - playerEntity.getLastAttackedEntityTime() >140)
