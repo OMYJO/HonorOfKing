@@ -56,8 +56,8 @@ public class EquipedMonster
 			if(entity instanceof ZombieEntity || entity instanceof AbstractSkeletonEntity)
 			{
 				double b = Math.random();
-				if(b < 0.4) itemStack = ItemStack.EMPTY;
-				else if(b < 0.7) itemStack = new ItemStack(Items.OMINOUS_PREMONITION);
+				if(b < 0.8) itemStack = ItemStack.EMPTY;
+				else if(b < 0.9) itemStack = new ItemStack(Items.OMINOUS_PREMONITION);
 				else itemStack = new ItemStack(Items.CUIRASS_OF_SAVAGERY);
 				if(itemStack != ItemStack.EMPTY)
 				{
@@ -70,8 +70,8 @@ public class EquipedMonster
 				}
 
 				b = Math.random();
-				if(b < 0.4) itemStack = ItemStack.EMPTY;
-				else if(b < 0.7) itemStack = new ItemStack(Items.RED_LOTUS_CAPE);
+				if(b < 0.8) itemStack = ItemStack.EMPTY;
+				else if(b < 0.9) itemStack = new ItemStack(Items.RED_LOTUS_CAPE);
 				else itemStack = new ItemStack(Items.SUCCUBUS_CLOAK);
 				if(itemStack != ItemStack.EMPTY)
 				{
@@ -85,9 +85,9 @@ public class EquipedMonster
 
 
 				b = Math.random();
-				if(b < 0.4) itemStack = ItemStack.EMPTY;
-				else if(b < 0.6) itemStack = new ItemStack(Items.SPIKEMAIL);
-				else if(b < 0.8) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
+				if(b < 0.7) itemStack = ItemStack.EMPTY;
+				else if(b < 0.8) itemStack = new ItemStack(Items.SPIKEMAIL);
+				else if(b < 0.9) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
 				else itemStack = new ItemStack(Items.GLACIAL_BUCKLER);
 				if(itemStack != ItemStack.EMPTY)
 				{
@@ -100,7 +100,7 @@ public class EquipedMonster
 				}
 
 				b = Math.random();
-				if(b < 0.5) itemStack = ItemStack.EMPTY;
+				if(b < 0.8) itemStack = ItemStack.EMPTY;
 				else itemStack = new ItemStack(Items.BOOTS_OF_FORITUDE);
 				if(itemStack != ItemStack.EMPTY)
 				{
