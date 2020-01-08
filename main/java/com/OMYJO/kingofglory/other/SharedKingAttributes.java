@@ -6,6 +6,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,30 +30,38 @@ public class SharedKingAttributes extends SharedMonsterAttributes
 	public static final IAttribute HP_PER_5_SECONDS = (new RangedAttribute((IAttribute)null, "kingofglory.HPPer5Seconds", 0.6D, 0D, 1024D)).setDescription("HP/5 seconds").setShouldWatch(true);
 
 	@SubscribeEvent
-	public static void onEntityJoinWorld(EntityJoinWorldEvent event)
+	public static void onEntityJoinWorld(EntityEvent.EnteringChunk event)
 	{
 		if(event.getEntity() instanceof LivingEntity)
 		{
 			LivingEntity livingEntity = (LivingEntity) event.getEntity();
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MAGIC_ATTACK);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.ARMOR);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MAGIC_DEFENCE);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.CRITICAL_CHANCE);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.CRITICAL_DAMAGE);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.LIFE_STEAL);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MAGIC_LIFE_STEAL);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.COOL_DOWN_REDUCTION);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.ARMOR_PIERCE);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MAGIC_PIERCE);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MAX_MANA);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.RESISTANCE);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.MANA_PER_5_SECONDS);
-			livingEntity.getAttributes().registerAttribute(SharedKingAttributes.HP_PER_5_SECONDS);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.MAGIC_ATTACK);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.ARMOR);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.MAGIC_DEFENCE);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.CRITICAL_CHANCE);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.CRITICAL_DAMAGE);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.LIFE_STEAL);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.MAGIC_LIFE_STEAL);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.COOL_DOWN_REDUCTION);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.ARMOR_PIERCE);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.MAGIC_PIERCE);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.MAX_MANA);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.RESISTANCE);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.MANA_PER_5_SECONDS);
+			registerAttributeSafely(livingEntity,SharedKingAttributes.HP_PER_5_SECONDS);
 			if(livingEntity instanceof MobEntity)
 			{
-				livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).setBaseValue(183*Math.log10(livingEntity.getMaxHealth()));
-				livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_DEFENCE.getName()).setBaseValue(183*Math.log10(livingEntity.getMaxHealth()));
+				livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).setBaseValue(183*Math.log10(livingEntity.getMaxHealth()));
+				livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_DEFENCE).setBaseValue(183*Math.log10(livingEntity.getMaxHealth()));
 			}
+		}
+	}
+
+	public static void registerAttributeSafely(LivingEntity livingEntity, IAttribute attribute)
+	{
+		if(livingEntity.getAttributes().getAttributeInstance(attribute) == null)
+		{
+			livingEntity.getAttributes().registerAttribute(attribute);
 		}
 	}
 }

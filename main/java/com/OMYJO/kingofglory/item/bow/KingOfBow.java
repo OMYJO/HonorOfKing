@@ -73,8 +73,8 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 						AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack, playerentity);
 						abstractarrowentity = customeArrow(abstractarrowentity);
 						abstractarrowentity.setDamage(abstractarrowentity.getDamage() +
-								( playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue()
-								- playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getBaseValue()) / 4);
+								( playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue()
+								- playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue()) / 4);
 						if(playerentity.isPotionActive(Effects.CHASING_SUN))
 						{
 							abstractarrowentity.setDamage(abstractarrowentity.getDamage()/1.2F);
@@ -115,8 +115,8 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 					});
 
 					playerentity.getCooldownTracker().setCooldown(this, (int)Math.min(
-								20 * playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_SPEED.getName()).getBaseValue()
-									/ playerentity.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_SPEED.getName()).getValue()
+								20 * playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getBaseValue()
+									/ playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getValue()
 						,100D));
 					playerentity.addStat(Stats.ITEM_USED.get(this));
 				}
@@ -207,7 +207,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 		long time = worldIn.getDayTime();
 		if(time % 1000 == 0)
 		{
-			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECONDS.getName()).getValue()));
+			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));
 		}
 	}
 

@@ -17,7 +17,7 @@ public class Resistance
 	{
 		if(event.getPotionEffect().getPotion().getEffectType() == EffectType.HARMFUL && !(event.getEntityLiving() instanceof AbstractClientPlayerEntity))
 		{
-			int n = (int)(event.getPotionEffect().getDuration() * (1 - event.getEntityLiving().getAttributes().getAttributeInstanceByName(SharedKingAttributes.RESISTANCE.getName()).getValue()));
+			int n = (int)(event.getPotionEffect().getDuration() * (1 - event.getEntityLiving().getAttributes().getAttributeInstance(SharedKingAttributes.RESISTANCE).getValue()));
 			ObfuscationReflectionHelper.setPrivateValue(EffectInstance.class,event.getPotionEffect(),n,"field_76460_b");
 		}
 	}

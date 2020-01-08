@@ -58,23 +58,23 @@ public class Helper
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicAttack"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_ATTACK.getName()).getValue()));
+		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_ATTACK).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.generic.maxHealth"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAX_HEALTH.getName()).getValue()));
+		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAX_HEALTH).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.maxMana"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAX_MANA.getName()).getValue()));
+		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAX_MANA).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.armor"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue()));
+		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicDefence"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_DEFENCE.getName()).getValue()));
+		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_DEFENCE).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.generic.attackSpeed"));
 		stringBuffer.append(": ");
@@ -82,63 +82,63 @@ public class Helper
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.coolDownReduction"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.COOL_DOWN_REDUCTION).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.criticalChance"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.criticalDamage"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_DAMAGE.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_DAMAGE).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.HPPer5Seconds"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.HP_PER_5_SECONDS.getName()).getValue()));
+		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.HP_PER_5_SECONDS).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.manaPer5Seconds"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECONDS.getName()).getValue()));
+		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.armorPierce"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format((int)livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue()));
+		stringBuffer.append(nfi.format((int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue()));
 		stringBuffer.append("|");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue() - (int)livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue() - (int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicPierce"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfi.format((int)livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue()));
+		stringBuffer.append(nfi.format((int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue()));
 		stringBuffer.append("|");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue() - (int)livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue() - (int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.lifeSteal"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.LIFE_STEAL.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.LIFE_STEAL).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicLifeSteal"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_LIFE_STEAL.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_LIFE_STEAL).getValue()));
 		stringBuffer.append("\n");
 		stringBuffer.append(I18n.format("attribute.name.generic.movementSpeed"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MOVEMENT_SPEED.getName()).getValue()));
+		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MOVEMENT_SPEED).getValue()));
 		stringBuffer.append("   ");
 		stringBuffer.append(I18n.format("attribute.name.kingofglory.resistance"));
 		stringBuffer.append(": ");
-		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstanceByName(SharedKingAttributes.RESISTANCE.getName()).getValue()));
+		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.RESISTANCE).getValue()));
 		return stringBuffer.toString();
 	}
 
 	private static String panelFollowed(NumberFormat nf, LivingEntity livingEntity, IAttribute attribute)
 	{
-		if(livingEntity.getAttributes().getAttributeInstanceByName(attribute.getName()) == null)
+		if(livingEntity.getAttributes().getAttributeInstance(attribute) == null)
 		{
 			return "null";
 		}
 		else
 		{
-			return nf.format(livingEntity.getAttributes().getAttributeInstanceByName(attribute.getName()).getValue());
+			return nf.format(livingEntity.getAttributes().getAttributeInstance(attribute).getValue());
 		}
 	}
 }

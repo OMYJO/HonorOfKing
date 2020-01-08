@@ -106,7 +106,7 @@ public class Damage
 									flag = ((PlayerEntity) attacker).getCooldownTracker().hasCooldown(sparkForgedDagger);
 									if (!flag)
 									{
-										int cooldown = (int) (10 * (1 - attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
+										int cooldown = (int) (10 * (1 - attacker.getAttributes().getAttributeInstance(SharedKingAttributes.COOL_DOWN_REDUCTION).getValue()));
 										((PlayerEntity) attacker).getCooldownTracker().setCooldown(sparkForgedDagger, cooldown);
 									}
 								}
@@ -119,8 +119,8 @@ public class Damage
 										{
 											if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
 											{
-												float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
-												if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
+												float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
+												if (Math.random() < attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue())
 												{
 													damage *= 2;
 												}
@@ -134,8 +134,8 @@ public class Damage
 												livingentity.playSound(soundevent, f1, 1.0F);
 											}
 										}
-										float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue();
-										if (Math.random() < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
+										float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
+										if (Math.random() < attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue())
 										{
 											damage *= 2;
 										}
@@ -188,9 +188,9 @@ public class Damage
 						//暴击
 						{
 							double r = Math.random();
-							if (r < attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_CHANCE.getName()).getValue())
+							if (r < attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue())
 							{
-								event.setAmount(event.getAmount() * (float) attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.CRITICAL_DAMAGE.getName()).getValue());
+								event.setAmount(event.getAmount() * (float) attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_DAMAGE).getValue());
 								//影刃
 								if (attacker.getHeldItemMainhand().getItem() instanceof ShadowRipper || attacker.getHeldItemOffhand().getItem() instanceof ShadowRipper)
 								{
@@ -216,7 +216,7 @@ public class Damage
 							switch (attacker.getActivePotionEffect(Effects.ASSAULTING).getAmplifier())
 							{
 								case 2:
-									event.setAmount(event.getAmount() + 0.8F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue());
+									event.setAmount(event.getAmount() + 0.8F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue());
 									attacker.removePotionEffect(Effects.ASSAULTING);
 									break;
 								case 1:
@@ -233,7 +233,7 @@ public class Damage
 									}
 									break;
 								case 0:
-									event.setAmount(event.getAmount() + 0.5F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedMonsterAttributes.ATTACK_DAMAGE.getName()).getValue() + 0.3F * (float) attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_ATTACK.getName()).getValue());
+									event.setAmount(event.getAmount() + 0.5F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_ATTACK).getValue());
 									attacker.removePotionEffect(Effects.ASSAULTING);
 									event.getSource().setMagicDamage();
 									break;
@@ -331,14 +331,14 @@ public class Damage
 			{
 				if(source.isMagicDamage())
 				{
-					double magicDefence = target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_DEFENCE.getName()).getValue();
+					double magicDefence = target.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_DEFENCE).getValue();
 					double magicPierce = 0D;
 					double magicPierceRate = 0D;
 					if(entity instanceof LivingEntity)
 					{
 						LivingEntity attacker = (LivingEntity) entity;
-						magicPierce = (double)((int)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue());
-						magicPierceRate = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_PIERCE.getName()).getValue() - magicPierce;
+						magicPierce = (double)((int)attacker.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue());
+						magicPierceRate = attacker.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue() - magicPierce;
 					}
 					magicDefence = Math.max(magicDefence - magicPierce,0D);
 					magicDefence = magicDefence * (1-magicPierceRate);
@@ -346,14 +346,14 @@ public class Damage
 				}
 				else
 				{
-					double armor = target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue();
+					double armor = target.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).getValue();
 					double armorPierce = 0D;
 					double armorPierceRate = 0D;
 					if(entity instanceof LivingEntity)
 					{
 						LivingEntity attacker = (LivingEntity) entity;
-						armorPierce = (double)((int)attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue());
-						armorPierceRate = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR_PIERCE.getName()).getValue() - armorPierce;
+						armorPierce = (double)((int)attacker.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue());
+						armorPierceRate = attacker.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue() - armorPierce;
 					}
 					armor = Math.max(armor - armorPierce,0D);
 					armor = armor * (1-armorPierceRate);
@@ -444,7 +444,7 @@ public class Damage
 					flag = ((PlayerEntity) target).getCooldownTracker().hasCooldown(itemStack.getItem());
 					if(!flag)
 					{
-						int coolDown = (int)(40 * (1-target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.COOL_DOWN_REDUCTION.getName()).getValue()));
+						int coolDown = (int)(40 * (1-target.getAttributes().getAttributeInstance(SharedKingAttributes.COOL_DOWN_REDUCTION).getValue()));
 						((PlayerEntity) target).getCooldownTracker().setCooldown(itemStack.getItem(),coolDown);
 					}
 				}
@@ -479,7 +479,7 @@ public class Damage
 				if(target.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem() instanceof Spikemail)
 				{
 					float up = 0.2F;
-					up += 0.01F * target.getAttributes().getAttributeInstanceByName(SharedKingAttributes.ARMOR.getName()).getValue()/20;
+					up += 0.01F * target.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).getValue()/20;
 					up = Math.min(up,0.4F);
 					float down = 1F;
 					down -= 0.3F * target.getDistance(attacker)/Helper.distance(800);
@@ -502,13 +502,13 @@ public class Damage
 			{
 				if (source.isMagicDamage())
 				{
-					double magicLifeSteal = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.MAGIC_LIFE_STEAL.getName()).getValue();
+					double magicLifeSteal = attacker.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_LIFE_STEAL).getValue();
 					float damage = event.getAmount();
 					event.getEntityLiving().heal(damage * (float) magicLifeSteal);
 				}
 				else
 				{
-					double lifeSteal = attacker.getAttributes().getAttributeInstanceByName(SharedKingAttributes.LIFE_STEAL.getName()).getValue();
+					double lifeSteal = attacker.getAttributes().getAttributeInstance(SharedKingAttributes.LIFE_STEAL).getValue();
 					float damage = event.getAmount();
 					event.getEntityLiving().heal(damage * (float) lifeSteal);
 				}

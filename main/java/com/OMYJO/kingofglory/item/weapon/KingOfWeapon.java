@@ -97,7 +97,7 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 		long time = worldIn.getDayTime();
 		if(time % 1000 == 0)
 		{
-			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstanceByName(SharedKingAttributes.MANA_PER_5_SECONDS.getName()).getValue()));
+			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));
 		}
 	}
 }
