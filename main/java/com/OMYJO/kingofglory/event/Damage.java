@@ -450,6 +450,9 @@ public class Damage
 				}
 				if (!flag)
 				{
+					itemStack.damageItem(1, target, (p_220045_0_) -> {
+						p_220045_0_.sendBreakAnimation(target.getActiveHand());
+					});
 					double d = Helper.distance(500);
 					for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 					{
