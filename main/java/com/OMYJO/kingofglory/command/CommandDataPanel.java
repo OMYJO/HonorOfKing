@@ -39,7 +39,7 @@ public class CommandDataPanel
 						)
 				)
 				.then(
-						Commands.literal("revengetarget")
+						Commands.literal("revenge")
 								.requires(cs -> cs.hasPermissionLevel(0))
 								.executes(
 										context ->{

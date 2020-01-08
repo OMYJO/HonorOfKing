@@ -16,7 +16,7 @@ public class MyCommands
 	public static void register(FMLServerStartingEvent event)
 	{
 		CommandDispatcher<CommandSource> dispatcher = event.getCommandDispatcher();
-		LiteralCommandNode<CommandSource> cmdTut = dispatcher.register(
+		dispatcher.register(
 				Commands.literal("kingofglory")
 						.then(CommandDataPanel.register(dispatcher))
 		);
