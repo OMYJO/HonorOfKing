@@ -1,4 +1,4 @@
-{
+﻿{
   "item.kingofglory.iron_sword": "铁剑",
   "item.kingofglory.dagger": "匕首",
   "item.kingofglory.pugilists_gauntlet": "搏击拳套",
@@ -98,7 +98,7 @@
   "item_effect.kingofglory.eye_of_the_phoenix.0": "唯一被动：血统",
   "item_effect.kingofglory.succubus_cloak.0": "唯一被动：迷雾",
   "item_effect.kingofglory.ominous_premonition.0": "唯一被动：寒铁",
-  "item_effect.kingofglory.blood_rage.0": "唯一被动：血怒",
+  "item_effect.kingofglory.blood_rage.0": "唯一主动：血怒",
   "item_effect.kingofglory.boots_of_divine_speed.0": "唯一被动：+30移动速度",
   "item_effect.kingofglory.boots_of_deftness.0": "唯一被动：+60移动速度",
   "item_effect.kingofglory.boots_of_deftness.1": "唯一被动：神行",
