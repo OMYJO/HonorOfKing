@@ -1,8 +1,10 @@
 package com.OMYJO.kingofglory.event;
 
+import com.OMYJO.kingofglory.item.armor.EyeOfThePhoenix;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,7 +33,7 @@ public class Regeneration
 			event.setAmount(event.getAmount() / 2);
 		}
 		//不死鸟
-		if (event.getEntityLiving().isPotionActive(Effects.ANCESTRY))
+		if (event.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof EyeOfThePhoenix)
 		{
 			float amplifier = 0.06F * (int) ((event.getEntityLiving().getMaxHealth() - event.getEntityLiving().getMaxHealth()) * 10 / event.getEntityLiving().getMaxHealth());
 			event.setAmount(event.getAmount() * (1 + amplifier));

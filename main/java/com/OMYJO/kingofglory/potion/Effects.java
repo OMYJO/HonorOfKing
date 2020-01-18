@@ -39,8 +39,6 @@ public class Effects
 	public static AssaultingSpeed ASSAULTING_SPEED;
 	@ObjectHolder("ice_heart")
 	public static IceHeart ICE_HEART;
-	@ObjectHolder("ancestry")
-	public static Ancestry ANCESTRY;
 	@ObjectHolder("blood_rage")
 	public static BloodRage BLOOD_RAGE;
 	@ObjectHolder("marvellous_speed")
@@ -62,7 +60,6 @@ public class Effects
 		event.getRegistry().register(new AssaultingSlowness());
 		event.getRegistry().register(new AssaultingSpeed());
 		event.getRegistry().register(new IceHeart());
-		event.getRegistry().register(new Ancestry());
 		event.getRegistry().register(new BloodRage());
 		event.getRegistry().register(new MarvellousSpeed());
 	}
