@@ -79,11 +79,11 @@ public class Items
 		event.getRegistry().register(new SwordOfGlory());
 		event.getRegistry().register(new AlchemyTailsman());
 
-		event.getRegistry().register(new ClothJerkin(EquipmentSlotType.CHEST,"cloth_jerkin"));
+		event.getRegistry().register(new ClothJerkin(EquipmentSlotType.CHEST,"cloth_jerkin"));//布甲
 		event.getRegistry().register(new RevitalizingCrystal());
-		event.getRegistry().register(new AntiMageCloak(EquipmentSlotType.CHEST,"anti-mage_cloak"));
+		event.getRegistry().register(new AntiMageCloak(EquipmentSlotType.CHEST,"anti-mage_cloak"));//抗魔披风
 		event.getRegistry().register(new ResilientAgate());
-		event.getRegistry().register(new ProtectorsVest(EquipmentSlotType.CHEST,"protectors_vest"));
+		event.getRegistry().register(new ProtectorsVest(EquipmentSlotType.CHEST,"protectors_vest"));//守护者之铠
 		event.getRegistry().register(new FrostholdTarge());
 		event.getRegistry().register(new FusionCore(EquipmentSlotType.CHEST,"fusion_core"));
 		event.getRegistry().register(new BeltOfMight(EquipmentSlotType.CHEST,"belt_of_might"));
@@ -94,7 +94,7 @@ public class Items
 		event.getRegistry().register(new FrostscarsEmbrace());
 		event.getRegistry().register(new OverlordsPlatemail(EquipmentSlotType.LEGS,"overlords_platemail"));
 		event.getRegistry().register(new SagesSanctuary());
-		event.getRegistry().register(new GlacialBuckler(EquipmentSlotType.LEGS,"glacial_buckler"));
+		event.getRegistry().register(new GlacialBuckler(EquipmentSlotType.LEGS,"glacial_buckler"));//冰心
 		event.getRegistry().register(new EyeOfThePhoenix(EquipmentSlotType.HEAD,"eye_of_the_phoenix"));
 		event.getRegistry().register(new SuccubusCloak(EquipmentSlotType.CHEST,"succubus_cloak"));
 		event.getRegistry().register(new OminousPremonition(EquipmentSlotType.HEAD,"ominous_premonition"));

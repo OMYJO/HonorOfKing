@@ -312,7 +312,7 @@ public class Damage
 					}
 				}
 				//if触发不祥
-				if(target.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof OminousPremonition)
+				if(target.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof OminousPremonition)
 				{
 					attacker.addPotionEffect(new EffectInstance(Effects.COLD_IRON,60,1));
 				}
