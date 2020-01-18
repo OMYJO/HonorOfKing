@@ -1,17 +1,1 @@
-{
-  "result": {
-    "item": "kingofglory:anti-mage_cloak"
-  },
-  "ingredients": [
-    {
-      "tag": "minecraft:logs"
-    },
-    {
-      "item": "minecraft:leather"
-    },
-    {
-      "item": "minecraft:gold_ingot"
-    }
-  ],
-  "type": "minecraft:crafting_shapeless"
-}
+{"result":{"item":"kingofglory:anti-mage_cloak"},"ingredients":[{"tag":"minecraft:logs"},{"item":"minecraft:leather"},{"item":"minecraft:gold_ingot"}],"type":"minecraft:crafting_shapeless"}
