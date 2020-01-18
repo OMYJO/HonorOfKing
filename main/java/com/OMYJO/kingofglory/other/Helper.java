@@ -18,7 +18,7 @@ public class Helper
 	}
 	public static float maxHealth(float maxHealth) { return maxHealth/200; }
 	public static int maxMana(int maxMana) { return maxMana/5; }
-	public static float movementSpeed(float movementSpeed){return movementSpeed/800; }
+	public static float movementSpeed(float movementSpeed){return movementSpeed/1200; }
 	public static double distance(float d){return movementSpeed(d)*20*Math.sqrt(Math.PI)/2;}
 	public static int getEscapeTime(PlayerEntity playerEntity)
 	{
