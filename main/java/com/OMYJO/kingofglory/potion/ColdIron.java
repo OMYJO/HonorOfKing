@@ -29,10 +29,6 @@ public class ColdIron extends Effect implements KingOfEffect
 		{
 			return modifier.getAmount() * (double)(amplifier + 1);
 		}
-		else
-		{
-			System.out.println("寒铁的等级存在问题");
-		}
 		return modifier.getAmount() * (double)(1);
 	}
 }
