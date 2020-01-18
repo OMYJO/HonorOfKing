@@ -1,6 +1,7 @@
 package com.OMYJO.kingofglory.item.bow;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
+import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.potion.Effects;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.HashMultimap;
@@ -21,9 +22,12 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraft.item.Items;
 
+import java.util.UUID;
+
 public abstract class KingOfBow extends BowItem implements KingOfItem
 {
 	private final IItemTier tier;
+	public static final UUID MOVEMENT_SPEED_MODIFIER = UUID.randomUUID();
 	public KingOfBow(IItemTier tier,Rarity rarity)
 	{
 		super(new Item.Properties().maxDamage(tier.getMaxUses()).group(ItemGroup.COMBAT).rarity(rarity));
@@ -216,6 +220,10 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
 	{
 		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
+		if(equipmentSlot == EquipmentSlotType.MAINHAND)
+		{
+			multimap.put(SharedKingAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MOVEMENT_SPEED_MODIFIER, "Weapon modifier", (Helper.movementSpeed(-50)), AttributeModifier.Operation.ADDITION));
+		}
 		return multimap;
 	}
 }
