@@ -26,7 +26,7 @@ public class CommandDataPanel
 		return Commands.literal("panel")
 				.requires(cs -> cs.hasPermissionLevel(0))
 				.executes(
-						context ->{
+						(context) ->{
 							return panel(context.getSource().asPlayer(),context.getSource());
 						}
 				)
@@ -34,7 +34,7 @@ public class CommandDataPanel
 						Commands.literal("lastattacked")
 						.requires(cs -> cs.hasPermissionLevel(0))
 						.executes(
-								context ->{
+								(context) ->{
 									return panel(context.getSource().asPlayer().getLastAttackedEntity(),context.getSource());
 								}
 						)
@@ -43,7 +43,7 @@ public class CommandDataPanel
 						Commands.literal("revenge")
 								.requires(cs -> cs.hasPermissionLevel(0))
 								.executes(
-										context ->{
+										(context) ->{
 											return panel(context.getSource().asPlayer().getRevengeTarget(),context.getSource());
 										}
 								)
@@ -53,75 +53,11 @@ public class CommandDataPanel
 
 	public static int panel(LivingEntity livingEntity, CommandSource source) throws CommandSyntaxException
 	{
-		if(livingEntity == null)
+		if(source.getEntity()==null)
 		{
-			source.sendFeedback(new TextComponent()
-			{
-				@Override
-				public String getUnformattedComponentText()
-				{
-					return null;
-				}
-
-				/**
-				 * Creates a copy of this component.  Almost a deep copy, except the style is shallow-copied.
-				 */
-				@Override
-				public ITextComponent shallowCopy()
-				{
-					return new TextComponent()
-					{
-						@Override
-						public String getUnformattedComponentText()
-						{
-
-							return "null";
-						}
-
-						@Override
-						public ITextComponent shallowCopy()
-						{
-							return null;
-						}
-					};
-				}
-			},true);
+			return 0;
 		}
-		else
-		{
-			System.out.println(livingEntity.toString());
-			source.sendFeedback(new TextComponent()
-			{
-				@Override
-				public String getUnformattedComponentText()
-				{
-					return null;
-				}
-
-				/**
-				 * Creates a copy of this component.  Almost a deep copy, except the style is shallow-copied.
-				 */
-				@Override
-				public ITextComponent shallowCopy()
-				{
-					return new TextComponent()
-					{
-						@Override
-						public String getUnformattedComponentText()
-						{
-
-							return Helper.panel(livingEntity);
-						}
-
-						@Override
-						public ITextComponent shallowCopy()
-						{
-							return null;
-						}
-					};
-				}
-			},true);
-		}
-		return 0;
+		source.sendFeedback(new StringTextComponent(Helper.panel(livingEntity)),true);
+		return 1;
 	}
 }

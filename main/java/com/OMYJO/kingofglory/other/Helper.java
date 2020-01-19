@@ -41,6 +41,7 @@ public class Helper
 	}
 	public static String panel(LivingEntity livingEntity)
 	{
+		if(livingEntity == null) return "null";
 		NumberFormat nfp = NumberFormat.getPercentInstance();
 		NumberFormat nfi = NumberFormat.getNumberInstance();
 		NumberFormat nff = NumberFormat.getNumberInstance();
