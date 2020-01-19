@@ -9,6 +9,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -26,7 +27,7 @@ public class CommandDataPanel
 				.requires(cs -> cs.hasPermissionLevel(0))
 				.executes(
 						context ->{
-							return panel(context.getSource().asPlayer(),context.getSource().asPlayer());
+							return panel(context.getSource().asPlayer(),context.getSource());
 						}
 				)
 				.then(
@@ -34,7 +35,7 @@ public class CommandDataPanel
 						.requires(cs -> cs.hasPermissionLevel(0))
 						.executes(
 								context ->{
-									return panel(context.getSource().asPlayer().getLastAttackedEntity(),context.getSource().asPlayer());
+									return panel(context.getSource().asPlayer().getLastAttackedEntity(),context.getSource());
 								}
 						)
 				)
@@ -43,18 +44,18 @@ public class CommandDataPanel
 								.requires(cs -> cs.hasPermissionLevel(0))
 								.executes(
 										context ->{
-											return panel(context.getSource().asPlayer().getRevengeTarget(),context.getSource().asPlayer());
+											return panel(context.getSource().asPlayer().getRevengeTarget(),context.getSource());
 										}
 								)
 				);
 	}
 
 
-	public static int panel(LivingEntity livingEntity, ServerPlayerEntity playerEntity) throws CommandSyntaxException
+	public static int panel(LivingEntity livingEntity, CommandSource source) throws CommandSyntaxException
 	{
 		if(livingEntity == null)
 		{
-			playerEntity.sendMessage(new TextComponent()
+			source.sendFeedback(new TextComponent()
 			{
 				@Override
 				public String getUnformattedComponentText()
@@ -84,12 +85,12 @@ public class CommandDataPanel
 						}
 					};
 				}
-			});
+			},true);
 		}
 		else
 		{
 			System.out.println(livingEntity.toString());
-			playerEntity.sendMessage(new TextComponent()
+			source.sendFeedback(new TextComponent()
 			{
 				@Override
 				public String getUnformattedComponentText()
@@ -119,7 +120,7 @@ public class CommandDataPanel
 						}
 					};
 				}
-			});
+			},true);
 		}
 		return 0;
 	}
