@@ -23,41 +23,24 @@ public class CommandDataPanel
 {
 	public static ArgumentBuilder<CommandSource, ?> register(CommandDispatcher<CommandSource> dispatcher)
 	{
-		return Commands.literal("panel")
-				.requires(cs -> cs.hasPermissionLevel(0))
-				.executes(
-						(context) ->{
-							return panel(context.getSource().asPlayer(),context.getSource());
-						}
-				)
-				.then(
-						Commands.literal("lastattacked")
-						.requires(cs -> cs.hasPermissionLevel(0))
-						.executes(
-								(context) ->{
-									return panel(context.getSource().asPlayer().getLastAttackedEntity(),context.getSource());
-								}
-						)
-				)
-				.then(
-						Commands.literal("revenge")
-								.requires(cs -> cs.hasPermissionLevel(0))
-								.executes(
-										(context) ->{
-											return panel(context.getSource().asPlayer().getRevengeTarget(),context.getSource());
-										}
-								)
-				);
+		return Commands.literal("panel").requires(cs -> cs.hasPermissionLevel(0)).executes((context) -> {
+			return panel(context.getSource().asPlayer(), context.getSource());
+		}).then(Commands.literal("lastattacked").requires(cs -> cs.hasPermissionLevel(0)).executes((context) -> {
+			return panel(context.getSource().asPlayer().getLastAttackedEntity(), context.getSource());
+		})).then(Commands.literal("revenge").requires(cs -> cs.hasPermissionLevel(0)).executes((context) -> {
+			return panel(context.getSource().asPlayer().getRevengeTarget(), context.getSource());
+		}));
 	}
 
 
 	public static int panel(LivingEntity livingEntity, CommandSource source) throws CommandSyntaxException
 	{
-		if(source.getEntity()==null)
+		if (source.getEntity() == null)
 		{
 			return 0;
 		}
-		source.sendFeedback(new StringTextComponent(Helper.panel(livingEntity)),true);
+		if (source.asPlayer() != null)
+			source.asPlayer().sendMessage(new StringTextComponent(Helper.panel(livingEntity)));
 		return 1;
 	}
 }
