@@ -40,7 +40,7 @@ public class CommandDataPanel
 			return 0;
 		}
 		if (source.asPlayer() != null)
-			source.asPlayer().sendMessage(new StringTextComponent(Helper.panel(livingEntity)));
+			source.asPlayer().sendMessage(Helper.ipanel(livingEntity));
 		return 1;
 	}
 }

@@ -111,7 +111,6 @@
   "item_effect.kingofglory.boots_of_foritude.0": "唯一被动：+60移动速度",
   "item_effect.kingofglory.boots_of_foritude.1": "唯一被动：减少15%%受到普通攻击的伤害",
 
-
   "effect.kingofglory.chasing_sun": "逐日",
   "effect.kingofglory.cripple": "残废",
   "effect.kingofglory.severe_wound": "重伤",
@@ -128,7 +127,6 @@
   "effect.kingofglory.blood_rage": "血怒",
   "effect.kingofglory.marvellous_speed": "神行",
 
-
   "attribute.name.kingofglory.magicAttack": "法术攻击",
   "attribute.name.kingofglory.armor": "物理防御",
   "attribute.name.kingofglory.magicDefence": "法术防御",
@@ -142,5 +140,8 @@
   "attribute.name.kingofglory.maxMana": "最大法力",
   "attribute.name.kingofglory.resistance": "韧性",
   "attribute.name.kingofglory.manaPer5Seconds": "每5秒回蓝",
-  "attribute.name.kingofglory.HPPer5Seconds": "每5秒回血"
+  "attribute.name.kingofglory.HPPer5Seconds": "每5秒回血",
+
+  "commands.panel": "%s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s|%s    %s: %s|%s\n%s: %s    %s: %s\n%s: %s    %s: %s"
+
 }

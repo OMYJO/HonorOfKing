@@ -127,7 +127,6 @@
   "effect.kingofglory.blood_rage": "Blood Rage",
   "effect.kingofglory.marvellous_speed": "Marvellous Speed",
 
-
   "attribute.name.kingofglory.magicAttack": "MagicAttack",
   "attribute.name.kingofglory.armor": "armor",
   "attribute.name.kingofglory.magicDefence": "Magic Defence",
@@ -141,5 +140,8 @@
   "attribute.name.kingofglory.maxMana": "max mana",
   "attribute.name.kingofglory.resistance": "resistance",
   "attribute.name.kingofglory.manaPer5Seconds": "Mana/5 sec",
-  "attribute.name.kingofglory.HPPer5Seconds": "HP/5 sec"
+  "attribute.name.kingofglory.HPPer5Seconds": "HP/5 sec",
+
+  "commands.panel": "%s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s|%s    %s: %s|%s\n%s: %s    %s: %s\n%s: %s    %s: %s"
+
 }
