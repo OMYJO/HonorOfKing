@@ -5,7 +5,6 @@ import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfMaterial;
 import com.OMYJO.kingofglory.potion.Effects;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;

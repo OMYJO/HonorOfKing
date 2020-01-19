@@ -1,12 +1,9 @@
 package com.OMYJO.kingofglory.other;
 
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.PlayerEntity;
-import sun.nio.cs.ext.MacHebrew;
+import net.minecraft.util.text.TranslationTextComponent;
 
 import java.text.NumberFormat;
 
@@ -22,7 +19,7 @@ public class Helper
 	public static double distance(float d){return movementSpeed(d)*20*Math.sqrt(Math.PI);}
 	public static int getEscapeTime(PlayerEntity playerEntity)
 	{
-		if(playerEntity instanceof AbstractClientPlayerEntity)
+		if(playerEntity.world.isRemote())
 		{
 			return 0;
 		}
@@ -52,79 +49,79 @@ public class Helper
 		nff.setMaximumFractionDigits(2);
 		StringBuffer stringBuffer = new StringBuffer(livingEntity.getName().getFormattedText());
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.generic.attackDamage"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.generic.attackDamage").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(panelFollowed(nfi,livingEntity,SharedKingAttributes.ATTACK_DAMAGE));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicAttack"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.magicAttack").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_ATTACK).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.generic.maxHealth"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.generic.maxHealth").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAX_HEALTH).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.maxMana"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.maxMana").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAX_MANA).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.armor"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.armor").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicDefence"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.magicDefence").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_DEFENCE).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.generic.attackSpeed"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.generic.attackSpeed").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(panelFollowed(nff,livingEntity,SharedKingAttributes.ATTACK_SPEED));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.coolDownReduction"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.coolDownReduction").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.COOL_DOWN_REDUCTION).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.criticalChance"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.criticalChance").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.criticalDamage"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.criticalDamage").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_DAMAGE).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.HPPer5Seconds"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.HPPer5Seconds").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.HP_PER_5_SECONDS).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.manaPer5Seconds"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.manaPer5Seconds").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.armorPierce"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.armorPierce").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format((int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue()));
 		stringBuffer.append("|");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue() - (int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR_PIERCE).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicPierce"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.magicPierce").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfi.format((int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue()));
 		stringBuffer.append("|");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue() - (int)livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_PIERCE).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.lifeSteal"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.lifeSteal").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.LIFE_STEAL).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.magicLifeSteal"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.magicLifeSteal").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_LIFE_STEAL).getValue()));
 		stringBuffer.append("\n");
-		stringBuffer.append(I18n.format("attribute.name.generic.movementSpeed"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.generic.movementSpeed").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MOVEMENT_SPEED).getValue()));
 		stringBuffer.append("   ");
-		stringBuffer.append(I18n.format("attribute.name.kingofglory.resistance"));
+		stringBuffer.append(new TranslationTextComponent("attribute.name.kingofglory.resistance").getUnformattedComponentText());
 		stringBuffer.append(": ");
 		stringBuffer.append(nfp.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.RESISTANCE).getValue()));
 		return stringBuffer.toString();
