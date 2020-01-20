@@ -9,13 +9,13 @@ import java.util.UUID;
 
 public class ColdIron extends Effect implements KingOfEffect
 {
-	private static final UUID CRUSHING_ICE_MODIFIER = UUID.randomUUID();
+	private static final UUID COLD_IRON_MODIFIER = UUID.randomUUID();
 	public ColdIron()
 	{
 		super(EffectType.HARMFUL, 0x000000);
 		setRegistryName("cold_iron");
-		addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, CRUSHING_ICE_MODIFIER.toString(),(double)-0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);
-		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, CRUSHING_ICE_MODIFIER.toString(),(double)-0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, COLD_IRON_MODIFIER.toString(),(double)-0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);
+		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, COLD_IRON_MODIFIER.toString(),(double)-0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);
 	}
 
 	@Override
