@@ -36,7 +36,7 @@ public class SpellBaneBlade extends KingOfWeapon
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		magicDefenceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		magicDefenceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
-		setRegistryName("meteor");
+		setRegistryName("spell_bane_blade");
 	}
 
 	/**

@@ -63,7 +63,9 @@ public class Items
 		event.getRegistry().register(new SparkForgedDagger());
 		event.getRegistry().register(new Destiny());
 		event.getRegistry().register(new FrigidLance());
+		event.getRegistry().register(new SpellBaneBlade());
 		event.getRegistry().register(new ShadowRipper());
+		event.getRegistry().register(new Nightmare());
 		event.getRegistry().register(new MasterSword());
 		event.getRegistry().register(new BrokenStarMace());
 		event.getRegistry().register(new EndlessEdge());
@@ -97,6 +99,7 @@ public class Items
 		event.getRegistry().register(new GlacialBuckler(EquipmentSlotType.LEGS,"glacial_buckler"));//冰心
 		event.getRegistry().register(new EyeOfThePhoenix(EquipmentSlotType.HEAD,"eye_of_the_phoenix"));
 		event.getRegistry().register(new SuccubusCloak(EquipmentSlotType.CHEST,"succubus_cloak"));
+		event.getRegistry().register(new BloodRage());
 		event.getRegistry().register(new OminousPremonition(EquipmentSlotType.HEAD,"ominous_premonition"));
 
 		event.getRegistry().register(new BootsOfDivineSpeed());
