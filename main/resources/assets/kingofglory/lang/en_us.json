@@ -146,5 +146,6 @@
 
   "death.attack.ice_heart": "%1$s was blew up by %2$s's ice heart",
   "death.attack.thorns": "%1$s was rebounded by %2$s's thorns",
-  "death.attack.electric_arc": "%1$s was electrocuted by %2$s's electric arc"
+  "death.attack.electric_arc": "%1$s was electrocuted by %2$s's electric arc",
+  "death.attack.sacrifice": "%1$s was burnt by %2$s's sacrifice"
 }

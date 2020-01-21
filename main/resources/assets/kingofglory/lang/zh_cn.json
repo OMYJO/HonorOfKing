@@ -146,5 +146,6 @@
 
   "death.attack.ice_heart": "%1$s被%2$s的冰心炸死了",
   "death.attack.thorns": "%1$s被%2$s的荆棘弹死了",
-  "death.attack.electric_arc": "%1$s被%2$s的电弧电死了"
+  "death.attack.electric_arc": "%1$s被%2$s的电弧电死了",
+  "death.attack.sacrifice": "%1$s被%2$s的献祭烧死了"
 }
