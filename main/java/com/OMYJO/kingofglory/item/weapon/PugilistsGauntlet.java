@@ -1,12 +1,10 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IItemTier;
 import net.minecraft.item.Rarity;
 
 import java.util.HashMap;
@@ -19,7 +17,7 @@ public class PugilistsGauntlet extends KingOfWeapon
 
 	public PugilistsGauntlet()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("pugilists_gauntlet");

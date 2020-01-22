@@ -2,7 +2,8 @@ package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfArmorMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.potion.Effects;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -30,7 +31,7 @@ public class BootsOfDeftness extends KingOfArmor implements KingOfItem
 
 	public BootsOfDeftness()
 	{
-		super(new KingOfMaterial().setName("boots_of_deftness"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
+		super(new KingOfArmorMaterial().setName("boots_of_deftness"), EquipmentSlotType.FEET, Rarity.UNCOMMON);
 		setRegistryName("boots_of_deftness");
 	}
 

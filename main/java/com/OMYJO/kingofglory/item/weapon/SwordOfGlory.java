@@ -1,10 +1,9 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -12,7 +11,6 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
@@ -30,7 +28,7 @@ public class SwordOfGlory extends KingOfWeapon
 
 	public SwordOfGlory()
 	{
-		super(new KingOfMaterial().addMaxUses(Helper.maxMana(400)), Rarity.UNCOMMON);
+		super(new KingOfItemTier().addMaxUses(Helper.maxMana(400)), Rarity.UNCOMMON);
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

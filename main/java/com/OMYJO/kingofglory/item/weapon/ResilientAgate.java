@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,7 +24,7 @@ public class ResilientAgate extends KingOfWeapon
 
 	public ResilientAgate()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND, UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.OFFHAND, UUID.randomUUID());
 		setRegistryName("resilient_agate");

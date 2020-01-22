@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -32,7 +32,7 @@ public class Doomsday extends KingOfWeapon
 
 	public Doomsday()
 	{
-		super(new KingOfMaterial(), Rarity.RARE);
+		super(new KingOfItemTier(), Rarity.RARE);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

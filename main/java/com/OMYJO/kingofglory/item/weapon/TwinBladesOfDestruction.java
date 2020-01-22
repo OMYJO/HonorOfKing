@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,7 +22,7 @@ public class TwinBladesOfDestruction extends KingOfWeapon
 
 	public TwinBladesOfDestruction()
 	{
-		super(new KingOfMaterial(), Rarity.UNCOMMON);
+		super(new KingOfItemTier(), Rarity.UNCOMMON);
 		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

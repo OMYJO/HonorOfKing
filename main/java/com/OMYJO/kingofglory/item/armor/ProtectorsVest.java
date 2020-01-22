@@ -1,17 +1,16 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfArmorMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,7 +27,7 @@ public class ProtectorsVest extends KingOfArmor implements KingOfItem
 
 	public ProtectorsVest(EquipmentSlotType slot, String registryName)
 	{
-		super(new KingOfMaterial().setName("protectors_vest"), slot, Rarity.UNCOMMON);
+		super(new KingOfArmorMaterial().setName("protectors_vest"), slot, Rarity.UNCOMMON);
 		setRegistryName(registryName);
 	}
 

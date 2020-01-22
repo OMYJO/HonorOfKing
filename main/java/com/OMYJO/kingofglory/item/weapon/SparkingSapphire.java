@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,7 +24,7 @@ public class SparkingSapphire extends KingOfWeapon
 
 	public SparkingSapphire()
 	{
-		super(new KingOfMaterial().addMaxUses(Helper.maxMana(300)), Rarity.COMMON);
+		super(new KingOfItemTier().addMaxUses(Helper.maxMana(300)), Rarity.COMMON);
 		manaModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		manaModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("sparking_sapphire");

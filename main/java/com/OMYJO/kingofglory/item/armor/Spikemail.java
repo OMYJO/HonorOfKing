@@ -2,7 +2,8 @@ package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfArmorMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.resources.I18n;
@@ -31,7 +32,7 @@ public class Spikemail extends KingOfArmor implements KingOfItem
 
 	public Spikemail(EquipmentSlotType slot, String registryName)
 	{
-		super(new KingOfMaterial().setName("spikemail"), slot, Rarity.UNCOMMON);
+		super(new KingOfArmorMaterial().setName("spikemail"), slot, Rarity.UNCOMMON);
 		setRegistryName(registryName);
 	}
 

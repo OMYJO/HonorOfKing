@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -29,7 +29,7 @@ public class SunglowStriker extends KingOfWeapon
 
 	public SunglowStriker()
 	{
-		super(new KingOfMaterial(), Rarity.UNCOMMON);
+		super(new KingOfItemTier(), Rarity.UNCOMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		maxHealthModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

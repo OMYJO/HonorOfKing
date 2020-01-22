@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.bow;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.OMYJO.kingofglory.potion.Effects;
 import com.google.common.collect.Multimap;
@@ -32,7 +32,7 @@ public class TwilightBow extends KingOfBow
 
 	public TwilightBow()
 	{
-		super(new KingOfMaterial(),Rarity.RARE);
+		super(new KingOfItemTier(),Rarity.RARE);
 		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

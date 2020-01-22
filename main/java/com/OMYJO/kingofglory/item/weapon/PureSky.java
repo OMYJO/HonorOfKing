@@ -1,10 +1,9 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.OMYJO.kingofglory.potion.Effects;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -14,11 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.Rarity;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,7 +34,7 @@ public class PureSky extends KingOfWeapon
 
 	public PureSky()
 	{
-		super(new KingOfMaterial(), Rarity.RARE);
+		super(new KingOfItemTier(), Rarity.RARE);
 		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

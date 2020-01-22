@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -25,7 +25,7 @@ public class Dagger extends KingOfWeapon
 
 	public Dagger()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		attackSpeedModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackSpeedModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("dagger");

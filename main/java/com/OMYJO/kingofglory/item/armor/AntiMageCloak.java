@@ -1,7 +1,8 @@
 package com.OMYJO.kingofglory.item.armor;
 
 import com.OMYJO.kingofglory.item.KingOfItem;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfArmorMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -17,7 +18,7 @@ public class AntiMageCloak extends KingOfArmor implements KingOfItem
 
 	public AntiMageCloak(EquipmentSlotType slot, String registryName)
 	{
-		super(new KingOfMaterial().setName("anti-mage_cloak"), slot, Rarity.COMMON);
+		super(new KingOfArmorMaterial().setName("anti-mage_cloak"), slot, Rarity.COMMON);
 		setRegistryName(registryName);
 	}
 

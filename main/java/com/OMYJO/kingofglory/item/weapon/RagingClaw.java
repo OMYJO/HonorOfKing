@@ -1,6 +1,6 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -17,7 +17,7 @@ public class RagingClaw extends KingOfWeapon
 
 	public RagingClaw()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		criticalChanceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		criticalChanceModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("raging_claw");

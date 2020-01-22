@@ -1,16 +1,14 @@
 package com.OMYJO.kingofglory.item.weapon;
 
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
@@ -29,7 +27,7 @@ public class SagesSanctuary extends KingOfWeapon
 
 	public SagesSanctuary()
 	{
-		super(new KingOfMaterial(), Rarity.RARE);
+		super(new KingOfItemTier(), Rarity.RARE);
 		armorModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		armorModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		magicDefenceModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

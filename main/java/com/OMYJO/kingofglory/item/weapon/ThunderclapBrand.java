@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -32,7 +32,7 @@ public class ThunderclapBrand extends KingOfWeapon
 
 	public ThunderclapBrand()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		setRegistryName("thunderclap_brand");

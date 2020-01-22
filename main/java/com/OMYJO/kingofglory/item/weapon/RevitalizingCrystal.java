@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,7 +24,7 @@ public class RevitalizingCrystal extends KingOfWeapon
 
 	public RevitalizingCrystal()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		HPPer5SecondsModifierMap.put(EquipmentSlotType.MAINHAND, UUID.randomUUID());
 		HPPer5SecondsModifierMap.put(EquipmentSlotType.OFFHAND, UUID.randomUUID());
 		setRegistryName("revitalizing_crystal");

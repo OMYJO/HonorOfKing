@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -29,7 +29,7 @@ public class BloodDrinker extends KingOfWeapon
 
 	public BloodDrinker()
 	{
-		super(new KingOfMaterial(), Rarity.COMMON);
+		super(new KingOfItemTier(), Rarity.COMMON);
 		attackDamageModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		attackDamageModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		lifeStealModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());

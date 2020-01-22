@@ -1,7 +1,7 @@
 package com.OMYJO.kingofglory.item.weapon;
 
 import com.OMYJO.kingofglory.other.Helper;
-import com.OMYJO.kingofglory.other.KingOfMaterial;
+import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
@@ -28,7 +28,7 @@ public class FrostholdTarge extends KingOfWeapon
 
 	public FrostholdTarge()
 	{
-		super(new KingOfMaterial().addMaxUses(Helper.maxMana(400)), Rarity.UNCOMMON);
+		super(new KingOfItemTier().addMaxUses(Helper.maxMana(400)), Rarity.UNCOMMON);
 		coolDownReductionModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
 		coolDownReductionModifierMap.put(EquipmentSlotType.OFFHAND,UUID.randomUUID());
 		armorModifierMap.put(EquipmentSlotType.MAINHAND,UUID.randomUUID());
