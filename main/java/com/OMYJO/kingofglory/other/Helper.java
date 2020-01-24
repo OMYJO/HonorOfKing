@@ -66,6 +66,8 @@ public class Helper
 		//list.add(new StringTextComponent("\n"));
 		list.add(new TranslationTextComponent("attribute.name.generic.maxHealth"));
 		//list.add(new StringTextComponent(": "));
+		list.add(new StringTextComponent(nff.format(livingEntity.getHealth())));
+		//list.add(new StringTextComponent("/"));
 		list.add(new StringTextComponent(nff.format(livingEntity.getAttributes().getAttributeInstance(SharedKingAttributes.MAX_HEALTH).getValue())));
 		//list.add(new StringTextComponent("   "));
 		list.add(new TranslationTextComponent("attribute.name.kingofglory.maxMana"));
