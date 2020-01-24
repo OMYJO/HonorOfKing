@@ -6,6 +6,8 @@ import com.OMYJO.kingofglory.potion.Effects;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.renderer.Quaternion;
+import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -19,6 +21,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.item.Items;
 
@@ -28,14 +31,18 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 {
 	private final IItemTier tier;
 	public static final UUID MOVEMENT_SPEED_MODIFIER = UUID.randomUUID();
-	public KingOfBow(IItemTier tier,Rarity rarity)
+
+	public KingOfBow(IItemTier tier, Rarity rarity)
 	{
 		super(new Item.Properties().maxDamage(tier.getMaxUses()).group(ItemGroup.COMBAT).rarity(rarity));
 		this.addPropertyOverride(new ResourceLocation("pull"), (itemStack, world, livingEntity) -> {
-			if (livingEntity == null) {
+			if (livingEntity == null)
+			{
 				return 0.0F;
-			} else {
-				return !(livingEntity.getActiveItemStack().getItem() instanceof BowItem) ? 0.0F : (float)(itemStack.getUseDuration() - livingEntity.getItemInUseCount()) / 2.0F;
+			}
+			else
+			{
+				return !(livingEntity.getActiveItemStack().getItem() instanceof BowItem) ? 0.0F : (float) (itemStack.getUseDuration() - livingEntity.getItemInUseCount()) / 2.0F;
 			}
 		});
 		this.addPropertyOverride(new ResourceLocation("pulling"), (itemStack, world, livingEntity) -> {
@@ -55,71 +62,95 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft)
 	{
-		if (entityLiving instanceof PlayerEntity) {
-			PlayerEntity playerentity = (PlayerEntity)entityLiving;
+		if (entityLiving instanceof PlayerEntity)
+		{
+			PlayerEntity playerentity = (PlayerEntity) entityLiving;
 			boolean flag = playerentity.abilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
 			ItemStack itemstack = playerentity.findAmmo(stack);
+			int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.MULTISHOT, stack) == 0 ? 1 : 3;
+
 
 			int i = this.getUseDuration(stack) - timeLeft;
 			i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, playerentity, i, !itemstack.isEmpty() || flag);
 			if (i < 0) return;
 
-			if (!itemstack.isEmpty() || flag) {
-				if (itemstack.isEmpty()) {
+			if (!itemstack.isEmpty() || flag)
+			{
+				if (itemstack.isEmpty())
+				{
 					itemstack = new ItemStack(Items.ARROW);
 				}
-
 				float f = getArrowVelocity(i);
-				if (!((double)f < 0.1D)) {
-					boolean flag1 = playerentity.abilities.isCreativeMode || (itemstack.getItem() instanceof ArrowItem && ((ArrowItem)itemstack.getItem()).isInfinite(itemstack, stack, playerentity));
-					if (!worldIn.isRemote) {
-						ArrowItem arrowitem = (ArrowItem)(itemstack.getItem() instanceof ArrowItem ? itemstack.getItem() : Items.ARROW);
-						AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack, playerentity);
-						abstractarrowentity = customeArrow(abstractarrowentity);
-						abstractarrowentity.setDamage(playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() / 5);
-						if(playerentity.isPotionActive(Effects.CHASING_SUN))
+				if (!((double) f < 0.1D))
+				{
+					boolean flag1 = playerentity.abilities.isCreativeMode || (itemstack.getItem() instanceof ArrowItem && ((ArrowItem) itemstack.getItem()).isInfinite(itemstack, stack, playerentity));
+					if (!worldIn.isRemote)
+					{
+						for (int a = 0; a < j; ++a)
 						{
-							abstractarrowentity.setDamage(abstractarrowentity.getDamage()/1.2F);
+							ArrowItem arrowitem = (ArrowItem) (itemstack.getItem() instanceof ArrowItem ? itemstack.getItem() : Items.ARROW);
+							AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack, playerentity);
+							abstractarrowentity = customeArrow(abstractarrowentity);
+							abstractarrowentity.setDamage(playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() / 5);
+							if (playerentity.isPotionActive(Effects.CHASING_SUN))
+							{
+								abstractarrowentity.setDamage(abstractarrowentity.getDamage() / 1.2F);
+							}
+							float projectileAngle = 10 * ((a + 1) % 3) - 10;
+							Vec3d vec3d1 = playerentity.getUpVector(1.0F);
+							Quaternion quaternion = new Quaternion(new Vector3f(vec3d1), projectileAngle, true);
+							Vec3d vec3d = playerentity.getLook(1.0F);
+							Vector3f vector3f = new Vector3f(vec3d);
+							vector3f.func_214905_a(quaternion);
+							abstractarrowentity.shoot((double)vector3f.getX(), (double)vector3f.getY(), (double)vector3f.getZ(), f * 3.0F * (playerentity.isPotionActive(Effects.CHASING_SUN) ? 1.2F : 1F), 1.0F);
+							//abstractarrowentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F * (playerentity.isPotionActive(Effects.CHASING_SUN) ? 1.2F : 1F), 1.0F);
+
+							int l = EnchantmentHelper.getEnchantmentLevel(Enchantments.PIERCING, stack);
+							if (l > 0) {
+								abstractarrowentity.setPierceLevel((byte)l);
+							}
+
+							int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
+							if (k > 0)
+							{
+								abstractarrowentity.setKnockbackStrength(k);
+							}
+
+							if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0)
+							{
+								abstractarrowentity.setFire(100);
+							}
+
+							stack.damageItem(1, playerentity, (p_220009_1_) -> {
+								p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
+							});
+							if (flag1 || playerentity.abilities.isCreativeMode && (itemstack.getItem() == Items.SPECTRAL_ARROW || itemstack.getItem() == Items.TIPPED_ARROW))
+							{
+								abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
+							}
+							if (a > 0)
+							{
+								abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
+							}
+							worldIn.addEntity(abstractarrowentity);
 						}
-						abstractarrowentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F * (playerentity.isPotionActive(Effects.CHASING_SUN)?1.2F:1F), 1.0F);
-
-
-
-						int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
-						if (k > 0) {
-							abstractarrowentity.setKnockbackStrength(k);
-						}
-
-						if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0) {
-							abstractarrowentity.setFire(100);
-						}
-
-						stack.damageItem(1, playerentity, (p_220009_1_) -> {
-							p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
-						});
-						if (flag1 || playerentity.abilities.isCreativeMode && (itemstack.getItem() == Items.SPECTRAL_ARROW || itemstack.getItem() == Items.TIPPED_ARROW)) {
-							abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
-						}
-
-						worldIn.addEntity(abstractarrowentity);
 					}
 
-					worldIn.playSound((PlayerEntity)null, playerentity.posX, playerentity.posY, playerentity.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-					if (!flag1 && !playerentity.abilities.isCreativeMode) {
+					worldIn.playSound((PlayerEntity) null, playerentity.posX, playerentity.posY, playerentity.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+					if (!flag1 && !playerentity.abilities.isCreativeMode)
+					{
 						itemstack.shrink(1);
-						if (itemstack.isEmpty()) {
+						if (itemstack.isEmpty())
+						{
 							playerentity.inventory.deleteStack(itemstack);
 						}
 					}
 
-					stack.damageItem(1, playerentity, (p_220009_1_) -> {
+					stack.damageItem(j, playerentity, (p_220009_1_) -> {
 						p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
 					});
 
-					playerentity.getCooldownTracker().setCooldown(this, (int)Math.min(
-								20 * playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getBaseValue()
-									/ playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getValue()
-						,100D));
+					playerentity.getCooldownTracker().setCooldown(this, (int) Math.min(20 * playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getBaseValue() / playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getValue(), 100D));
 					playerentity.addStat(Stats.ITEM_USED.get(this));
 				}
 			}
@@ -152,30 +183,31 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment)
 	{
-		if(enchantment == Enchantments.PUNCH)
+		if (enchantment == Enchantments.FLAME)//火矢
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.FLAME)
+		else if (enchantment == Enchantments.INFINITY)//无限
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.INFINITY)
+		else if (enchantment == Enchantments.MENDING)//经验
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.UNBREAKING)
+		else if (enchantment == Enchantments.PUNCH)//冲击
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.MENDING)
+		else if(enchantment == Enchantments.MULTISHOT)//多重射击
 		{
-			return enchantment.type.canEnchantItem(stack.getItem());
+			return true;
 		}
-		else
+		else if(enchantment == Enchantments.PIERCING)//穿透
 		{
-			return false;
+			return true;
 		}
+		return false;
 	}
 
 	/**
@@ -183,9 +215,10 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	 */
 	public static float getArrowVelocity(int charge)
 	{
-		float f = (float)charge / 2.0F;
+		float f = (float) charge / 2.0F;
 		f = (f * f + f * 2.0F) / 3.0F;
-		if (f > 1.0F) {
+		if (f > 1.0F)
+		{
 			f = 1.0F;
 		}
 
@@ -207,9 +240,9 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	{
 		super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
 		long time = worldIn.getDayTime();
-		if(time % 1000 == 0)
+		if (time % 1000 == 0)
 		{
-			stack.setDamage(stack.getDamage() - (int)(((PlayerEntity)entityIn).getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));
+			stack.setDamage(stack.getDamage() - (int) (((PlayerEntity) entityIn).getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));
 		}
 	}
 
@@ -220,7 +253,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
 	{
 		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
-		if(equipmentSlot == EquipmentSlotType.MAINHAND)
+		if (equipmentSlot == EquipmentSlotType.MAINHAND)
 		{
 			multimap.put(SharedKingAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MOVEMENT_SPEED_MODIFIER, "Weapon modifier", (Helper.movementSpeed(-50)), AttributeModifier.Operation.ADDITION));
 		}

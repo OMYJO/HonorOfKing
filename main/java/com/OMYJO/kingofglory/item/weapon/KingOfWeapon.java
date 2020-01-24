@@ -50,34 +50,27 @@ public abstract class KingOfWeapon extends SwordItem implements KingOfItem
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
 	{
-		if(enchantment == Enchantments.FIRE_ASPECT)
+		if(enchantment == Enchantments.FIRE_ASPECT)//火焰
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.LOOTING)
+		else if(enchantment == Enchantments.KNOCKBACK)//击退
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.UNBREAKING)
+		else if(enchantment == Enchantments.LOOTING)//掠夺
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.KNOCKBACK)
+		else if(enchantment == Enchantments.MENDING)//经验修补
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.MENDING)
+		else if(enchantment == Enchantments.SWEEPING)//横扫
 		{
 			return enchantment.type.canEnchantItem(stack.getItem());
 		}
-		else if(enchantment == Enchantments.SWEEPING)
-		{
-			return enchantment.type.canEnchantItem(stack.getItem());
-		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 
 	/**

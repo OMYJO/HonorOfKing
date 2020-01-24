@@ -142,7 +142,7 @@
   "attribute.name.kingofglory.manaPer5Seconds": "每5秒回蓝",
   "attribute.name.kingofglory.HPPer5Seconds": "每5秒回血",
 
-  "commands.panel": "%s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s|%s    %s: %s|%s\n%s: %s    %s: %s\n%s: %s    %s: %s",
+  "commands.panel": "%s\n%s: %s    %s: %s\n%s: %s/%s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s|%s    %s: %s|%s\n%s: %s    %s: %s\n%s: %s    %s: %s",
 
   "death.attack.ice_heart": "%1$s被%2$s的冰心炸死了",
   "death.attack.thorns": "%1$s被%2$s的荆棘弹死了",

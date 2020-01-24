@@ -142,7 +142,7 @@
   "attribute.name.kingofglory.manaPer5Seconds": "Mana/5 sec",
   "attribute.name.kingofglory.HPPer5Seconds": "HP/5 sec",
 
-  "commands.panel": "%s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s|%s    %s: %s|%s\n%s: %s    %s: %s\n%s: %s    %s: %s",
+  "commands.panel": "%s\n%s: %s    %s: %s\n%s: %s/%s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s    %s: %s\n%s: %s|%s    %s: %s|%s\n%s: %s    %s: %s\n%s: %s    %s: %s",
 
   "death.attack.ice_heart": "%1$s was blew up by %2$s's ice heart",
   "death.attack.thorns": "%1$s was rebounded by %2$s's thorns",
