@@ -12,7 +12,7 @@ public class ColdIron extends Effect implements KingOfEffect
 	private static final UUID COLD_IRON_MODIFIER = UUID.randomUUID();
 	public ColdIron()
 	{
-		super(EffectType.HARMFUL, 0x000000);
+		super(EffectType.HARMFUL, 0xffffff);
 		setRegistryName("cold_iron");
 		addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, COLD_IRON_MODIFIER.toString(),(double)-0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, COLD_IRON_MODIFIER.toString(),(double)-0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL);

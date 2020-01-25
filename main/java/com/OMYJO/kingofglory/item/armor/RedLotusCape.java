@@ -3,10 +3,11 @@ package com.OMYJO.kingofglory.item.armor;
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfArmorMaterial;
-import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.OMYJO.kingofglory.potion.Effects;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.ArmorStandEntity;
@@ -15,7 +16,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.IndirectEntityDamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -92,15 +95,25 @@ public class RedLotusCape extends KingOfArmor implements KingOfItem
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player)
 	{
 		super.onArmorTick(stack, world, player);
-		long time = world.getDayTime();
-		if(time % 20 == 0)
+		long time = world.getGameTime();
+		if (time % 20 == 0)
 		{
-			double d = Helper.distance(300);
+			if(!world.isRemote)
+			{
+				AreaEffectCloudEntity areaeffectcloudentity = new AreaEffectCloudEntity(world, player.posX, player.posY, player.posZ);
+				areaeffectcloudentity.setOwner(player);
+				areaeffectcloudentity.setRadius((float)Helper.radius(300));
+				areaeffectcloudentity.setWaitTime(0);
+				areaeffectcloudentity.setDuration(2);
+				areaeffectcloudentity.setColor(0xffffff);
+				world.addEntity(areaeffectcloudentity);
+			}
+			double d = Helper.side(300);
 			for (LivingEntity livingentity : player.world.getEntitiesWithinAABB(LivingEntity.class, player.getBoundingBox().grow(d, d, d)))
 			{
-				if (livingentity != player && !player.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+				if (Helper.isEnemy(livingentity, player, null))
 				{
-					livingentity.attackEntityFrom(new IndirectEntityDamageSource("sacrifice", player, player).setMagicDamage().setDamageBypassesArmor(), 0.02F * player.getMaxHealth());
+					livingentity.attackEntityFrom(new IndirectEntityDamageSource("sacrifice", player, player).setMagicDamage().setDamageBypassesArmor(), 0.2F * player.getMaxHealth());
 				}
 			}
 		}

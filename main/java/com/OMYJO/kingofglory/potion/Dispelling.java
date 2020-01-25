@@ -11,7 +11,7 @@ public class Dispelling extends Effect implements KingOfEffect
 {
 	public Dispelling()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("dispelling");
 	}
 }

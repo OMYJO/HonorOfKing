@@ -12,7 +12,7 @@ public class DarkCurtain extends Effect implements KingOfEffect
 	private static final UUID DARK_CURTAIN_MODIFIER = UUID.randomUUID();
 	public DarkCurtain()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("dark_curtain");
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, DARK_CURTAIN_MODIFIER.toString(),(double)0.3F, AttributeModifier.Operation.MULTIPLY_BASE);
 	}

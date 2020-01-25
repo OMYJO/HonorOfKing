@@ -15,7 +15,7 @@ public class BloodRage extends Effect implements KingOfEffect
 	private static final UUID BLOOD_RAGE_MODIFIER = UUID.randomUUID();
 	public BloodRage()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("blood_rage");
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, BLOOD_RAGE_MODIFIER.toString(),80, AttributeModifier.Operation.ADDITION);
 	}

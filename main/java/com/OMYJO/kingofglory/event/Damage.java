@@ -8,6 +8,7 @@ import com.OMYJO.kingofglory.item.weapon.*;
 import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.OMYJO.kingofglory.potion.Effects;
+import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -114,10 +115,10 @@ public class Damage
 								{
 									if (attacker.isServerWorld())
 									{
-										double d = Helper.distance(500);
+										double d = Helper.side(500);
 										for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 										{
-											if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+											if (Helper.isEnemy(livingentity,attacker,target))
 											{
 												float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
 												if (Math.random() < attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue())
@@ -223,10 +224,10 @@ public class Damage
 									int amplifier = source instanceof IndirectEntityDamageSource ? 0 : 1;
 									event.setAmount(event.getAmount() + Helper.attackDamage(450));
 									target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
-									double d = Helper.distance(500);
+									double d = Helper.side(500);
 									for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 									{
-										if (livingentity != attacker && livingentity != target && !attacker.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+										if (Helper.isEnemy(livingentity,attacker,target))
 										{
 											livingentity.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
 										}
@@ -453,10 +454,21 @@ public class Damage
 					itemStack.damageItem(1, target, (p_220045_0_) -> {
 						p_220045_0_.sendBreakAnimation(target.getActiveHand());
 					});
-					double d = Helper.distance(500);
+
+					if(!target.world.isRemote)
+					{
+						AreaEffectCloudEntity areaeffectcloudentity = new AreaEffectCloudEntity(target.world, target.posX, target.posY, target.posZ);
+						areaeffectcloudentity.setOwner(target);
+						areaeffectcloudentity.setRadius((float)Helper.radius(500));
+						areaeffectcloudentity.setWaitTime(0);
+						areaeffectcloudentity.setDuration(2);
+						areaeffectcloudentity.setColor(Effects.ICE_HEART.getLiquidColor());
+						target.world.addEntity(areaeffectcloudentity);
+					}
+					double d = Helper.side(500);
 					for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 					{
-						if (livingentity != target && !target.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+						if (Helper.isEnemy(livingentity, target,null))
 						{
 							livingentity.attackEntityFrom(new IndirectEntityDamageSource("ice_heart",target,target).setMagicDamage().setDamageBypassesArmor(), Helper.attackDamage(200));
 							livingentity.addPotionEffect(new EffectInstance(Effects.ICE_HEART,40));
@@ -482,7 +494,7 @@ public class Damage
 					up += 0.01F * target.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).getValue()/20;
 					up = Math.min(up,0.4F);
 					float down = 1F;
-					down -= 0.3F * target.getDistance(attacker)/Helper.distance(800);
+					down -= 0.3F * target.getDistance(attacker)/Helper.side(800);
 					down = Math.max(down,0.7F);
 					attacker.attackEntityFrom(new IndirectEntityDamageSource("thorns",target,target).setMagicDamage().setDamageBypassesArmor(),event.getAmount()*up*down);
 				}

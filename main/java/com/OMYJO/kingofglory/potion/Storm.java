@@ -12,7 +12,7 @@ public class Storm extends Effect implements KingOfEffect
 	private static final UUID STORM_MODIFIER = UUID.randomUUID();
 	public Storm()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("storm");
 		addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, STORM_MODIFIER.toString(),(double)0.3F, AttributeModifier.Operation.MULTIPLY_BASE);
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, STORM_MODIFIER.toString(),(double)0.1F, AttributeModifier.Operation.MULTIPLY_BASE);

@@ -14,7 +14,7 @@ public class AssaultingSlowness extends Effect implements KingOfEffect
 	private static final UUID ASSAULTING_SLOWNESS_MODIFIER = UUID.randomUUID();
 	public AssaultingSlowness()
 	{
-		super(EffectType.HARMFUL, 0x000000);
+		super(EffectType.HARMFUL, 0xffffff);
 		setRegistryName("assaulting_slowness");
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, ASSAULTING_SLOWNESS_MODIFIER.toString(),(double)-0.1F, AttributeModifier.Operation.MULTIPLY_TOTAL);
 	}

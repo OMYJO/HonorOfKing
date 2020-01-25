@@ -12,7 +12,7 @@ public class Cripple extends Effect implements KingOfEffect
 	private static final UUID CRIPPLE_MODIFIER = UUID.randomUUID();
 	public Cripple()
 	{
-		super(EffectType.HARMFUL, 0x000000);
+		super(EffectType.HARMFUL, 0xffffff);
 		setRegistryName("cripple");
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED,CRIPPLE_MODIFIER.toString(),(double)-0.2F, AttributeModifier.Operation.MULTIPLY_TOTAL);
 	}

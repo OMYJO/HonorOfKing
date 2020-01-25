@@ -9,7 +9,7 @@ public class SevereWound extends Effect implements KingOfEffect
 {
 	public SevereWound()
 	{
-		super(EffectType.HARMFUL, 0x000000);
+		super(EffectType.HARMFUL, 0xffffff);
 		setRegistryName("severe_wound");
 	}
 }

@@ -85,7 +85,7 @@ public class BootsOfDeftness extends KingOfArmor implements KingOfItem
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player)
 	{
 		super.onArmorTick(stack, world, player);
-		long time = world.getDayTime();
+		long time = world.getGameTime();
 		if(time % 20 == 0 && Helper.getEscapeTime(player) > 0)
 		{
 			player.addPotionEffect(new EffectInstance(Effects.MARVELLOUS_SPEED,20));

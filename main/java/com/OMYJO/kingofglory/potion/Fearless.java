@@ -12,7 +12,7 @@ public class Fearless extends Effect implements KingOfEffect
 	private static final UUID FEARLESS_MODIFIER = UUID.randomUUID();
 	public Fearless()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("fearless");
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, FEARLESS_MODIFIER.toString(),(double)0.02F, AttributeModifier.Operation.MULTIPLY_BASE);
 	}

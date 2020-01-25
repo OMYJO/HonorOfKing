@@ -13,7 +13,7 @@ public class Assaulting extends Effect implements KingOfEffect
 {
 	public Assaulting()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("assaulting");
 	}
 }

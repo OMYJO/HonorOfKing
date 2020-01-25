@@ -239,7 +239,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
 	{
 		super.inventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
-		long time = worldIn.getDayTime();
+		long time = worldIn.getGameTime();
 		if (time % 1000 == 0)
 		{
 			stack.setDamage(stack.getDamage() - (int) (((PlayerEntity) entityIn).getAttributes().getAttributeInstance(SharedKingAttributes.MANA_PER_5_SECONDS).getValue()));

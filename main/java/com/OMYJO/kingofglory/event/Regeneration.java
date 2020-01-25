@@ -17,7 +17,7 @@ public class Regeneration
 	public static void onPlayerTick(TickEvent.PlayerTickEvent event)
 	{
 		PlayerEntity playerEntity = event.player;
-		long time = playerEntity.getEntityWorld().getDayTime();
+		long time = playerEntity.getEntityWorld().getGameTime();
 		if (time % 100 == 0)
 		{
 			playerEntity.heal((float) playerEntity.getAttributes().getAttributeInstance(SharedKingAttributes.HP_PER_5_SECONDS).getValue());

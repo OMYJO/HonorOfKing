@@ -3,10 +3,10 @@ package com.OMYJO.kingofglory.item.armor;
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.KingOfArmorMaterial;
-import com.OMYJO.kingofglory.other.KingOfItemTier;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.ArmorStandEntity;
@@ -52,9 +52,9 @@ public class FusionCore extends KingOfArmor implements KingOfItem
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot)
 	{
 		Multimap multimap = super.getAttributeModifiers(equipmentSlot);
-		if(equipmentSlot == getEquipmentSlot())
+		if (equipmentSlot == getEquipmentSlot())
 		{
-			multimap.put(SharedKingAttributes.MAX_HEALTH.getName(),new AttributeModifier(maxHealthModifier,"Armor modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedKingAttributes.MAX_HEALTH.getName(), new AttributeModifier(maxHealthModifier, "Armor modifier", getMaxHealth(), AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}
@@ -72,7 +72,7 @@ public class FusionCore extends KingOfArmor implements KingOfItem
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
 	{
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		tooltip.add(new TranslationTextComponent("item_effect"+"."+getRegistryName().getNamespace() + "." + getRegistryName().getPath() +".0"));
+		tooltip.add(new TranslationTextComponent("item_effect" + "." + getRegistryName().getNamespace() + "." + getRegistryName().getPath() + ".0"));
 	}
 
 	/**
@@ -86,13 +86,23 @@ public class FusionCore extends KingOfArmor implements KingOfItem
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player)
 	{
 		super.onArmorTick(stack, world, player);
-		long time = world.getDayTime();
-		if(time % 20 == 0)
+		long time = world.getGameTime();
+		if (time % 20 == 0)
 		{
-			double d = Helper.distance(300);
+			if (!world.isRemote)
+			{
+				AreaEffectCloudEntity areaeffectcloudentity = new AreaEffectCloudEntity(world, player.posX, player.posY, player.posZ);
+				areaeffectcloudentity.setOwner(player);
+				areaeffectcloudentity.setRadius((float) Helper.radius(300));
+				areaeffectcloudentity.setWaitTime(0);
+				areaeffectcloudentity.setDuration(2);
+				areaeffectcloudentity.setColor(0xffffff);
+				world.addEntity(areaeffectcloudentity);
+			}
+			double d = Helper.side(300);
 			for (LivingEntity livingentity : player.world.getEntitiesWithinAABB(LivingEntity.class, player.getBoundingBox().grow(d, d, d)))
 			{
-				if (livingentity != player && !player.isOnSameTeam(livingentity) && (!(livingentity instanceof ArmorStandEntity) || !((ArmorStandEntity) livingentity).hasMarker()) && !(livingentity instanceof AnimalEntity))
+				if (Helper.isEnemy(livingentity, player, null))
 				{
 					livingentity.attackEntityFrom(new IndirectEntityDamageSource("sacrifice", player, player).setMagicDamage().setDamageBypassesArmor(), Helper.attackDamage(90));
 				}

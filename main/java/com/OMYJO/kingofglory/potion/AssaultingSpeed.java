@@ -12,7 +12,7 @@ public class AssaultingSpeed extends Effect implements KingOfEffect
 	private static final UUID ASSAULTING_SPEED_MODIFIER = UUID.randomUUID();
 	public AssaultingSpeed()
 	{
-		super(EffectType.BENEFICIAL, 0x000000);
+		super(EffectType.BENEFICIAL, 0xffffff);
 		setRegistryName("assaulting_speed");
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, ASSAULTING_SPEED_MODIFIER.toString(),(double)0.12F, AttributeModifier.Operation.MULTIPLY_BASE);
 	}

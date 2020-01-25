@@ -12,7 +12,7 @@ public class CrushingIce extends Effect implements KingOfEffect
 	private static final UUID CRUSHING_ICE_MODIFIER = UUID.randomUUID();
 	public CrushingIce()
 	{
-		super(EffectType.HARMFUL, 0x000000);
+		super(EffectType.HARMFUL, 0xffffff);
 		setRegistryName("crushing_ice");
 		addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, CRUSHING_ICE_MODIFIER.toString(),(double)-0.3F, AttributeModifier.Operation.MULTIPLY_TOTAL);
 		addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, CRUSHING_ICE_MODIFIER.toString(),(double)-0.3F, AttributeModifier.Operation.MULTIPLY_TOTAL);
