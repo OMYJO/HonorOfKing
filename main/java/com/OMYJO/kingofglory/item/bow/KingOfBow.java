@@ -91,7 +91,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 							ArrowItem arrowitem = (ArrowItem) (itemstack.getItem() instanceof ArrowItem ? itemstack.getItem() : Items.ARROW);
 							AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack, playerentity);
 							abstractarrowentity = customeArrow(abstractarrowentity);
-							abstractarrowentity.setDamage(playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() / 5);
+							abstractarrowentity.setDamage(playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() / 4.4);
 							if (playerentity.isPotionActive(Effects.CHASING_SUN))
 							{
 								abstractarrowentity.setDamage(abstractarrowentity.getDamage() / 1.2F);
@@ -103,7 +103,6 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 							Vector3f vector3f = new Vector3f(vec3d);
 							vector3f.func_214905_a(quaternion);
 							abstractarrowentity.shoot((double)vector3f.getX(), (double)vector3f.getY(), (double)vector3f.getZ(), f * 3.0F * (playerentity.isPotionActive(Effects.CHASING_SUN) ? 1.2F : 1F), 1.0F);
-							//abstractarrowentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F * (playerentity.isPotionActive(Effects.CHASING_SUN) ? 1.2F : 1F), 1.0F);
 
 							int l = EnchantmentHelper.getEnchantmentLevel(Enchantments.PIERCING, stack);
 							if (l > 0) {
