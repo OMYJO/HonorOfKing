@@ -127,6 +127,15 @@
   "effect.kingofglory.blood_rage": "血怒",
   "effect.kingofglory.marvellous_speed": "神行",
 
+  "effect.kingofglory.red_statue_power": "猩红石像之力",
+  "effect.kingofglory.red_statue_power_effect": "受到猩红石像之力",
+  "effect.kingofglory.blue_statue_power": "蔚蓝石像之力",
+  "effect.kingofglory.tyrants_revenge": "暴君的复仇",
+  "effect.kingofglory.tyrants_revenge2": "暴君的复仇2",
+  "effect.kingofglory.overlords_wrath": "主宰之怒",
+  "effect.kingofglory.overlord_vanguard": "主宰先锋",
+  "effect.kingofglory.storm_awakening": "风暴觉醒",
+
   "attribute.name.kingofglory.magicAttack": "法术攻击",
   "attribute.name.kingofglory.armor": "物理防御",
   "attribute.name.kingofglory.magicDefence": "法术防御",
@@ -147,5 +156,7 @@
   "death.attack.ice_heart": "%1$s被%2$s的冰心炸死了",
   "death.attack.thorns": "%1$s被%2$s的荆棘弹死了",
   "death.attack.electric_arc": "%1$s被%2$s的电弧电死了",
-  "death.attack.sacrifice": "%1$s被%2$s的献祭烧死了"
+  "death.attack.sacrifice": "%1$s被%2$s的献祭烧死了",
+  "death.attack.red_statue_power": "%1$s被%2$s的红BUFF效果烧死了",
+  "death.attack.storm_awakening": "%1$s被%2$s的感电效果雷击致死"
 }

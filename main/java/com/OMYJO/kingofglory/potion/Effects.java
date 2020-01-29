@@ -43,6 +43,21 @@ public class Effects
 	public static BloodRage BLOOD_RAGE;
 	@ObjectHolder("marvellous_speed")
 	public static MarvellousSpeed MARVELLOUS_SPEED;
+	@ObjectHolder("red_statue_power")
+	public static RedStatuePower RED_STATUE_POWER;
+	@ObjectHolder("blue_statue_power")
+	public static BlueStatuePower BLUE_STATUE_POWER;
+	@ObjectHolder("tyrants_revenge")
+	public static TyrantsRevenge TYRANTS_REVENGE;
+	@ObjectHolder("tyrants_revenge2")
+	public static TyrantsRevenge2 TYRANTS_REVENGE2;
+	@ObjectHolder("overlords_wrath")
+	public static OverlordsWrath OVERLORDS_WRATH;
+	@ObjectHolder("overlord_vanguard")
+	public static OverlordVanguard OVERLORD_VANGUARD;
+	@ObjectHolder("storm_awakening")
+	public static StormAwakening STORM_AWAKENING;
+
 
 	@SubscribeEvent
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> event)
@@ -62,5 +77,12 @@ public class Effects
 		event.getRegistry().register(new IceHeart());
 		event.getRegistry().register(new BloodRage());
 		event.getRegistry().register(new MarvellousSpeed());
+		event.getRegistry().register(new BlueStatuePower());
+		event.getRegistry().register(new RedStatuePower());
+		event.getRegistry().register(new TyrantsRevenge());
+		event.getRegistry().register(new TyrantsRevenge2());
+		event.getRegistry().register(new OverlordsWrath());
+		event.getRegistry().register(new OverlordVanguard());
+		event.getRegistry().register(new StormAwakening());
 	}
 }

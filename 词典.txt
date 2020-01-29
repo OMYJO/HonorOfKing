@@ -163,3 +163,12 @@
 冲击铠甲 Pounding Armor
 冲击（主动） Pounding
 数据面板 Data Panel
+
+蔚蓝石像之力 Blue Statue Power
+猩红石像之力 Red Statue Power
+暴君的复仇 tyrant's revenge
+主宰之怒 Overlord's Wrath
+主宰先锋 Overlord Vanguard
+风暴觉醒 storm awakening
+
+

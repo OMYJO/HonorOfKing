@@ -3,6 +3,7 @@ package com.OMYJO.kingofglory.event;
 import com.OMYJO.kingofglory.item.Items;
 import com.OMYJO.kingofglory.item.weapon.StormSword;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
+import com.OMYJO.kingofglory.potion.Effects;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,6 +15,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.AirItem;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.ChatType;
 import net.minecraft.util.text.ITextComponent;
@@ -29,14 +31,13 @@ import net.minecraftforge.fml.common.Mod;
 public class EquipedMonster
 {
 	@SubscribeEvent
-	public static void onEntityJoinWorld(EntityJoinWorldEvent event)
+	public static void onCheckSpawn(LivingSpawnEvent.CheckSpawn event)
 	{
 		//所有灾厄村民穿副武器
 		//骷髅和僵尸给副武器及装备
 		if (event.getEntity() instanceof AbstractIllagerEntity || event.getEntity() instanceof ZombieEntity || event.getEntity() instanceof AbstractSkeletonEntity)
 		{
 			MonsterEntity entity = (MonsterEntity) event.getEntity();
-
 			ItemStack itemStack;
 			double a = Math.random();
 			if(a < 0.4) itemStack = ItemStack.EMPTY;
@@ -83,7 +84,6 @@ public class EquipedMonster
 					}
 				}
 
-
 				b = Math.random();
 				if(b < 0.7) itemStack = ItemStack.EMPTY;
 				else if(b < 0.8) itemStack = new ItemStack(Items.SPIKEMAIL);
@@ -114,4 +114,24 @@ public class EquipedMonster
 			}
 		}
 	}
+
+	@SubscribeEvent
+	public static void onGiveBuff(LivingSpawnEvent.CheckSpawn event)
+	{
+		if(event.getEntityLiving() instanceof GuardianEntity)
+		{
+			if(Math.random() < 0.2)
+			{
+				event.getEntityLiving().addPotionEffect(new EffectInstance(Effects.RED_STATUE_POWER,24000));
+			}
+		}
+		if(event.getEntityLiving() instanceof EvokerEntity)
+		{
+			if(Math.random() < 0.5)
+			{
+				event.getEntityLiving().addPotionEffect(new EffectInstance(Effects.BLUE_STATUE_POWER,24000));
+			}
+		}
+	}
+
 }

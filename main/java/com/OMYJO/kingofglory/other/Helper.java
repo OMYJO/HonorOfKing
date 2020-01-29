@@ -4,7 +4,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.item.ArmorStandEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
+import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.ZombiePigmanEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
@@ -178,6 +180,13 @@ public class Helper
 				else if(livingentity instanceof SnowGolemEntity)
 				{
 					return false;
+				}
+				else if(livingentity instanceof ZombiePigmanEntity || livingentity instanceof EndermanEntity)
+				{
+					if(((MonsterEntity) livingentity).getAttackTarget() != attacker)
+					{
+						return false;
+					}
 				}
 			}
 			else if(attacker instanceof MonsterEntity)

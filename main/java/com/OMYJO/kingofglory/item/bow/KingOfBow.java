@@ -149,7 +149,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 						p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
 					});
 
-					playerentity.getCooldownTracker().setCooldown(this, (int) Math.min(20 * playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getBaseValue() / playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getValue(), 100D));
+					playerentity.getCooldownTracker().setCooldown(this, (int) Math.min(20 / playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_SPEED).getValue(), 100D));
 					playerentity.addStat(Stats.ITEM_USED.get(this));
 				}
 			}
@@ -255,6 +255,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 		if (equipmentSlot == EquipmentSlotType.MAINHAND)
 		{
 			multimap.put(SharedKingAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(MOVEMENT_SPEED_MODIFIER, "Weapon modifier", (Helper.movementSpeed(-50)), AttributeModifier.Operation.ADDITION));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -3F, AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
 	}

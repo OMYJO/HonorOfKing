@@ -3,25 +3,30 @@ package com.OMYJO.kingofglory.event;
 import com.OMYJO.kingofglory.item.KingOfItem;
 import com.OMYJO.kingofglory.item.armor.*;
 import com.OMYJO.kingofglory.item.bow.DayBreaker;
+import com.OMYJO.kingofglory.item.bow.KingOfBow;
 import com.OMYJO.kingofglory.item.bow.TwilightBow;
 import com.OMYJO.kingofglory.item.weapon.*;
 import com.OMYJO.kingofglory.other.Helper;
 import com.OMYJO.kingofglory.other.SharedKingAttributes;
 import com.OMYJO.kingofglory.potion.Effects;
+import com.OMYJO.kingofglory.potion.RedStatuePowerEffect;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
-import net.minecraft.entity.item.ArmorStandEntity;
-import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.monster.RavagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShootableItem;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
 import net.minecraft.util.SoundEvent;
@@ -35,6 +40,8 @@ import net.minecraftforge.event.entity.player.CriticalHitEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Damage
@@ -58,9 +65,27 @@ public class Damage
 				if ((!(source instanceof IndirectEntityDamageSource) || source.getImmediateSource() instanceof AbstractArrowEntity))//普通攻击
 				{
 					ItemStack stack = attacker.getHeldItemMainhand();
-					if (stack.getItem() instanceof KingOfItem)
+					if (stack.getItem() instanceof KingOfWeapon || stack.getItem() instanceof KingOfBow)
 					{
 						//float base = event.getAmount();
+						//红buff
+						if(attacker instanceof PlayerEntity)
+						{
+							if (attacker.isPotionActive(Effects.RED_STATUE_POWER))
+							{
+								RedStatuePowerEffect effect = new RedStatuePowerEffect(attacker);
+								int amplifier = 0;
+								if (target.isPotionActive(effect))
+								{
+									if (target.getActivePotionEffect(effect).getAmplifier() == 0)
+									{
+										target.removePotionEffect(effect);
+										amplifier = 1;
+									}
+								}
+								target.addPotionEffect(new EffectInstance(new RedStatuePowerEffect(attacker), 40, amplifier));
+							}
+						}
 						//残废
 						if (attacker.getHeldItemMainhand().getItem() instanceof Nightmare || attacker.getHeldItemOffhand().getItem() instanceof Nightmare)
 						{
@@ -123,7 +148,7 @@ public class Damage
 												float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
 												if (Math.random() < attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue())
 												{
-													damage *= 2;
+													damage *= attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_DAMAGE).getValue();
 												}
 												BlockPos blockpos = livingentity.getPosition();
 												LightningBoltEntity lightningboltentity = new LightningBoltEntity(livingentity.world, (double) blockpos.getX() + 0.5D, (double) blockpos.getY(), (double) blockpos.getZ() + 0.5D, true);
@@ -138,7 +163,7 @@ public class Damage
 										float damage = Helper.attackDamage(100) + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
 										if (Math.random() < attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_CHANCE).getValue())
 										{
-											damage *= 2;
+											damage *= attacker.getAttributes().getAttributeInstance(SharedKingAttributes.CRITICAL_DAMAGE).getValue();;
 										}
 										BlockPos blockpos = target.getPosition();
 										LightningBoltEntity lightningboltentity = new LightningBoltEntity(target.world, (double) blockpos.getX() + 0.5D, (double) blockpos.getY(), (double) blockpos.getZ() + 0.5D, true);
@@ -532,7 +557,73 @@ public class Damage
 	public static void onLivingDeath(LivingDeathEvent event)
 	{
 		LivingEntity livingEntity = event.getEntityLiving();
-		if (event.getEntityLiving().getHeldItemMainhand().getItem() instanceof SagesSanctuary || event.getEntityLiving().getHeldItemOffhand().getItem() instanceof SagesSanctuary)
+		if(livingEntity.isPotionActive(Effects.RED_STATUE_POWER))
+		{
+			if(event.getSource().getTrueSource() instanceof PlayerEntity)
+			{
+				PlayerEntity playerEntity = (PlayerEntity) event.getSource().getTrueSource();
+				playerEntity.addPotionEffect(new EffectInstance(Effects.RED_STATUE_POWER,1600));
+			}
+			livingEntity.removePotionEffect(Effects.RED_STATUE_POWER);
+		}
+		if(livingEntity.isPotionActive(Effects.BLUE_STATUE_POWER))
+		{
+			if(event.getSource().getTrueSource() instanceof PlayerEntity)
+			{
+				PlayerEntity playerEntity = (PlayerEntity) event.getSource().getTrueSource();
+				playerEntity.addPotionEffect(new EffectInstance(Effects.BLUE_STATUE_POWER,1600));
+			}
+			livingEntity.removePotionEffect(Effects.BLUE_STATUE_POWER);
+		}
+		if(livingEntity instanceof EnderDragonEntity || livingEntity instanceof WitherEntity || (livingEntity instanceof RavagerEntity && ((RavagerEntity) livingEntity).func_213642_em() == 3))
+		{
+			if(event.getSource().getTrueSource() instanceof ServerPlayerEntity)
+			{
+				PlayerEntity playerEntity = (PlayerEntity) event.getSource().getTrueSource();
+				ScorePlayerTeam scorePlayerTeam = (ScorePlayerTeam) playerEntity.getTeam();
+				if(scorePlayerTeam == null)
+				{
+
+				}
+				else
+				{
+					List<ServerPlayerEntity> list = playerEntity.getServer().getPlayerList().getPlayers();
+					for(ServerPlayerEntity serverplayerentity : list)
+					{
+						if(serverplayerentity.getTeam() == scorePlayerTeam)
+						{
+							if(serverplayerentity == playerEntity)
+							{
+								if(livingEntity instanceof RavagerEntity)
+								{
+									serverplayerentity.addPotionEffect(new EffectInstance(Effects.OVERLORD_VANGUARD,1800));
+								}
+							}
+							else
+							{
+								if(livingEntity instanceof WitherEntity)
+								{
+									serverplayerentity.addPotionEffect(new EffectInstance(Effects.TYRANTS_REVENGE,1800));
+									serverplayerentity.addPotionEffect(new EffectInstance(Effects.TYRANTS_REVENGE2,1800));
+								}
+								else if(livingEntity instanceof RavagerEntity)
+								{
+									serverplayerentity.addPotionEffect(new EffectInstance(Effects.OVERLORDS_WRATH,1800));
+								}
+								else if(livingEntity instanceof EnderDragonEntity)
+								{
+									serverplayerentity.addPotionEffect(new EffectInstance(Effects.STORM_AWAKENING,1800));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+
+		if (livingEntity.getHeldItemMainhand().getItem() instanceof SagesSanctuary || livingEntity.getHeldItemOffhand().getItem() instanceof SagesSanctuary)
 		{
 			ItemStack itemStack = event.getEntityLiving().getHeldItemMainhand().getItem() instanceof SagesSanctuary ? event.getEntityLiving().getHeldItemMainhand() : event.getEntityLiving().getHeldItemOffhand();
 			event.setCanceled(true);
