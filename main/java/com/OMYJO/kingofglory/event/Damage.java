@@ -592,14 +592,6 @@ public class Damage
 					{
 						if(serverplayerentity.getTeam() == scorePlayerTeam)
 						{
-							if(serverplayerentity == playerEntity)
-							{
-								if(livingEntity instanceof RavagerEntity)
-								{
-									serverplayerentity.addPotionEffect(new EffectInstance(Effects.OVERLORD_VANGUARD,1800));
-								}
-							}
-							
 							if(livingEntity instanceof WitherEntity)
 							{
 								serverplayerentity.addPotionEffect(new EffectInstance(Effects.TYRANTS_REVENGE,1800));
@@ -608,12 +600,15 @@ public class Damage
 							else if(livingEntity instanceof RavagerEntity)
 							{
 								serverplayerentity.addPotionEffect(new EffectInstance(Effects.OVERLORDS_WRATH,1800));
+								if(serverplayerentity == playerEntity)
+								{
+									serverplayerentity.addPotionEffect(new EffectInstance(Effects.OVERLORD_VANGUARD,1800));
+								}
 							}
 							else if(livingEntity instanceof EnderDragonEntity)
 							{
 								serverplayerentity.addPotionEffect(new EffectInstance(Effects.STORM_AWAKENING,1800));
 							}
-
 						}
 					}
 				}
