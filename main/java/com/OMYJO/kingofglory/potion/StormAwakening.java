@@ -45,9 +45,9 @@ public class StormAwakening extends Effect implements KingOfEffect
 						livingentity.attackEntityFrom(new IndirectEntityDamageSource("storm_awakening", lightningboltentity, attacker).setDamageIsAbsolute().setDamageBypassesArmor(), damage);
 						lightningboltentity.setCaster(attacker instanceof ServerPlayerEntity ? (ServerPlayerEntity) attacker : null);
 						((ServerWorld) livingentity.world).addLightningBolt(lightningboltentity);
-						SoundEvent soundevent = SoundEvents.ITEM_TRIDENT_THUNDER;
-						float f1 = 5.0F;
-						livingentity.playSound(soundevent, f1, 1.0F);
+						//SoundEvent soundevent = SoundEvents.ITEM_TRIDENT_THUNDER;
+						//float f1 = 5.0F;
+						//livingentity.playSound(soundevent, f1, 1.0F);
 					}
 				}
 			}
