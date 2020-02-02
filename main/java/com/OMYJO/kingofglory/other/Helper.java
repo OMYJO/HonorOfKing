@@ -22,7 +22,7 @@ public class Helper
 {
 	public static float attackDamage(float attackDamage)
 	{
-		return attackDamage / 12;
+		return attackDamage / 12.5F;
 	}
 
 	public static float maxHealth(float maxHealth) { return maxHealth / 200; }

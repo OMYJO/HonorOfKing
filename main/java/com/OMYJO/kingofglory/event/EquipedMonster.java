@@ -41,8 +41,8 @@ public class EquipedMonster
 			ItemStack itemStack;
 			double a = Math.random();
 			if(a < 0.4) itemStack = ItemStack.EMPTY;
-			else if(a < 0.7) itemStack = new ItemStack(Items.METEOR);
-			else if(a < 0.9) itemStack = new ItemStack(Items.BROKEN_STAR_MACE);
+			else if(a < 0.6) itemStack = new ItemStack(Items.METEOR);
+			else if(a < 0.8) itemStack = new ItemStack(Items.BROKEN_STAR_MACE);
 			else itemStack = new ItemStack(Items.NIGHTMARE);
 			if(itemStack != ItemStack.EMPTY)
 			{

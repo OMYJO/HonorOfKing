@@ -247,13 +247,14 @@ public class Damage
 									break;
 								case 1:
 									int amplifier = source instanceof IndirectEntityDamageSource ? 0 : 1;
-									event.setAmount(event.getAmount() + Helper.attackDamage(450));
+									event.setAmount(event.getAmount() + Helper.maxHealth(450));
 									target.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
 									double d = Helper.side(500);
 									for (LivingEntity livingentity : target.world.getEntitiesWithinAABB(LivingEntity.class, target.getBoundingBox().grow(d, d, d)))
 									{
 										if (Helper.isEnemy(livingentity,attacker,target))
 										{
+											livingentity.attackEntityFrom(new IndirectEntityDamageSource("assaulting",attacker,attacker),Helper.maxHealth(450));
 											livingentity.addPotionEffect(new EffectInstance(Effects.ASSAULTING_SLOWNESS, 20, amplifier));
 										}
 									}
@@ -495,7 +496,7 @@ public class Damage
 					{
 						if (Helper.isEnemy(livingentity, target,null))
 						{
-							livingentity.attackEntityFrom(new IndirectEntityDamageSource("ice_heart",target,target).setMagicDamage().setDamageBypassesArmor(), Helper.attackDamage(200));
+							livingentity.attackEntityFrom(new IndirectEntityDamageSource("ice_heart",target,target).setMagicDamage().setDamageBypassesArmor(), Helper.maxHealth(200));
 							livingentity.addPotionEffect(new EffectInstance(Effects.ICE_HEART,40));
 						}
 					}

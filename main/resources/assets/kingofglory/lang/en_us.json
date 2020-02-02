@@ -158,5 +158,6 @@
   "death.attack.electric_arc": "%1$s was electrocuted by %2$s's electric arc",
   "death.attack.sacrifice": "%1$s was burnt by %2$s's sacrifice",
   "death.attack.red_statue_power": "%1$s was burnt by %2$s's Red BUFF",
-  "death.attack.storm_awakening": "%1$s was electrocuted by %2$s's Inductive Effect Lightning"
+  "death.attack.storm_awakening": "%1$s was electrocuted by %2$s's Inductive Effect Lightning",
+ "death.attack.assaulting": "%1$s被%2$s的强击打死了"
 }

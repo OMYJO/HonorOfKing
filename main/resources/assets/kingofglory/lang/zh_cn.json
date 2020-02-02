@@ -158,5 +158,6 @@
   "death.attack.electric_arc": "%1$s被%2$s的电弧电死了",
   "death.attack.sacrifice": "%1$s被%2$s的献祭烧死了",
   "death.attack.red_statue_power": "%1$s被%2$s的红BUFF效果烧死了",
-  "death.attack.storm_awakening": "%1$s被%2$s的感电效果雷击致死"
+  "death.attack.storm_awakening": "%1$s被%2$s的感电效果雷击致死",
+  "death.attack.assaulting": "%1$s被%2$s的强击打死了"
 }
