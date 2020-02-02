@@ -243,7 +243,6 @@ public class Damage
 							{
 								case 2:
 									event.setAmount(event.getAmount() + 0.8F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue());
-									attacker.removePotionEffect(Effects.ASSAULTING);
 									break;
 								case 1:
 									int amplifier = source instanceof IndirectEntityDamageSource ? 0 : 1;
@@ -261,10 +260,10 @@ public class Damage
 									break;
 								case 0:
 									event.setAmount(event.getAmount() + 0.5F * (float) attacker.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() + 0.3F * (float) attacker.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_ATTACK).getValue());
-									attacker.removePotionEffect(Effects.ASSAULTING);
 									event.getSource().setMagicDamage();
 									break;
 							}
+							attacker.removePotionEffect(Effects.ASSAULTING);
 						}
 					}
 					//影忍之足
