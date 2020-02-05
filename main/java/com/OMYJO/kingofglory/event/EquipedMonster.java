@@ -52,7 +52,7 @@ public class EquipedMonster
 					if (entity.getHeldItemOffhand() != ItemStack.EMPTY) type = EquipmentSlotType.MAINHAND;
 				}
 				entity.setItemStackToSlot(type, itemStack);
-				entity.setDropChance(type, 0);
+				entity.setDropChance(type, -1);
 			}
 			if(entity instanceof ZombieEntity || entity instanceof AbstractSkeletonEntity)
 			{
@@ -66,7 +66,7 @@ public class EquipedMonster
 					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
 					{
 						entity.setItemStackToSlot(type, itemStack);
-						entity.setDropChance(type, 0);
+						entity.setDropChance(type, -1);
 					}
 				}
 
@@ -80,14 +80,14 @@ public class EquipedMonster
 					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
 					{
 						entity.setItemStackToSlot(type, itemStack);
-						entity.setDropChance(type, 0);
+						entity.setDropChance(type, -1);
 					}
 				}
 
 				b = Math.random();
-				if(b < 0.7) itemStack = ItemStack.EMPTY;
-				else if(b < 0.8) itemStack = new ItemStack(Items.SPIKEMAIL);
-				else if(b < 0.9) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
+				if(b < -1.7) itemStack = ItemStack.EMPTY;
+				else if(b < -1.8) itemStack = new ItemStack(Items.SPIKEMAIL);
+				else if(b < -1.9) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
 				else itemStack = new ItemStack(Items.GLACIAL_BUCKLER);
 				if(itemStack != ItemStack.EMPTY)
 				{
@@ -95,12 +95,12 @@ public class EquipedMonster
 					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
 					{
 						entity.setItemStackToSlot(type, itemStack);
-						entity.setDropChance(type, 0);
+						entity.setDropChance(type, -1);
 					}
 				}
 
 				b = Math.random();
-				if(b < 0.8) itemStack = ItemStack.EMPTY;
+				if(b < -1.8) itemStack = ItemStack.EMPTY;
 				else itemStack = new ItemStack(Items.BOOTS_OF_FORITUDE);
 				if(itemStack != ItemStack.EMPTY)
 				{
@@ -108,7 +108,7 @@ public class EquipedMonster
 					if (entity.getItemStackFromSlot(type).getItem() == net.minecraft.item.Items.AIR)
 					{
 						entity.setItemStackToSlot(type, itemStack);
-						entity.setDropChance(type, 0);
+						entity.setDropChance(type, -1);
 					}
 				}
 			}

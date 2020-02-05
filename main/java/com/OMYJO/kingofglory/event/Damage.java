@@ -357,6 +357,10 @@ public class Damage
 			{
 				if(source.isMagicDamage())
 				{
+					if(target instanceof PlayerEntity)
+					{
+						((PlayerEntity) target).inventory.damageArmor(event.getAmount());
+					}
 					double magicDefence = target.getAttributes().getAttributeInstance(SharedKingAttributes.MAGIC_DEFENCE).getValue();
 					double magicPierce = 0D;
 					double magicPierceRate = 0D;
@@ -370,8 +374,12 @@ public class Damage
 					magicDefence = magicDefence * (1-magicPierceRate);
 					event.setAmount(event.getAmount() * 602 / (float) (magicDefence + 602));
 				}
-				else
+				else if(!source.isUnblockable())
 				{
+					if(target instanceof PlayerEntity)
+					{
+						((PlayerEntity) target).inventory.damageArmor(event.getAmount());
+					}
 					double armor = target.getAttributes().getAttributeInstance(SharedKingAttributes.ARMOR).getValue();
 					double armorPierce = 0D;
 					double armorPierceRate = 0D;
@@ -417,7 +425,7 @@ public class Damage
 	@SubscribeEvent
 	public static void onCriticalHit(CriticalHitEvent event)
 	{
-		if(event.getPlayer().getHeldItemMainhand().getItem() instanceof KingOfItem)
+		if(event.getPlayer().getHeldItemMainhand().getItem() instanceof KingOfItem || event.getPlayer().getHeldItemOffhand().getItem() instanceof KingOfItem)
 		{
 			event.setResult(Event.Result.DENY);
 		}

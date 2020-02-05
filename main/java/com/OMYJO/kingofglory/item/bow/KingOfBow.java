@@ -42,7 +42,8 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 			}
 			else
 			{
-				return !(livingEntity.getActiveItemStack().getItem() instanceof BowItem) ? 0.0F : (float) (itemStack.getUseDuration() - livingEntity.getItemInUseCount()) / 2.0F;
+				return !(livingEntity.getActiveItemStack().getItem() instanceof BowItem) ? 0.0F : (float) (itemStack.getUseDuration() - livingEntity.getItemInUseCount());
+				//return !(livingEntity.getActiveItemStack().getItem() instanceof BowItem) ? 0.0F : (float) (itemStack.getUseDuration() - livingEntity.getItemInUseCount()) / 2.0F;
 			}
 		});
 		this.addPropertyOverride(new ResourceLocation("pulling"), (itemStack, world, livingEntity) -> {
@@ -91,7 +92,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 							ArrowItem arrowitem = (ArrowItem) (itemstack.getItem() instanceof ArrowItem ? itemstack.getItem() : Items.ARROW);
 							AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack, playerentity);
 							abstractarrowentity = customeArrow(abstractarrowentity);
-							abstractarrowentity.setDamage(playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() / 4.4);
+							abstractarrowentity.setDamage(playerentity.getAttributes().getAttributeInstance(SharedMonsterAttributes.ATTACK_DAMAGE).getValue() / 4.15);
 							if (playerentity.isPotionActive(Effects.CHASING_SUN))
 							{
 								abstractarrowentity.setDamage(abstractarrowentity.getDamage() / 1.2F);
@@ -214,7 +215,7 @@ public abstract class KingOfBow extends BowItem implements KingOfItem
 	 */
 	public static float getArrowVelocity(int charge)
 	{
-		float f = (float) charge / 2.0F;
+		float f = (float) charge; /// 2.0F;
 		f = (f * f + f * 2.0F) / 3.0F;
 		if (f > 1.0F)
 		{

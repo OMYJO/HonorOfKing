@@ -183,7 +183,7 @@ public class Helper
 				}
 				else if(livingentity instanceof ZombiePigmanEntity || livingentity instanceof EndermanEntity)
 				{
-					if(((MonsterEntity) livingentity).getAttackTarget() != attacker)
+					if(((MonsterEntity) livingentity).getAttackingEntity() != attacker)
 					{
 						return false;
 					}
