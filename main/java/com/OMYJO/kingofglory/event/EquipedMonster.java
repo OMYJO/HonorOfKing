@@ -85,9 +85,9 @@ public class EquipedMonster
 				}
 
 				b = Math.random();
-				if(b < -1.7) itemStack = ItemStack.EMPTY;
-				else if(b < -1.8) itemStack = new ItemStack(Items.SPIKEMAIL);
-				else if(b < -1.9) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
+				if(b < 0.7) itemStack = ItemStack.EMPTY;
+				else if(b < 0.8) itemStack = new ItemStack(Items.SPIKEMAIL);
+				else if(b < 0.9) itemStack = new ItemStack(Items.OVERLORDS_PLATEMAIL);
 				else itemStack = new ItemStack(Items.GLACIAL_BUCKLER);
 				if(itemStack != ItemStack.EMPTY)
 				{
@@ -100,7 +100,7 @@ public class EquipedMonster
 				}
 
 				b = Math.random();
-				if(b < -1.8) itemStack = ItemStack.EMPTY;
+				if(b < 0.8) itemStack = ItemStack.EMPTY;
 				else itemStack = new ItemStack(Items.BOOTS_OF_FORITUDE);
 				if(itemStack != ItemStack.EMPTY)
 				{
